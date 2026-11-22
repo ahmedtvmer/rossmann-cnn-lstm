@@ -1,0 +1,317 @@
+<title>LSTM vs S-CNN-LSTM vs P-CNN-LSTM</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one reading column; three architecture diagrams side by side on wide screens, stacked on phones.
+   Each layer type has its own colour so the same block reads the same in all three models. */
+:root {
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --fg: #1b2130;
+  --muted: #5d6679;
+  --line: #d6dae3;
+  --accent: #2f5bd3;
+  --lstm: #7c4dcc;   --lstm-bg: #f1ecfb;
+  --conv: #0d8a7a;   --conv-bg: #e5f5f2;
+  --pool: #4f8f3a;   --pool-bg: #edf6e9;
+  --drop: #8a8f9c;   --drop-bg: #f0f1f4;
+  --dense: #c0621b;  --dense-bg: #fcefe4;
+  --io: #1b2130;     --io-bg: #e9ecf2;
+  --good: #1f8a4c;
+  --font-display: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --surface: #181c25; --fg: #e6e9f0; --muted: #9aa3b5; --line: #2c3240; --accent: #7d9df0;
+    --lstm: #b496f0; --lstm-bg: #2a2140; --conv: #4cc9b5; --conv-bg: #13302c; --pool: #8cc874; --pool-bg: #1d2e17;
+    --drop: #a2a8b6; --drop-bg: #232733; --dense: #f0a062; --dense-bg: #3a2616; --io: #e6e9f0; --io-bg: #252a36;
+    --good: #5fd08f; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --surface: #181c25; --fg: #e6e9f0; --muted: #9aa3b5; --line: #2c3240; --accent: #7d9df0;
+  --lstm: #b496f0; --lstm-bg: #2a2140; --conv: #4cc9b5; --conv-bg: #13302c; --pool: #8cc874; --pool-bg: #1d2e17;
+  --drop: #a2a8b6; --drop-bg: #232733; --dense: #f0a062; --dense-bg: #3a2616; --io: #e6e9f0; --io-bg: #252a36;
+  --good: #5fd08f; color-scheme: dark;
+}
+
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.55; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-block: 40px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; line-height: 1.2; margin: 0; }
+h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.01em; }
+h2 { font-size: 1.35rem; font-weight: 650; margin-top: 56px; margin-bottom: 12px; }
+p { margin: 0; max-width: 68ch; }
+.lede { color: var(--muted); margin-top: 10px; font-size: 1.05rem; }
+code, .mono { font-family: var(--font-mono); font-size: 0.86em; }
+.eyebrow { font-size: 0.72rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+
+/* input explainer */
+.input-strip { margin-top: 28px; display: grid; grid-template-columns: auto 1fr; gap: 18px 24px; align-items: center;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 20px; }
+.tensor { display: grid; grid-template-columns: repeat(7, 26px); gap: 3px; }
+.tensor span { height: 44px; border-radius: 3px; background: linear-gradient(to bottom, var(--io-bg) 0 82%, var(--dense-bg) 82% 100%);
+  border: 1px solid var(--line); }
+.tensor-cap { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); grid-column: 1 / -1; margin-top: 4px; }
+.input-text p + p { margin-top: 8px; }
+@media (max-width: 560px) { .input-strip { grid-template-columns: 1fr; } }
+
+/* legend */
+.legend { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 28px; font-size: 0.85rem; color: var(--muted); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+
+/* diagrams */
+.models { display: grid; grid-template-columns: 0.8fr 1fr 1.45fr; gap: 20px; margin-top: 16px; align-items: start; }
+@media (max-width: 1000px) { .models { grid-template-columns: 1fr 1fr; } .models .m-p { grid-column: 1 / -1; } }
+@media (max-width: 640px) { .models { grid-template-columns: 1fr; } }
+.model { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 16px 16px; min-width: 0; }
+.model header { margin-bottom: 14px; }
+.model h3 { font-size: 1.15rem; }
+.model .sub { color: var(--muted); font-size: 0.85rem; margin-top: 2px; }
+.model .total { font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); margin-top: 6px; }
+.model .total b { color: var(--fg); font-weight: 600; }
+
+.flow { display: flex; flex-direction: column; align-items: stretch; }
+.layer { display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; align-items: baseline;
+  border-left: 4px solid var(--c); background: var(--cb); border-radius: 6px; padding: 7px 10px; }
+.layer .name { font-weight: 600; font-size: 0.88rem; }
+.layer .shape { font-family: var(--font-mono); font-size: 0.74rem; color: var(--muted); text-align: right; white-space: nowrap; }
+.layer .note { grid-column: 1 / -1; font-size: 0.76rem; color: var(--muted); line-height: 1.35; }
+.layer .params { font-family: var(--font-mono); font-size: 0.7rem; color: var(--c); }
+.l-io { --c: var(--io); --cb: var(--io-bg); }
+.l-lstm { --c: var(--lstm); --cb: var(--lstm-bg); }
+.l-conv { --c: var(--conv); --cb: var(--conv-bg); }
+.l-pool { --c: var(--pool); --cb: var(--pool-bg); }
+.l-drop { --c: var(--drop); --cb: var(--drop-bg); }
+.l-dense { --c: var(--dense); --cb: var(--dense-bg); }
+.arrow { height: 14px; display: flex; justify-content: center; }
+.arrow::before { content: ""; width: 2px; height: 100%; background: var(--line); }
+.block { border: 1px dashed var(--line); border-radius: 8px; padding: 8px; display: flex; flex-direction: column; }
+.block-label { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 6px; }
+
+.branches { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 420px) { .branches { grid-template-columns: 1fr; } }
+.branches > div { display: flex; flex-direction: column; min-width: 0; }
+.branch-title { font-size: 0.75rem; font-weight: 600; color: var(--muted); margin-bottom: 6px; text-align: center; }
+.fork { display: block; width: 100%; height: 22px; color: var(--line); }
+
+.key { margin-top: 14px; border-top: 1px solid var(--line); padding-top: 12px; font-size: 0.86rem; }
+.key b { color: var(--accent); }
+
+/* time axis */
+.shrink { margin-top: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 20px; overflow-x: auto; }
+.shrink-row { display: grid; grid-template-columns: 150px 1fr; gap: 14px; align-items: center; padding: 6px 0; }
+.shrink-row .lbl { font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); }
+.cells { display: flex; gap: 4px; }
+.cells span { width: 30px; height: 22px; border-radius: 4px; background: var(--conv-bg); border: 1px solid var(--conv); }
+.cells.pooled span { background: var(--pool-bg); border-color: var(--pool); }
+.cells.wide span { width: 64px; }
+.cells.wider span { width: 220px; }
+
+/* tables */
+.tbl { margin-top: 16px; overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; min-width: 720px; font-size: 0.88rem; }
+th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+thead th { font-size: 0.74rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); font-weight: 600; background: var(--bg); }
+tbody tr:last-child td { border-bottom: none; }
+tbody th { font-weight: 600; width: 22%; }
+td.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+td .best { color: var(--good); font-weight: 600; }
+.small { font-size: 0.82rem; color: var(--muted); margin-top: 10px; }
+
+.takeaways { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 16px; }
+.takeaways div { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; min-width: 0; }
+.takeaways h3 { font-size: 1rem; margin-bottom: 6px; }
+.takeaways p { font-size: 0.9rem; color: var(--muted); }
+</style>
+
+<div class="wrap">
+  <div class="eyebrow">Deep Learning project · de Castro Moraes et al. (2024) on Rossmann</div>
+  <h1>LSTM vs S-CNN-LSTM vs P-CNN-LSTM</h1>
+  <p class="lede">All three models get the same input and predict the same thing: next-day sales for all 934 stores at once. They differ in what the convolutional block looks at and how the LSTM and CNN are connected.</p>
+
+  <div class="input-strip">
+    <div class="tensor" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      <div class="tensor-cap">7 days × 956 values</div>
+    </div>
+    <div class="input-text">
+      <p><b>One input sample</b> is a window of the 7 previous days, shape <code>(7, 956)</code>. Each day holds 934 store sales (scaled to 0–1, grey) followed by 22 features (orange): 7 day-of-week flags, 12 month flags, and the share of stores on a state holiday, school holiday and promo.</p>
+      <p><b>The output</b> is a vector of 934 numbers: tomorrow's scaled sales for every store, shape <code>(934,)</code>. Loss MSE, Adam with learning rate 0.001, batch 32, early stopping on validation MAE.</p>
+    </div>
+  </div>
+
+  <h2>The three architectures</h2>
+  <div class="legend" aria-label="Layer colours">
+    <span><i style="background:var(--lstm)"></i>LSTM</span>
+    <span><i style="background:var(--conv)"></i>Conv1D (ReLU)</span>
+    <span><i style="background:var(--pool)"></i>Average pooling</span>
+    <span><i style="background:var(--drop)"></i>Dropout / Flatten</span>
+    <span><i style="background:var(--dense)"></i>Dense</span>
+  </div>
+
+  <div class="models">
+    <!-- LSTM -->
+    <section class="model m-l">
+      <header>
+        <h3>LSTM baseline</h3>
+        <div class="sub">The paper's benchmark</div>
+        <div class="total">parameters <b>517,134</b></div>
+      </header>
+      <div class="flow">
+        <div class="layer l-io"><span class="name">Input</span><span class="shape">(7, 956)</span></div>
+        <div class="arrow"></div>
+        <div class="layer l-lstm"><span class="name">LSTM 100, ReLU</span><span class="shape">(100)</span>
+          <span class="note">Reads the 7 days in order and keeps only its final state.</span><span class="params">422,800 params</span></div>
+        <div class="arrow"></div>
+        <div class="layer l-dense"><span class="name">Dense 934</span><span class="shape">(934)</span>
+          <span class="params">94,334 params</span></div>
+      </div>
+      <div class="key"><b>Idea:</b> memory of the sequence only. No feature extraction and no dropout.</div>
+    </section>
+
+    <!-- S-CNN-LSTM -->
+    <section class="model m-s">
+      <header>
+        <h3>S-CNN-LSTM</h3>
+        <div class="sub">Stacked: LSTM first, CNN on top</div>
+        <div class="total">parameters <b>1,412,322</b></div>
+      </header>
+      <div class="flow">
+        <div class="layer l-io"><span class="name">Input</span><span class="shape">(7, 956)</span></div>
+        <div class="arrow"></div>
+        <div class="layer l-lstm"><span class="name">LSTM 100, ReLU</span><span class="shape">(7, 100)</span>
+          <span class="note"><code>return_sequences=True</code>: outputs its state for every one of the 7 days.</span><span class="params">422,800 params</span></div>
+        <div class="arrow"></div>
+        <div class="layer l-drop"><span class="name">Dropout 0.2</span><span class="shape">(7, 100)</span></div>
+        <div class="arrow"></div>
+        <div class="block">
+          <div class="block-label">CNN block</div>
+          <div class="layer l-conv"><span class="name">Conv1D 128, k=3</span><span class="shape">(7, 128)</span><span class="params">38,528 params</span></div>
+          <div class="arrow"></div>
+          <div class="layer l-pool"><span class="name">AvgPool 2</span><span class="shape">(4, 128)</span></div>
+          <div class="arrow"></div>
+          <div class="layer l-conv"><span class="name">Conv1D 256, k=3</span><span class="shape">(4, 256)</span><span class="params">98,560 params</span></div>
+          <div class="arrow"></div>
+          <div class="layer l-pool"><span class="name">AvgPool 7</span><span class="shape">(1, 256)</span></div>
+          <div class="arrow"></div>
+          <div class="layer l-conv"><span class="name">Conv1D 500, k=3</span><span class="shape">(1, 500)</span><span class="params">384,500 params</span></div>
+          <div class="arrow"></div>
+          <div class="layer l-pool"><span class="name">AvgPool 10</span><span class="shape">(1, 500)</span></div>
+        </div>
+        <div class="arrow"></div>
+        <div class="layer l-drop"><span class="name">Flatten → Dropout 0.3</span><span class="shape">(500)</span></div>
+        <div class="arrow"></div>
+        <div class="layer l-dense"><span class="name">Dense 934</span><span class="shape">(934)</span><span class="params">467,934 params</span></div>
+      </div>
+      <div class="key"><b>Idea:</b> the CNN extracts features from the LSTM's day-by-day memory, not from the raw data. One path, so everything passes through the LSTM.</div>
+    </section>
+
+    <!-- P-CNN-LSTM -->
+    <section class="model m-p">
+      <header>
+        <h3>P-CNN-LSTM</h3>
+        <div class="sub">Parallel: LSTM and CNN side by side, then merged</div>
+        <div class="total">parameters <b>1,844,526</b></div>
+      </header>
+      <div class="flow">
+        <div class="layer l-io"><span class="name">Input</span><span class="shape">(7, 956)</span>
+          <span class="note">The same input is sent to both branches.</span></div>
+        <svg class="fork" viewBox="0 0 100 22" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M50 0 V8 M25 8 H75 M25 8 V22 M75 8 V22" fill="none" stroke="currentColor" stroke-width="2" vector-effect="non-scaling-stroke"/>
+        </svg>
+        <div class="branches">
+          <div>
+            <div class="branch-title">Temporal branch</div>
+            <div class="layer l-lstm"><span class="name">LSTM 100, ReLU</span><span class="shape">(100)</span>
+              <span class="note">Final state only.</span><span class="params">422,800 params</span></div>
+            <div class="arrow"></div>
+            <div class="layer l-dense"><span class="name">Dense 100, ReLU</span><span class="shape">(100)</span><span class="params">10,100 params</span></div>
+            <div class="arrow"></div>
+            <div class="layer l-drop"><span class="name">Dropout 0.2</span><span class="shape">(100)</span></div>
+          </div>
+          <div>
+            <div class="branch-title">Feature branch</div>
+            <div class="layer l-conv"><span class="name">Conv1D 128, k=3</span><span class="shape">(7, 128)</span>
+              <span class="note">Reads raw sales and features directly.</span><span class="params">367,232 params</span></div>
+            <div class="arrow"></div>
+            <div class="layer l-pool"><span class="name">AvgPool 2</span><span class="shape">(4, 128)</span></div>
+            <div class="arrow"></div>
+            <div class="layer l-conv"><span class="name">Conv1D 256, k=3</span><span class="shape">(4, 256)</span><span class="params">98,560 params</span></div>
+            <div class="arrow"></div>
+            <div class="layer l-pool"><span class="name">AvgPool 7</span><span class="shape">(1, 256)</span></div>
+            <div class="arrow"></div>
+            <div class="layer l-conv"><span class="name">Conv1D 500, k=3</span><span class="shape">(1, 500)</span><span class="params">384,500 params</span></div>
+            <div class="arrow"></div>
+            <div class="layer l-pool"><span class="name">AvgPool 10</span><span class="shape">(1, 500)</span></div>
+            <div class="arrow"></div>
+            <div class="layer l-drop"><span class="name">Flatten → Dropout 0.2</span><span class="shape">(500)</span></div>
+          </div>
+        </div>
+        <svg class="fork" viewBox="0 0 100 22" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M25 0 V14 M75 0 V14 M25 14 H75 M50 14 V22" fill="none" stroke="currentColor" stroke-width="2" vector-effect="non-scaling-stroke"/>
+        </svg>
+        <div class="layer l-io"><span class="name">Concatenate</span><span class="shape">(600) = 100 + 500</span></div>
+        <div class="arrow"></div>
+        <div class="layer l-drop"><span class="name">Dropout 0.3</span><span class="shape">(600)</span></div>
+        <div class="arrow"></div>
+        <div class="layer l-dense"><span class="name">Dense 934</span><span class="shape">(934)</span><span class="params">561,334 params</span></div>
+      </div>
+      <div class="key"><b>Idea:</b> two independent views of the same window, a sequence memory and a feature extractor, combined only at the end. Works like a small ensemble.</div>
+    </section>
+  </div>
+
+  <h2>Why the first Conv1D differs: 38,528 vs 367,232 parameters</h2>
+  <p>A Conv1D weight count is <code>kernel × input channels × filters + filters</code>. In S-CNN-LSTM the first convolution reads the LSTM's 100 channels: 3 × 100 × 128 + 128 = <b class="mono">38,528</b>. In P-CNN-LSTM it reads the raw 956 channels: 3 × 956 × 128 + 128 = <b class="mono">367,232</b>. This one number shows the whole difference: the stacked CNN sees what the LSTM remembered, while the parallel CNN sees the raw sales and calendar.</p>
+
+  <h2>What happens to the 7 days inside the CNN block</h2>
+  <p>Convolutions use <code>padding="same"</code>, so they keep the length. Each average pooling divides it (rounding up). The paper's pool sizes (2, 7, 10) were set for its data; with our 7-day window the time axis collapses to a single step after the second pooling.</p>
+  <div class="shrink" aria-label="Time steps through the CNN block">
+    <div class="shrink-row"><span class="lbl">Conv1D 128 → 7 steps</span><div class="cells"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+    <div class="shrink-row"><span class="lbl">AvgPool 2 → 4 steps</span><div class="cells pooled wide"><span></span><span></span><span></span><span></span></div></div>
+    <div class="shrink-row"><span class="lbl">AvgPool 7 → 1 step</span><div class="cells pooled wider"><span></span></div></div>
+    <div class="shrink-row"><span class="lbl">AvgPool 10 → 1 step</span><div class="cells pooled wider"><span></span></div></div>
+  </div>
+  <p class="small">So the third convolution (k=3) works on one time step: in practice it acts as a 256 → 500 fully connected layer on the summary of the whole week.</p>
+
+  <h2>Side-by-side</h2>
+  <div class="tbl">
+    <table>
+      <thead><tr><th></th><th>LSTM baseline</th><th>S-CNN-LSTM</th><th>P-CNN-LSTM</th></tr></thead>
+      <tbody>
+        <tr><th>Connection</th><td>LSTM only</td><td>In series: LSTM → CNN</td><td>In parallel: LSTM ‖ CNN → concat</td></tr>
+        <tr><th>LSTM output</th><td>Last state <code>(100)</code></td><td>Every day's state <code>(7, 100)</code></td><td>Last state <code>(100)</code>, then Dense 100</td></tr>
+        <tr><th>CNN input</th><td>none</td><td>LSTM states, 100 channels</td><td>Raw input, 956 channels</td></tr>
+        <tr><th>Vector before output</th><td class="num">100</td><td class="num">500</td><td class="num">600</td></tr>
+        <tr><th>Dropout</th><td>none</td><td>0.2 after LSTM, 0.3 before output</td><td>0.2 in each branch, 0.3 after concat</td></tr>
+        <tr><th>Parameters</th><td class="num">517,134</td><td class="num">1,412,322</td><td class="num">1,844,526</td></tr>
+        <tr><th>Paper's reasoning</th><td>Captures order in time but struggles with many external variables</td><td>LSTM goes first so the CNN still works on a time-ordered sequence</td><td>Each module learns different patterns; combining them reduces overfitting</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>How they scored</h2>
+  <p>Test MAPE %, mean ± std over 3 seeds. Rossmann is scored on open days only. Lower is better; green marks the best of the three.</p>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Dataset · horizon</th><th>LSTM baseline</th><th>S-CNN-LSTM</th><th>P-CNN-LSTM</th><th>Paper's P-CNN-LSTM</th></tr></thead>
+      <tbody>
+        <tr><th>Rossmann · 30 days</th><td class="num">15.12 ± 0.22</td><td class="num"><span class="best">14.51 ± 1.39</span></td><td class="num">14.58 ± 0.61</td><td class="num">–</td></tr>
+        <tr><th>Rossmann · 90 days</th><td class="num">12.94 ± 0.33</td><td class="num"><span class="best">12.28 ± 0.64</span></td><td class="num">12.79 ± 0.27</td><td class="num">–</td></tr>
+        <tr><th>Paper data · 30 days</th><td class="num">15.04 ± 0.29</td><td class="num"><span class="best">15.03 ± 0.38</span></td><td class="num">15.13 ± 0.26</td><td class="num">14.76</td></tr>
+        <tr><th>Paper data · 90 days</th><td class="num"><span class="best">14.23 ± 0.15</span></td><td class="num">14.40 ± 0.22</td><td class="num">14.37 ± 0.13</td><td class="num">14.00</td></tr>
+        <tr><th>Paper data · 360 days</th><td class="num"><span class="best">12.65 ± 0.06</span></td><td class="num">13.22 ± 0.48</td><td class="num">12.79 ± 0.07</td><td class="num">13.42</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="small">Our improved P-CNN-LSTM with next-day features (not drawn above; same layers, different input) reaches 11.16 / 11.11 on Rossmann and 14.90 / 14.09 / 12.51 on the paper data.</p>
+
+  <div class="takeaways">
+    <div><h3>Hybrids beat the LSTM on Rossmann</h3><p>Both hybrids are 0.15–0.66 MAPE points better than the LSTM baseline, the same direction as the paper.</p></div>
+    <div><h3>Stacked vs parallel is a tie</h3><p>The gaps between S and P are smaller than their spread across seeds. The paper found parallel generally better; on our data neither wins clearly.</p></div>
+    <div><h3>Parallel is the most stable</h3><p>P-CNN-LSTM's seed-to-seed spread is smaller than S-CNN-LSTM's on every row (1.5 to 7 times), which fits the paper's ensemble argument.</p></div>
+  </div>
+</div>

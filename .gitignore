@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# trained models are ~450 MB; run_experiments.sh rebuilds them
+*.keras
+
+# course material, not part of the project code
+rules/

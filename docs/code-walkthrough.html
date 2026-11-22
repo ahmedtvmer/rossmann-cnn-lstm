@@ -1,0 +1,650 @@
+<title>Rossmann CNN-LSTM Code Walkthrough</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: sticky file/function index on the left (desktop), reading column on the right.
+   Each function is one card: code on the left, notes on the right; stacked on narrow screens. */
+:root {
+  --bg: #f5f6f8;
+  --surface: #ffffff;
+  --code-bg: #f0f2f6;
+  --fg: #1b2130;
+  --muted: #5d6679;
+  --line: #d9dde5;
+  --accent: #2f5bd3;
+  --ask: #8a5a00;  --ask-bg: #fdf4e1;
+  --k: #7c4dcc; --s: #0d7a6a; --n: #b3541e; --c: #7b8394; --f: #2f5bd3; --b: #a63d6b;
+  --font-display: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11141b; --surface: #181c25; --code-bg: #0d1016; --fg: #e6e9f0; --muted: #9aa3b5; --line: #2c3240; --accent: #7d9df0;
+    --ask: #f0c062; --ask-bg: #2e2412;
+    --k: #b496f0; --s: #6fd3c0; --n: #f0a062; --c: #7d8699; --f: #8fb0ff; --b: #e889b4; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11141b; --surface: #181c25; --code-bg: #0d1016; --fg: #e6e9f0; --muted: #9aa3b5; --line: #2c3240; --accent: #7d9df0;
+  --ask: #f0c062; --ask-bg: #2e2412;
+  --k: #b496f0; --s: #6fd3c0; --n: #f0a062; --c: #7d8699; --f: #8fb0ff; --b: #e889b4; color-scheme: dark;
+}
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.55; }
+.layout { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 36px;
+  padding-block: 36px 72px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+@media (max-width: 1000px) { .layout { grid-template-columns: minmax(0, 1fr); } .index { display: none; } }
+
+/* index */
+.index { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 20px); align-self: start; max-height: calc(100vh - 40px); overflow-y: auto; font-size: 0.84rem; }
+.index .eyebrow { margin-bottom: 10px; }
+.index ul { list-style: none; margin: 0; padding: 0; }
+.index > ul > li + li { margin-top: 12px; }
+.index ul ul { margin-top: 4px; padding-left: 10px; border-left: 1px solid var(--line); }
+.index a { color: var(--muted); text-decoration: none; display: block; padding: 2px 6px; border-radius: 4px; font-family: var(--font-mono); font-size: 0.78rem; }
+.index a.nav-file { color: var(--fg); font-weight: 600; font-size: 0.82rem; }
+.index a:hover, .index a:focus-visible { color: var(--accent); background: var(--surface); outline: none; }
+
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; line-height: 1.2; margin: 0; }
+h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.01em; }
+p { margin: 0; }
+.eyebrow { font-size: 0.72rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+.lede { color: var(--muted); margin-top: 10px; font-size: 1.05rem; max-width: 70ch; }
+code { font-family: var(--font-mono); font-size: 0.86em; }
+.notes code, .fn header p code, .lede code { background: var(--code-bg); padding: 1px 4px; border-radius: 4px; }
+
+/* pipeline */
+.pipe { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 8px; margin-top: 24px; }
+@media (max-width: 1100px) { .pipe { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .pipe { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.step { display: flex; flex-direction: column; gap: 2px; padding: 10px 12px; background: var(--surface); border: 1px solid var(--line);
+  border-radius: 8px; text-decoration: none; color: var(--fg); min-width: 0; position: relative; }
+.step b { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 600; overflow-wrap: anywhere; }
+.step span { font-size: 0.78rem; color: var(--muted); }
+.step:hover, .step:focus-visible { border-color: var(--accent); outline: none; }
+
+/* files */
+.file { margin-top: 56px; }
+.file-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; padding-bottom: 10px; border-bottom: 2px solid var(--fg); margin-bottom: 18px; }
+.file-head h2 { font-family: var(--font-mono); font-size: 1.3rem; font-weight: 600; }
+.file-head span { color: var(--muted); }
+
+.fn { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px; scroll-margin-top: 16px; }
+.fn + .fn { margin-top: 16px; }
+.fn header { margin-bottom: 12px; }
+.fn h3 code { font-size: 1rem; color: var(--accent); }
+.fn header p { color: var(--muted); margin-top: 4px; }
+.fn-body { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 18px; align-items: start; }
+@media (max-width: 1200px) { .fn-body { grid-template-columns: minmax(0, 1fr); } }
+
+pre { margin: 0; background: var(--code-bg); border-radius: 8px; padding: 14px 16px; overflow-x: auto; font-size: 0.86rem; line-height: 1.55; }
+pre code { font-size: 0.8rem; color: var(--fg); white-space: pre; }
+
+.notes ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem; }
+.notes li::marker { color: var(--muted); }
+.ask { margin-top: 14px; background: var(--ask-bg); border-radius: 8px; padding: 10px 12px; font-size: 0.88rem; }
+.ask-label { display: block; font-size: 0.68rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ask); font-weight: 700; margin-bottom: 3px; }
+
+/* syntax colours (highlight.js classes) */
+.hljs-keyword, .hljs-built_in.hljs-keyword, .hljs-literal { color: var(--k); }
+.hljs-string { color: var(--s); }
+.hljs-number { color: var(--n); }
+.hljs-comment { color: var(--c); font-style: italic; }
+.hljs-title, .hljs-title.function_ { color: var(--f); }
+.hljs-built_in { color: var(--b); }
+.hljs-params { color: var(--fg); }
+.hljs-meta, .hljs-variable { color: var(--n); }
+</style>
+
+<div class="layout">
+  <nav class="index" aria-label="Files and functions">
+    <div class="eyebrow">Contents</div>
+    <ul><li><a class="nav-file" href="#f-dataset-py">dataset.py</a><ul><li><a href="#ds-constants">TRAIN_END, VAL_END</a></li><li><a href="#ds-load">load</a></li><li><a href="#ds-rossmann">load_rossmann</a></li><li><a href="#ds-paper">load_paper</a></li><li><a href="#ds-calendar">calendar_features</a></li><li><a href="#ds-windows">make_windows</a></li><li><a href="#ds-tosales">to_sales</a></li></ul></li><li><a class="nav-file" href="#f-models-py">models.py</a><ul><li><a href="#md-constants">Hyperparameters</a></li><li><a href="#md-init">init</a></li><li><a href="#md-conv">conv_block</a></li><li><a href="#md-stacked">stacked_cnn_lstm</a></li><li><a href="#md-parallel">parallel_cnn_lstm</a></li><li><a href="#md-lstm">lstm_baseline</a></li><li><a href="#md-compile">compile_model</a></li><li><a href="#md-registry">MODELS</a></li></ul></li><li><a class="nav-file" href="#f-train-py">train.py</a><ul><li><a href="#tr-constants">Training settings</a></li><li><a href="#tr-runname">run_name</a></li><li><a href="#tr-train">train</a></li><li><a href="#tr-curves">plot_curves</a></li><li><a href="#tr-main">Command line</a></li></ul></li><li><a class="nav-file" href="#f-evaluate-py">evaluate.py</a><ul><li><a href="#ev-horizons">HORIZONS</a></li><li><a href="#ev-metrics">metrics</a></li><li><a href="#ev-score">score</a></li><li><a href="#ev-predict">predict_model</a></li><li><a href="#ev-naive">seasonal_naive</a></li><li><a href="#ev-main">main</a></li></ul></li><li><a class="nav-file" href="#f-app-py">app.py</a><ul><li><a href="#ap-startup">Start-up</a></li><li><a href="#ap-forecast">forecast</a></li><li><a href="#ap-demo">gr.Interface</a></li></ul></li><li><a class="nav-file" href="#f-run-experiments-sh">run_experiments.sh</a><ul><li><a href="#sh-all">The full experiment</a></li></ul></li></ul>
+  </nav>
+
+  <main>
+    <div class="eyebrow">Deep Learning project · Hybrid CNN-LSTM on Rossmann</div>
+    <h1>Code walkthrough</h1>
+    <p class="lede">Every function in the project, in the order the data flows through it. The code blocks are copied from the files as they are now; the notes explain what each part does and why. Yellow boxes are questions an examiner is likely to ask.</p>
+    <div class="pipe"><a class="step" href="#f-dataset-py"><b>dataset.py</b><span>train.csv → (7, 956) windows</span></a><a class="step" href="#f-models-py"><b>models.py</b><span>(7, 956) → (934)</span></a><a class="step" href="#f-train-py"><b>train.py</b><span>fit, early stop, save</span></a><a class="step" href="#f-evaluate-py"><b>evaluate.py</b><span>MAE · RMSE · MAPE · SMAPE</span></a><a class="step" href="#f-app-py"><b>app.py</b><span>Gradio demo</span></a><a class="step" href="#f-run-experiments-sh"><b>run_experiments.sh</b><span>everything, in order</span></a></div>
+    
+    <section class="file" id="f-dataset-py">
+      <div class="file-head"><h2>dataset.py</h2><span>From raw CSVs to model inputs</span></div>
+      
+      <article class="fn" id="ds-constants">
+        <header><h3><code>TRAIN_END, VAL_END</code></h3><p>The Rossmann split dates.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">TRAIN_END = &quot;2014-12-31&quot;
+VAL_END = &quot;2015-04-30&quot;</code></pre>
+          <div class="notes"><ul><li>Train is every target day up to 31 Dec 2014, validation up to 30 Apr 2015, test is May to July 2015.</li><li>Splitting by date, not at random, is required for time series: the model is never trained on days after the ones it is tested on.</li></ul></div>
+        </div>
+      </article>
+      <article class="fn" id="ds-load">
+        <header><h3><code>load(name)</code></h3><p>The single entry point the other files call.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">def load(name):
+    &quot;&quot;&quot;Return sales, open flags, features and (train_end, val_end) for a dataset.&quot;&quot;&quot;
+    if name == &quot;rossmann&quot;:
+        return (*load_rossmann(), (TRAIN_END, VAL_END))
+    if name == &quot;paper&quot;:
+        return (*load_paper(), (&quot;2015-12-31&quot;, &quot;2016-12-31&quot;))   # the paper&#x27;s split
+    raise ValueError(name)</code></pre>
+          <div class="notes"><ul><li>Returns four things: sales, open flags, features, and the two split dates.</li><li><code>*load_rossmann()</code> unpacks the three tables, then the split dates are added as a fourth item.</li><li>Because of this function, <code>train.py</code> and <code>evaluate.py</code> never need to know which dataset they are working on.</li></ul></div>
+        </div>
+      </article>
+      <article class="fn" id="ds-rossmann">
+        <header><h3><code>load_rossmann(path)</code></h3><p>Turns 1,017,209 rows of store-days into a day × store matrix plus 22 daily features.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">def load_rossmann(path=&quot;data/train.csv&quot;):
+    &quot;&quot;&quot;Return daily sales and open flags (dates x stores) plus daily exogenous features.&quot;&quot;&quot;
+    df = pd.read_csv(path, parse_dates=[&quot;Date&quot;], dtype={&quot;StateHoliday&quot;: str})
+
+    # keep only stores that have a record on every day
+    days_per_store = df.groupby(&quot;Store&quot;).size()
+    complete = days_per_store[days_per_store == df[&quot;Date&quot;].nunique()].index
+    df = df[df[&quot;Store&quot;].isin(complete)]
+
+    sales = df.pivot(index=&quot;Date&quot;, columns=&quot;Store&quot;, values=&quot;Sales&quot;).sort_index()
+    is_open = df.pivot(index=&quot;Date&quot;, columns=&quot;Store&quot;, values=&quot;Open&quot;).sort_index()
+
+    shares = df.groupby(&quot;Date&quot;).agg(
+        state_holiday=(&quot;StateHoliday&quot;, lambda s: (s != &quot;0&quot;).mean()),
+        school_holiday=(&quot;SchoolHoliday&quot;, &quot;mean&quot;),
+        promo=(&quot;Promo&quot;, &quot;mean&quot;),
+    )
+    features = calendar_features(sales.index).join(shares)
+    return sales, is_open, features</code></pre>
+          <div class="notes"><ul><li><code>dtype={"StateHoliday": str}</code>: the column mixes the number 0 with the letters a, b, c. Reading it as text stops pandas treating <code>0</code> and <code>"0"</code> as different values.</li><li><code>groupby("Store").size()</code> counts days per store. Only stores with all 942 days are kept: 934 of 1,115 (ADR 0001).</li><li><code>pivot(index="Date", columns="Store")</code> makes one row per day and one column per store (942 × 934). This is the paper's step of grouping all series per day.</li><li><code>shares</code>: for each day, the fraction of stores on a state holiday, a school holiday and a promo. Three numbers per day instead of 934 × 3 columns.</li><li>The final features are 7 day-of-week + 12 month + 3 shares = 22 columns.</li></ul><div class="ask"><span class="ask-label">If asked</span><p><b>Why drop 181 stores instead of filling their missing months?</b> Filling six months of sales would invent data; a complete matrix keeps every value real.</p></div></div>
+        </div>
+      </article>
+      <article class="fn" id="ds-paper">
+        <header><h3><code>load_paper(path)</code></h3><p>The same shape for the paper's dataset, used for the bonus comparison.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">def load_paper(path=&quot;data/train_paper.csv&quot;):
+    &quot;&quot;&quot;Store Item Demand data used by the paper: 10 stores x 50 items = 500 series.&quot;&quot;&quot;
+    df = pd.read_csv(path, parse_dates=[&quot;date&quot;])
+    sales = df.pivot_table(index=&quot;date&quot;, columns=[&quot;store&quot;, &quot;item&quot;], values=&quot;sales&quot;).sort_index()
+    is_open = pd.DataFrame(1, index=sales.index, columns=sales.columns)   # never closed
+
+    holidays = USFederalHolidayCalendar().holidays(sales.index.min(), sales.index.max())
+    features = calendar_features(sales.index)
+    features[&quot;us_holiday&quot;] = sales.index.isin(holidays).astype(float)
+    return sales, is_open, features</code></pre>
+          <div class="notes"><ul><li><code>pivot_table(columns=["store", "item"])</code> gives 500 columns, one per store-item pair, over 1,826 days.</li><li><code>is_open</code> is all ones because this dataset has no closed days.</li><li><code>USFederalHolidayCalendar</code> adds a 0/1 holiday flag, matching the paper's "US holiday calendar". Features: 7 + 12 + 1 = 20.</li></ul></div>
+        </div>
+      </article>
+      <article class="fn" id="ds-calendar">
+        <header><h3><code>calendar_features(dates)</code></h3><p>One-hot day of week and month, as in the paper's Table 1.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">def calendar_features(dates):
+    &quot;&quot;&quot;One-hot day of week (7) and month (12).&quot;&quot;&quot;
+    dow = pd.get_dummies(dates.day_of_week, prefix=&quot;dow&quot;)
+    month = pd.get_dummies(dates.month, prefix=&quot;month&quot;)
+    return pd.concat([dow, month], axis=1).set_index(dates).astype(float)</code></pre>
+          <div class="notes"><ul><li><code>get_dummies</code> turns a value like Tuesday into seven columns where only <code>dow_1</code> is 1.</li><li><code>set_index(dates)</code> lines the rows up with the sales matrix; <code>astype(float)</code> turns True/False into 1.0/0.0.</li></ul></div>
+        </div>
+      </article>
+      <article class="fn" id="ds-windows">
+        <header><h3><code>make_windows(...)</code></h3><p>The core of the data pipeline: scale, add features, slide a 7-day window, split by date.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">def make_windows(sales, features, lags=7, log_sales=False, next_day_features=False,
+                 train_end=TRAIN_END, val_end=VAL_END):
+    &quot;&quot;&quot;Build (X, y) windows for train / val / test, split by the date of the target day.
+
+    X[i] holds `lags` past days of [scaled sales of every store, features].
+    y[i] is the scaled sales of every store on the target day.
+    &quot;&quot;&quot;
+    values = np.log1p(sales.values) if log_sales else sales.values.astype(float)
+
+    # fit the scaler on training days only, to avoid leaking the future
+    train_rows = sales.index &lt;= train_end
+    scaler = MinMaxScaler().fit(values[train_rows])
+    scaled = scaler.transform(values)
+
+    feats = features.values
+    if next_day_features:
+        # each step carries the calendar of the following day,
+        # so the last step tells the model about the target day
+        feats = np.roll(feats, -1, axis=0)
+    inputs = np.hstack([scaled, feats])
+
+    X, y = [], []
+    for t in range(lags, len(sales)):
+        X.append(inputs[t - lags:t])
+        y.append(scaled[t])
+    X, y = np.array(X, dtype=&quot;float32&quot;), np.array(y, dtype=&quot;float32&quot;)
+    target_dates = sales.index[lags:]
+
+    splits = {
+        &quot;train&quot;: target_dates &lt;= train_end,
+        &quot;val&quot;: (target_dates &gt; train_end) &amp; (target_dates &lt;= val_end),
+        &quot;test&quot;: target_dates &gt; val_end,
+    }
+    data = {name: (X[mask], y[mask], target_dates[mask]) for name, mask in splits.items()}
+    return data, scaler</code></pre>
+          <div class="notes"><ul><li><b>Log (optional):</b> <code>np.log1p</code> is bonus candidate (c). It was rejected on validation.</li><li><b>Scaling:</b> <code>MinMaxScaler().fit(values[train_rows])</code> learns each store's min and max from training days only. If it had seen 2015, the future would leak into training. Features are already 0 to 1, so only sales are scaled.</li><li><b>Next-day features (optional):</b> <code>np.roll(feats, -1)</code> moves every feature row up by one day, so the last step of each window describes the day being predicted. This is bonus candidate (a), the one we kept. The row that wraps around to the end is never used as input.</li><li><b>Join:</b> <code>np.hstack</code> puts 934 scaled sales next to 22 features: 956 columns per day.</li><li><b>Window loop:</b> for each day <code>t</code>, the input is days <code>t-7 … t-1</code> and the target is day <code>t</code> for all stores. This is the paper's "shift the series to create labels".</li><li><b>Split:</b> by the target day's date. A test window for 1 May uses real sales from 24 to 30 April as input, which is allowed because those days are already known (ADR 0002).</li></ul><div class="ask"><span class="ask-label">If asked</span><p><b>What shape is one sample?</b> X is (7, 956) and y is (934,). Rossmann gives 723 train, 120 validation and 92 test samples.</p></div></div>
+        </div>
+      </article>
+      <article class="fn" id="ds-tosales">
+        <header><h3><code>to_sales(scaled, scaler, log_sales)</code></h3><p>Turns model outputs back into real sales.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">def to_sales(scaled, scaler, log_sales=False):
+    &quot;&quot;&quot;Undo scaling (and log) to get predictions back in real sales units.&quot;&quot;&quot;
+    values = scaler.inverse_transform(scaled)
+    return np.expm1(values) if log_sales else values</code></pre>
+          <div class="notes"><ul><li><code>inverse_transform</code> undoes the 0 to 1 scaling store by store; <code>expm1</code> undoes the log if it was used.</li><li>Every metric is computed on real sales, so MAE and RMSE are in euros of daily sales.</li></ul></div>
+        </div>
+      </article>
+    </section>
+    <section class="file" id="f-models-py">
+      <div class="file-head"><h2>models.py</h2><span>The three networks in Keras</span></div>
+      
+      <article class="fn" id="md-constants">
+        <header><h3><code>Hyperparameters</code></h3><p>Every setting from the paper's Table 2 in one place.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">LSTM_UNITS = 100
+FILTERS = (128, 256, 500)
+POOL_SIZES = (2, 7, 10)
+KERNEL_SIZE = 3          # not given in the paper (our choice)
+DENSE_UNITS = 100        # parallel LSTM branch, not given in the paper (our choice)
+INNER_DROPOUT = 0.2
+FINAL_DROPOUT = 0.3
+LEARNING_RATE = 0.001</code></pre>
+          <div class="notes"><ul><li><code>KERNEL_SIZE</code> and <code>DENSE_UNITS</code> are our choices because the paper does not state them.</li><li>A live change in the discussion (LSTM units, learning rate) is a one-line edit here.</li></ul></div>
+        </div>
+      </article>
+      <article class="fn" id="md-init">
+        <header><h3><code>init()</code></h3><p>The paper's Gaussian weight initialisation: mean 0, standard deviation 0.05.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">def init():
+    &quot;&quot;&quot;Gaussian weight initialisation, mean 0 and std 0.05 (paper).&quot;&quot;&quot;
+    return keras.initializers.RandomNormal(mean=0.0, stddev=0.05)</code></pre>
+          <div class="notes"><ul><li>It is a function so that every layer gets its own fresh initializer object.</li><li>It is applied to each layer's input weights; the LSTM's recurrent weights keep the Keras default.</li></ul></div>
+        </div>
+      </article>
+      <article class="fn" id="md-conv">
+        <header><h3><code>conv_block(x)</code></h3><p>Three rounds of Conv1D then average pooling, then Flatten. Shared by both hybrids.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">def conv_block(x):
+    &quot;&quot;&quot;Three Conv1D + AveragePooling stages, then Flatten.&quot;&quot;&quot;
+    for filters, pool in zip(FILTERS, POOL_SIZES):
+        x = layers.Conv1D(filters, KERNEL_SIZE, padding=&quot;same&quot;, activation=&quot;relu&quot;,
+                          kernel_initializer=init())(x)
+        x = layers.AveragePooling1D(pool, padding=&quot;same&quot;)(x)
+    return layers.Flatten()(x)</code></pre>
+          <div class="notes"><ul><li>Filters grow 128 → 256 → 500 and pool sizes are 2, 7, 10, as in the paper.</li><li><code>padding="same"</code> is required: pools of 7 and 10 are bigger than what is left of the 7-day axis, and without it Keras raises a shape error.</li><li>The time axis shrinks 7 → 4 → 1 → 1, so the last convolution sees one step that summarises the whole week.</li></ul><div class="ask"><span class="ask-label">If asked</span><p><b>Why average pooling, not max pooling?</b> The paper says the three Conv1D layers are each followed by an average pooling layer.</p></div></div>
+        </div>
+      </article>
+      <article class="fn" id="md-stacked">
+        <header><h3><code>stacked_cnn_lstm(n_lags, n_features, n_outputs)</code></h3><p>S-CNN-LSTM: LSTM first, CNN on top of it, one path.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">def stacked_cnn_lstm(n_lags, n_features, n_outputs):
+    &quot;&quot;&quot;S-CNN-LSTM: LSTM -&gt; Dropout -&gt; CNN block -&gt; Dropout -&gt; Dense.&quot;&quot;&quot;
+    inputs = keras.Input(shape=(n_lags, n_features))
+    x = layers.LSTM(LSTM_UNITS, activation=&quot;relu&quot;, return_sequences=True,
+                    kernel_initializer=init())(inputs)
+    x = layers.Dropout(INNER_DROPOUT)(x)
+    x = conv_block(x)
+    x = layers.Dropout(FINAL_DROPOUT)(x)
+    outputs = layers.Dense(n_outputs, kernel_initializer=init())(x)
+    return compile_model(keras.Model(inputs, outputs, name=&quot;S-CNN-LSTM&quot;))</code></pre>
+          <div class="notes"><ul><li><code>return_sequences=True</code> is the key detail: the LSTM outputs its state for all 7 days, shape (7, 100), so the CNN still has a sequence to slide over.</li><li>The paper puts the LSTM first so the CNN works on a sequence that is still in time order.</li><li>Dropout 0.2 after the LSTM and 0.3 before the output layer. 1.41M parameters.</li></ul></div>
+        </div>
+      </article>
+      <article class="fn" id="md-parallel">
+        <header><h3><code>parallel_cnn_lstm(n_lags, n_features, n_outputs)</code></h3><p>P-CNN-LSTM: an LSTM branch and a CNN branch read the same input, then merge.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">def parallel_cnn_lstm(n_lags, n_features, n_outputs):
+    &quot;&quot;&quot;P-CNN-LSTM: an LSTM branch and a CNN branch, concatenated, then Dense.&quot;&quot;&quot;
+    inputs = keras.Input(shape=(n_lags, n_features))
+
+    lstm = layers.LSTM(LSTM_UNITS, activation=&quot;relu&quot;, kernel_initializer=init())(inputs)
+    lstm = layers.Dense(DENSE_UNITS, activation=&quot;relu&quot;, kernel_initializer=init())(lstm)
+    lstm = layers.Dropout(INNER_DROPOUT)(lstm)
+
+    cnn = conv_block(inputs)
+    cnn = layers.Dropout(INNER_DROPOUT)(cnn)
+
+    x = layers.Concatenate()([lstm, cnn])
+    x = layers.Dropout(FINAL_DROPOUT)(x)
+    outputs = layers.Dense(n_outputs, kernel_initializer=init())(x)
+    return compile_model(keras.Model(inputs, outputs, name=&quot;P-CNN-LSTM&quot;))</code></pre>
+          <div class="notes"><ul><li>The LSTM branch keeps only its final state (100), then Dense(100) and Dropout 0.2.</li><li>The CNN branch reads the raw 956 inputs directly and ends with 500 values after Flatten and Dropout 0.2.</li><li><code>Concatenate</code> joins them into 600 values, then Dropout 0.3 and Dense(934).</li><li>Built with the Keras functional API because a <code>Sequential</code> model cannot branch. 1.84M parameters.</li></ul><div class="ask"><span class="ask-label">If asked</span><p><b>Why could parallel generalise better?</b> Each branch learns different patterns and the output layer combines them, like a small ensemble.</p></div></div>
+        </div>
+      </article>
+      <article class="fn" id="md-lstm">
+        <header><h3><code>lstm_baseline(n_lags, n_features, n_outputs)</code></h3><p>The paper's LSTM benchmark from Table 3, used as our required simple baseline.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">def lstm_baseline(n_lags, n_features, n_outputs):
+    &quot;&quot;&quot;Paper&#x27;s LSTM benchmark: LSTM(100) -&gt; Dense.&quot;&quot;&quot;
+    inputs = keras.Input(shape=(n_lags, n_features))
+    x = layers.LSTM(LSTM_UNITS, activation=&quot;relu&quot;, kernel_initializer=init())(inputs)
+    outputs = layers.Dense(n_outputs, kernel_initializer=init())(x)
+    return compile_model(keras.Model(inputs, outputs, name=&quot;LSTM&quot;))</code></pre>
+          <div class="notes"><ul><li>LSTM(100) reads the 7 days and its final state goes straight to Dense(934). No CNN and no dropout. 517K parameters.</li></ul></div>
+        </div>
+      </article>
+      <article class="fn" id="md-compile">
+        <header><h3><code>compile_model(model)</code></h3><p>The paper's training setup from Algorithm 1.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">def compile_model(model):
+    &quot;&quot;&quot;Adam, MSE loss, MAE metric (paper).&quot;&quot;&quot;
+    model.compile(optimizer=keras.optimizers.Adam(LEARNING_RATE), loss=&quot;mse&quot;, metrics=[&quot;mae&quot;])
+    return model</code></pre>
+          <div class="notes"><ul><li>Adam with learning rate 0.001 and MSE loss.</li><li>MAE is tracked as a metric because early stopping in <code>train.py</code> watches validation MAE.</li></ul></div>
+        </div>
+      </article>
+      <article class="fn" id="md-registry">
+        <header><h3><code>MODELS</code></h3><p>Maps a name to a build function, so the command line can pick a model by name.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">MODELS = {
+    &quot;s_cnn_lstm&quot;: stacked_cnn_lstm,
+    &quot;p_cnn_lstm&quot;: parallel_cnn_lstm,
+    &quot;lstm&quot;: lstm_baseline,
+}</code></pre>
+          <div class="notes"><ul><li>The output layers have no activation (linear). That is why a few predictions dip slightly below 0 on closed Sundays.</li></ul></div>
+        </div>
+      </article>
+    </section>
+    <section class="file" id="f-train-py">
+      <div class="file-head"><h2>train.py</h2><span>Train one model with one seed</span></div>
+      
+      <article class="fn" id="tr-constants">
+        <header><h3><code>Training settings</code></h3><p>Up to 50 epochs, batch size 32, stop after 10 epochs without improvement.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">EPOCHS = 50
+BATCH_SIZE = 32
+PATIENCE = 10
+OUT_DIR = &quot;results&quot;</code></pre>
+          <div class="notes"><ul><li>All three values come from the paper's Algorithm 1.</li></ul></div>
+        </div>
+      </article>
+      <article class="fn" id="tr-runname">
+        <header><h3><code>run_name(...)</code></h3><p>Builds a file name from the run's settings.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">def run_name(model, seed, lags=7, log_sales=False, next_day_features=False):
+    &quot;&quot;&quot;e.g. &#x27;p_cnn_lstm_s42&#x27; or &#x27;p_cnn_lstm_lags14_s42&#x27;.&quot;&quot;&quot;
+    parts = [model]
+    if lags != 7:
+        parts.append(f&quot;lags{lags}&quot;)
+    if log_sales:
+        parts.append(&quot;log&quot;)
+    if next_day_features:
+        parts.append(&quot;nextday&quot;)
+    parts.append(f&quot;s{seed}&quot;)
+    return &quot;_&quot;.join(parts)</code></pre>
+          <div class="notes"><ul><li>Each setting that differs from the default adds a tag, e.g. <code>p_cnn_lstm_nextday_s43</code>.</li><li>The seed always comes last as <code>_s&lt;seed&gt;</code>. <code>evaluate.py</code> relies on this to group the 3 seeds of one model.</li></ul></div>
+        </div>
+      </article>
+      <article class="fn" id="tr-train">
+        <header><h3><code>train(model, seed, dataset, ...)</code></h3><p>One complete training run.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">def train(model, seed, dataset=&quot;rossmann&quot;, lags=7, log_sales=False, next_day_features=False):
+    keras.utils.set_random_seed(seed)          # fixes Python, NumPy and TF seeds
+    tf.config.experimental.enable_op_determinism()
+
+    sales, _, features, (train_end, val_end) = load(dataset)
+    data, _ = make_windows(sales, features, lags, log_sales, next_day_features,
+                           train_end, val_end)
+    X_train, y_train, _ = data[&quot;train&quot;]
+    X_val, y_val, _ = data[&quot;val&quot;]
+
+    net = MODELS[model](X_train.shape[1], X_train.shape[2], y_train.shape[1])
+    stop = keras.callbacks.EarlyStopping(monitor=&quot;val_mae&quot;, patience=PATIENCE,
+                                         restore_best_weights=True)
+    history = net.fit(X_train, y_train, validation_data=(X_val, y_val),
+                      epochs=EPOCHS, batch_size=BATCH_SIZE, callbacks=[stop], verbose=2)
+
+    name = run_name(model, seed, lags, log_sales, next_day_features)
+    out = f&quot;{OUT_DIR}/{dataset}&quot;
+    os.makedirs(f&quot;{out}/models&quot;, exist_ok=True)
+    os.makedirs(f&quot;{out}/curves&quot;, exist_ok=True)
+    net.save(f&quot;{out}/models/{name}.keras&quot;)
+    config = dict(model=model, seed=seed, dataset=dataset, lags=lags, log_sales=log_sales,
+                  next_day_features=next_day_features)
+    with open(f&quot;{out}/models/{name}.json&quot;, &quot;w&quot;) as f:
+        json.dump(config, f)
+    plot_curves(history.history, name, out)
+    return name</code></pre>
+          <div class="notes"><ul><li><b>Seeds:</b> <code>set_random_seed</code> fixes Python, NumPy and TensorFlow at once; <code>enable_op_determinism</code> makes a re-run give identical numbers.</li><li><b>Data:</b> only the train and validation splits are used. The test set is never touched here.</li><li><b>Build:</b> sizes come from the data shapes, so the same code works for 934 Rossmann stores and 500 paper series.</li><li><b>Early stopping:</b> watches <code>val_mae</code> with patience 10 and restores the weights from the best epoch.</li><li><b>Save:</b> the model as <code>.keras</code>, its settings as <code>.json</code> (so evaluation rebuilds the same windows), and the learning curves.</li></ul><div class="ask"><span class="ask-label">If asked</span><p><b>Is shuffling the training windows a leak?</b> No. Each window carries its own 7 days of history, so their order does not matter. Validation and test are still later in time.</p></div></div>
+        </div>
+      </article>
+      <article class="fn" id="tr-curves">
+        <header><h3><code>plot_curves(history, name, out)</code></h3><p>Saves the training and validation curves the rules ask for.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">def plot_curves(history, name, out):
+    &quot;&quot;&quot;Training and validation loss (MSE) and MAE per epoch.&quot;&quot;&quot;
+    fig, axes = plt.subplots(1, 2, figsize=(10, 4))
+    for ax, metric in zip(axes, [&quot;loss&quot;, &quot;mae&quot;]):
+        ax.plot(history[metric], label=&quot;train&quot;)
+        ax.plot(history[f&quot;val_{metric}&quot;], label=&quot;validation&quot;)
+        ax.set_title(f&quot;{name} - {metric}&quot;)
+        ax.set_xlabel(&quot;epoch&quot;)
+        ax.legend()
+    fig.tight_layout()
+    fig.savefig(f&quot;{out}/curves/{name}.png&quot;)
+    plt.close(fig)</code></pre>
+          <div class="notes"><ul><li>Two plots side by side: loss (MSE) and MAE, each with a train and a validation line, one point per epoch.</li></ul></div>
+        </div>
+      </article>
+      <article class="fn" id="tr-main">
+        <header><h3><code>Command line</code></h3><p>Flags for the model, seed, dataset and the three bonus switches.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">if __name__ == &quot;__main__&quot;:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(&quot;--model&quot;, choices=MODELS, required=True)
+    parser.add_argument(&quot;--seed&quot;, type=int, default=42)
+    parser.add_argument(&quot;--dataset&quot;, choices=[&quot;rossmann&quot;, &quot;paper&quot;], default=&quot;rossmann&quot;)
+    parser.add_argument(&quot;--lags&quot;, type=int, default=7)
+    parser.add_argument(&quot;--log-sales&quot;, action=&quot;store_true&quot;)
+    parser.add_argument(&quot;--next-day-features&quot;, action=&quot;store_true&quot;)
+    args = parser.parse_args()
+    print(&quot;saved&quot;, train(args.model, args.seed, args.dataset, args.lags, args.log_sales,
+                         args.next_day_features))</code></pre>
+          <div class="notes"><ul><li>Example: <code>python train.py --model p_cnn_lstm --seed 42 --next-day-features</code>.</li></ul></div>
+        </div>
+      </article>
+    </section>
+    <section class="file" id="f-evaluate-py">
+      <div class="file-head"><h2>evaluate.py</h2><span>Score every saved model</span></div>
+      
+      <article class="fn" id="ev-horizons">
+        <header><h3><code>HORIZONS</code></h3><p>The forecast horizons from the paper.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">HORIZONS = (30, 90, 360)   # 360 only exists for the paper dataset&#x27;s one-year test set</code></pre>
+          <div class="notes"><ul><li>360 days only fits the paper's one-year test set; it is skipped automatically for Rossmann's 92 test days.</li></ul></div>
+        </div>
+      </article>
+      <article class="fn" id="ev-metrics">
+        <header><h3><code>metrics(actual, predicted, scored)</code></h3><p>MAE, RMSE, MAPE and SMAPE over the store-days to score.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">def metrics(actual, predicted, scored):
+    &quot;&quot;&quot;MAE, RMSE, MAPE and SMAPE over the store-days where `scored` is True.&quot;&quot;&quot;
+    a, p = actual[scored], predicted[scored]
+    error = np.abs(a - p)
+    return {
+        &quot;MAE&quot;: error.mean(),
+        &quot;RMSE&quot;: np.sqrt((error ** 2).mean()),
+        &quot;MAPE&quot;: 100 * (error / a).mean(),
+        &quot;SMAPE&quot;: 100 * (error / ((np.abs(a) + np.abs(p)) / 2)).mean(),
+    }</code></pre>
+          <div class="notes"><ul><li><code>actual[scored]</code> keeps only open days, using a True/False mask the same shape as the predictions.</li><li>MAPE and SMAPE are the paper's equations (10) and (11). MAE and RMSE are required by the project rules.</li></ul><div class="ask"><span class="ask-label">If asked</span><p><b>Why skip closed days?</b> Their sales are 0, and MAPE divides by the actual value.</p></div></div>
+        </div>
+      </article>
+      <article class="fn" id="ev-score">
+        <header><h3><code>score(name, dates, predicted, sales, is_open)</code></h3><p>One result row per horizon.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">def score(name, dates, predicted, sales, is_open):
+    &quot;&quot;&quot;One row per horizon: metrics over the first `h` days of `dates`.&quot;&quot;&quot;
+    actual = sales.loc[dates].values
+    scored = (is_open.loc[dates].values == 1) &amp; (actual &gt; 0)   # Open Days only
+    rows = []
+    for h in HORIZONS:
+        if h &lt;= len(dates):
+            rows.append({&quot;run&quot;: name, &quot;horizon&quot;: h,
+                         **metrics(actual[:h], predicted[:h], scored[:h])})
+    return rows</code></pre>
+          <div class="notes"><ul><li>The scoring mask is <code>(is_open == 1) &amp; (actual &gt; 0)</code>: the open days.</li><li><code>actual[:h]</code> takes the first h days of the test period, which is how the 30, 90 and 360-day horizons are defined.</li></ul></div>
+        </div>
+      </article>
+      <article class="fn" id="ev-predict">
+        <header><h3><code>predict_model(config_path, sales, features, ends, split)</code></h3><p>Loads one saved model and predicts in real sales units.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">def predict_model(config_path, sales, features, ends, split):
+    &quot;&quot;&quot;Rebuild the model&#x27;s windows, predict, and return real-unit sales.&quot;&quot;&quot;
+    with open(config_path) as f:
+        cfg = json.load(f)
+    data, scaler = make_windows(sales, features, cfg[&quot;lags&quot;], cfg[&quot;log_sales&quot;],
+                                cfg[&quot;next_day_features&quot;], *ends)
+    X, _, dates = data[split]
+    net = keras.models.load_model(config_path.replace(&quot;.json&quot;, &quot;.keras&quot;))
+    predicted = to_sales(net.predict(X, verbose=0), scaler, cfg[&quot;log_sales&quot;])
+    return dates, predicted</code></pre>
+          <div class="notes"><ul><li>Reads the run's JSON so a model trained with 14 lags or log sales gets the matching windows.</li><li><code>make_windows</code> refits the scaler on the same training days, so it is identical to the one used in training.</li><li><code>to_sales</code> converts the output back before scoring.</li></ul></div>
+        </div>
+      </article>
+      <article class="fn" id="ev-naive">
+        <header><h3><code>seasonal_naive(sales, dates)</code></h3><p>The no-training baseline: each store sells what it sold 7 days earlier.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">def seasonal_naive(sales, dates):
+    &quot;&quot;&quot;Each store sells what it sold 7 days earlier.&quot;&quot;&quot;
+    return sales.shift(7).loc[dates].values</code></pre>
+          <div class="notes"><ul><li><code>shift(7)</code> moves every row down a week. Every model must beat this floor.</li></ul></div>
+        </div>
+      </article>
+      <article class="fn" id="ev-main">
+        <header><h3><code>main(dataset, split)</code></h3><p>Scores every model, adds the naive baseline, and averages over seeds.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">def main(dataset, split):
+    sales, is_open, features, ends = load(dataset)
+    out = f&quot;{OUT_DIR}/{dataset}&quot;
+    rows = []
+    dates = None
+    for config_path in sorted(glob.glob(f&quot;{out}/models/*.json&quot;)):
+        dates, predicted = predict_model(config_path, sales, features, ends, split)
+        name = os.path.basename(config_path).replace(&quot;.json&quot;, &quot;&quot;)
+        rows += score(name, dates, predicted, sales, is_open)
+    rows += score(&quot;seasonal_naive_s0&quot;, dates, seasonal_naive(sales, dates), sales, is_open)
+
+    per_run = pd.DataFrame(rows)
+    per_run[&quot;model&quot;] = per_run[&quot;run&quot;].str.rsplit(&quot;_s&quot;, n=1).str[0]   # drop the seed
+    summary = per_run.drop(columns=&quot;run&quot;).groupby([&quot;horizon&quot;, &quot;model&quot;]).agg([&quot;mean&quot;, &quot;std&quot;])
+
+    per_run.to_csv(f&quot;{out}/{split}_per_run.csv&quot;, index=False)
+    summary.to_csv(f&quot;{out}/{split}_summary.csv&quot;)
+    pd.set_option(&quot;display.width&quot;, 200)
+    pd.set_option(&quot;display.max_columns&quot;, 20)
+    print(summary.round(2))</code></pre>
+          <div class="notes"><ul><li>Loops over every saved <code>.json</code>, predicts and scores.</li><li>The naive baseline is named <code>seasonal_naive_s0</code> so it goes through the same seed-stripping step.</li><li><code>rsplit("_s", n=1)</code> splits on the last <code>_s</code>, so <code>s_cnn_lstm_s42</code> becomes <code>s_cnn_lstm</code>.</li><li>Groups by horizon and model, takes the mean and std over seeds, and saves both CSV files.</li><li><code>--split val</code> while choosing and <code>--split test</code> once at the end enforces the test-once rule.</li></ul></div>
+        </div>
+      </article>
+    </section>
+    <section class="file" id="f-app-py">
+      <div class="file-head"><h2>app.py</h2><span>The Gradio demo</span></div>
+      
+      <article class="fn" id="ap-startup">
+        <header><h3><code>Start-up</code></h3><p>Runs three seed-42 models over the whole test period once, when the app starts.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">MODEL_DIR = &quot;results/rossmann/models&quot;
+RUNS = {
+    &quot;S-CNN-LSTM&quot;: &quot;s_cnn_lstm_s42&quot;,
+    &quot;P-CNN-LSTM&quot;: &quot;p_cnn_lstm_s42&quot;,
+    &quot;P-CNN-LSTM + next-day features&quot;: &quot;p_cnn_lstm_nextday_s42&quot;,
+}
+
+# predict the whole test period once at start-up
+sales, is_open, features, ends = load(&quot;rossmann&quot;)
+predictions = {}
+for label, run in RUNS.items():
+    dates, predicted = predict_model(f&quot;{MODEL_DIR}/{run}.json&quot;, sales, features, ends, &quot;test&quot;)
+    predictions[label] = pd.DataFrame(predicted, index=dates, columns=sales.columns)</code></pre>
+          <div class="notes"><ul><li>Each model's predictions are kept as a dates × stores table, so picking another store is instant.</li></ul></div>
+        </div>
+      </article>
+      <article class="fn" id="ap-forecast">
+        <header><h3><code>forecast(store)</code></h3><p>What the app shows for one store.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">def forecast(store):
+    actual = sales.loc[dates, store]
+    scored = ((is_open.loc[dates, store] == 1) &amp; (actual &gt; 0)).values   # Open Days only
+
+    fig, ax = plt.subplots(figsize=(11, 4))
+    ax.plot(dates, actual, color=&quot;black&quot;, linewidth=2, label=&quot;actual&quot;)
+    rows = []
+    for label, pred in predictions.items():
+        ax.plot(dates, pred[store], label=label)
+        scores = metrics(actual.values, pred[store].values, scored)
+        rows.append({&quot;model&quot;: label, **{k: round(v, 2) for k, v in scores.items()}})
+    ax.set_title(f&quot;Store {store}: daily sales, May-July 2015&quot;)
+    ax.set_ylabel(&quot;sales&quot;)
+    ax.legend()
+    fig.tight_layout()
+    return fig, pd.DataFrame(rows)</code></pre>
+          <div class="notes"><ul><li>A chart of actual sales (black) and the three models' predictions over May to July 2015.</li><li>A small table of that store's errors on open days, reusing <code>metrics()</code> from <code>evaluate.py</code>.</li></ul></div>
+        </div>
+      </article>
+      <article class="fn" id="ap-demo">
+        <header><h3><code>gr.Interface</code></h3><p>Wires the function to a store dropdown, a chart and a table.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-python">demo = gr.Interface(
+    fn=forecast,
+    inputs=gr.Dropdown(list(sales.columns), value=sales.columns[0], label=&quot;Store&quot;),
+    outputs=[gr.Plot(label=&quot;Forecast vs actual&quot;), gr.Dataframe(label=&quot;Errors on open days&quot;)],
+    title=&quot;Rossmann sales forecasting with hybrid CNN-LSTM&quot;,
+    description=&quot;One-step-ahead forecasts on the test period (seed 42 models).&quot;,
+)
+
+if __name__ == &quot;__main__&quot;:
+    demo.launch()</code></pre>
+          <div class="notes"><ul><li><code>python app.py</code> starts a local web server and prints its address.</li></ul></div>
+        </div>
+      </article>
+    </section>
+    <section class="file" id="f-run-experiments-sh">
+      <div class="file-head"><h2>run_experiments.sh</h2><span>Reproduce every result</span></div>
+      
+      <article class="fn" id="sh-all">
+        <header><h3><code>The full experiment</code></h3><p>Every training run and evaluation, in the order they were done. About 30 minutes on CPU.</p></header>
+        <div class="fn-body">
+          <pre><code class="language-bash">#!/bin/sh
+# Reproduces every result. Each training run takes about 1 minute on CPU.
+set -e
+
+# 1) Rossmann: the paper&#x27;s models, the baseline and the three bonus candidates, 3 seeds each
+for seed in 42 43 44; do
+  for model in s_cnn_lstm p_cnn_lstm lstm; do
+    python train.py --model $model --seed $seed
+  done
+  python train.py --model p_cnn_lstm --seed $seed --next-day-features   # candidate (a)
+  python train.py --model p_cnn_lstm --seed $seed --lags 14             # candidate (b)
+  python train.py --model p_cnn_lstm --seed $seed --log-sales           # candidate (c)
+done
+python evaluate.py --split val
+# -&gt; (a) wins on validation. Move the rejected candidates aside, then score the test set once:
+mkdir -p results/rossmann/rejected_candidates
+mv results/rossmann/models/p_cnn_lstm_lags14_* results/rossmann/models/p_cnn_lstm_log_* \
+   results/rossmann/rejected_candidates/
+python evaluate.py --split test
+
+# 2) The paper&#x27;s dataset: same models plus the chosen change, to compare with the paper itself
+for seed in 42 43 44; do
+  for model in s_cnn_lstm p_cnn_lstm lstm; do
+    python train.py --model $model --seed $seed --dataset paper
+  done
+  python train.py --model p_cnn_lstm --seed $seed --dataset paper --next-day-features
+done
+python evaluate.py --split test --dataset paper</code></pre>
+          <div class="notes"><ul><li><b>Rossmann:</b> S-CNN-LSTM, P-CNN-LSTM, the LSTM baseline and the three bonus candidates, each with seeds 42, 43 and 44.</li><li><b>Choose on validation:</b> candidate (a) wins, the other two are moved aside.</li><li><b>Test once:</b> the test set is scored a single time.</li><li><b>Paper's dataset:</b> the same models plus the chosen change, to compare with the paper's own numbers.</li></ul></div>
+        </div>
+      </article>
+    </section>
+  </main>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script>
+  if (window.hljs) { document.querySelectorAll("pre code").forEach(function (el) { window.hljs.highlightElement(el); }); }
+</script>

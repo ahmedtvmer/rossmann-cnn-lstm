@@ -1,0 +1,1715 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312231.433041   31116 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312234.261450   31116 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Epoch 1/50
+23/23 - 3s - 133ms/step - loss: 0.0918 - mae: 0.2463 - val_loss: 0.0405 - val_mae: 0.1631
+Epoch 2/50
+23/23 - 0s - 21ms/step - loss: 0.0348 - mae: 0.1464 - val_loss: 0.0212 - val_mae: 0.1056
+Epoch 3/50
+23/23 - 0s - 21ms/step - loss: 0.0253 - mae: 0.1169 - val_loss: 0.0184 - val_mae: 0.0938
+Epoch 4/50
+23/23 - 0s - 20ms/step - loss: 0.0271 - mae: 0.1202 - val_loss: 0.0178 - val_mae: 0.0941
+Epoch 5/50
+23/23 - 0s - 21ms/step - loss: 0.0193 - mae: 0.0980 - val_loss: 0.0134 - val_mae: 0.0769
+Epoch 6/50
+23/23 - 1s - 22ms/step - loss: 0.0178 - mae: 0.0933 - val_loss: 0.0125 - val_mae: 0.0724
+Epoch 7/50
+23/23 - 1s - 23ms/step - loss: 0.0160 - mae: 0.0875 - val_loss: 0.0124 - val_mae: 0.0720
+Epoch 8/50
+23/23 - 0s - 20ms/step - loss: 0.0152 - mae: 0.0833 - val_loss: 0.0121 - val_mae: 0.0704
+Epoch 9/50
+23/23 - 0s - 21ms/step - loss: 0.0144 - mae: 0.0822 - val_loss: 0.0113 - val_mae: 0.0671
+Epoch 10/50
+23/23 - 0s - 20ms/step - loss: 0.0144 - mae: 0.0819 - val_loss: 0.0114 - val_mae: 0.0667
+Epoch 11/50
+23/23 - 0s - 20ms/step - loss: 0.0139 - mae: 0.0803 - val_loss: 0.0112 - val_mae: 0.0684
+Epoch 12/50
+23/23 - 0s - 20ms/step - loss: 0.0133 - mae: 0.0786 - val_loss: 0.0106 - val_mae: 0.0653
+Epoch 13/50
+23/23 - 0s - 21ms/step - loss: 0.0133 - mae: 0.0781 - val_loss: 0.0107 - val_mae: 0.0665
+Epoch 14/50
+23/23 - 1s - 24ms/step - loss: 0.0122 - mae: 0.0751 - val_loss: 0.0107 - val_mae: 0.0666
+Epoch 15/50
+23/23 - 0s - 20ms/step - loss: 0.0121 - mae: 0.0747 - val_loss: 0.0115 - val_mae: 0.0688
+Epoch 16/50
+23/23 - 0s - 20ms/step - loss: 0.0121 - mae: 0.0746 - val_loss: 0.0119 - val_mae: 0.0711
+Epoch 17/50
+23/23 - 1s - 24ms/step - loss: 0.0117 - mae: 0.0729 - val_loss: 0.0116 - val_mae: 0.0710
+Epoch 18/50
+23/23 - 0s - 21ms/step - loss: 0.0112 - mae: 0.0717 - val_loss: 0.0110 - val_mae: 0.0680
+Epoch 19/50
+23/23 - 1s - 23ms/step - loss: 0.0123 - mae: 0.0744 - val_loss: 0.0144 - val_mae: 0.0827
+Epoch 20/50
+23/23 - 0s - 21ms/step - loss: 0.0133 - mae: 0.0781 - val_loss: 0.0141 - val_mae: 0.0847
+Epoch 21/50
+23/23 - 1s - 22ms/step - loss: 0.0121 - mae: 0.0736 - val_loss: 0.0091 - val_mae: 0.0622
+Epoch 22/50
+23/23 - 0s - 21ms/step - loss: 0.0113 - mae: 0.0702 - val_loss: 0.0087 - val_mae: 0.0600
+Epoch 23/50
+23/23 - 0s - 21ms/step - loss: 0.0099 - mae: 0.0649 - val_loss: 0.0086 - val_mae: 0.0575
+Epoch 24/50
+23/23 - 0s - 20ms/step - loss: 0.0096 - mae: 0.0635 - val_loss: 0.0090 - val_mae: 0.0583
+Epoch 25/50
+23/23 - 0s - 20ms/step - loss: 0.0094 - mae: 0.0615 - val_loss: 0.0087 - val_mae: 0.0587
+Epoch 26/50
+23/23 - 1s - 23ms/step - loss: 0.0096 - mae: 0.0629 - val_loss: 0.0086 - val_mae: 0.0581
+Epoch 27/50
+23/23 - 1s - 22ms/step - loss: 0.0089 - mae: 0.0608 - val_loss: 0.0085 - val_mae: 0.0562
+Epoch 28/50
+23/23 - 1s - 22ms/step - loss: 0.0090 - mae: 0.0609 - val_loss: 0.0082 - val_mae: 0.0557
+Epoch 29/50
+23/23 - 0s - 20ms/step - loss: 0.0091 - mae: 0.0612 - val_loss: 0.0087 - val_mae: 0.0585
+Epoch 30/50
+23/23 - 0s - 20ms/step - loss: 0.0088 - mae: 0.0601 - val_loss: 0.0086 - val_mae: 0.0583
+Epoch 31/50
+23/23 - 0s - 21ms/step - loss: 0.0089 - mae: 0.0605 - val_loss: 0.0085 - val_mae: 0.0577
+Epoch 32/50
+23/23 - 0s - 21ms/step - loss: 0.0087 - mae: 0.0595 - val_loss: 0.0084 - val_mae: 0.0556
+Epoch 33/50
+23/23 - 0s - 20ms/step - loss: 0.0086 - mae: 0.0594 - val_loss: 0.0083 - val_mae: 0.0572
+Epoch 34/50
+23/23 - 0s - 21ms/step - loss: 0.0087 - mae: 0.0604 - val_loss: 0.0080 - val_mae: 0.0556
+Epoch 35/50
+23/23 - 0s - 20ms/step - loss: 0.0088 - mae: 0.0602 - val_loss: 0.0079 - val_mae: 0.0564
+Epoch 36/50
+23/23 - 0s - 20ms/step - loss: 0.0091 - mae: 0.0599 - val_loss: 0.0076 - val_mae: 0.0535
+Epoch 37/50
+23/23 - 0s - 20ms/step - loss: 0.0088 - mae: 0.0600 - val_loss: 0.0080 - val_mae: 0.0573
+Epoch 38/50
+23/23 - 1s - 22ms/step - loss: 0.0082 - mae: 0.0576 - val_loss: 0.0075 - val_mae: 0.0546
+Epoch 39/50
+23/23 - 1s - 22ms/step - loss: 0.0083 - mae: 0.0577 - val_loss: 0.0079 - val_mae: 0.0552
+Epoch 40/50
+23/23 - 1s - 22ms/step - loss: 0.0078 - mae: 0.0571 - val_loss: 0.0075 - val_mae: 0.0531
+Epoch 41/50
+23/23 - 0s - 21ms/step - loss: 0.0081 - mae: 0.0579 - val_loss: 0.0077 - val_mae: 0.0534
+Epoch 42/50
+23/23 - 0s - 20ms/step - loss: 0.0085 - mae: 0.0586 - val_loss: 0.0075 - val_mae: 0.0538
+Epoch 43/50
+23/23 - 0s - 20ms/step - loss: 0.0076 - mae: 0.0553 - val_loss: 0.0074 - val_mae: 0.0534
+Epoch 44/50
+23/23 - 0s - 20ms/step - loss: 0.0083 - mae: 0.0589 - val_loss: 0.0071 - val_mae: 0.0526
+Epoch 45/50
+23/23 - 0s - 22ms/step - loss: 0.0076 - mae: 0.0562 - val_loss: 0.0068 - val_mae: 0.0502
+Epoch 46/50
+23/23 - 0s - 20ms/step - loss: 0.0075 - mae: 0.0551 - val_loss: 0.0069 - val_mae: 0.0509
+Epoch 47/50
+23/23 - 0s - 21ms/step - loss: 0.0077 - mae: 0.0558 - val_loss: 0.0076 - val_mae: 0.0537
+Epoch 48/50
+23/23 - 0s - 21ms/step - loss: 0.0077 - mae: 0.0570 - val_loss: 0.0078 - val_mae: 0.0562
+Epoch 49/50
+23/23 - 0s - 20ms/step - loss: 0.0080 - mae: 0.0586 - val_loss: 0.0071 - val_mae: 0.0529
+Epoch 50/50
+23/23 - 1s - 22ms/step - loss: 0.0071 - mae: 0.0550 - val_loss: 0.0072 - val_mae: 0.0531
+saved s_cnn_lstm_s42
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312266.897714   37100 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312269.384738   37100 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Epoch 1/50
+23/23 - 4s - 154ms/step - loss: 0.1016 - mae: 0.2539 - val_loss: 0.0383 - val_mae: 0.1579
+Epoch 2/50
+23/23 - 1s - 30ms/step - loss: 0.0357 - mae: 0.1460 - val_loss: 0.0214 - val_mae: 0.1018
+Epoch 3/50
+23/23 - 1s - 28ms/step - loss: 0.0241 - mae: 0.1128 - val_loss: 0.0190 - val_mae: 0.0913
+Epoch 4/50
+23/23 - 1s - 28ms/step - loss: 0.0210 - mae: 0.1038 - val_loss: 0.0166 - val_mae: 0.0832
+Epoch 5/50
+23/23 - 1s - 28ms/step - loss: 0.0198 - mae: 0.0996 - val_loss: 0.0189 - val_mae: 0.0945
+Epoch 6/50
+23/23 - 1s - 28ms/step - loss: 0.0180 - mae: 0.0947 - val_loss: 0.0147 - val_mae: 0.0771
+Epoch 7/50
+23/23 - 1s - 28ms/step - loss: 0.0174 - mae: 0.0925 - val_loss: 0.0144 - val_mae: 0.0785
+Epoch 8/50
+23/23 - 1s - 28ms/step - loss: 0.0163 - mae: 0.0896 - val_loss: 0.0121 - val_mae: 0.0685
+Epoch 9/50
+23/23 - 1s - 28ms/step - loss: 0.0160 - mae: 0.0895 - val_loss: 0.0134 - val_mae: 0.0800
+Epoch 10/50
+23/23 - 1s - 29ms/step - loss: 0.0163 - mae: 0.0902 - val_loss: 0.0135 - val_mae: 0.0803
+Epoch 11/50
+23/23 - 1s - 29ms/step - loss: 0.0154 - mae: 0.0877 - val_loss: 0.0112 - val_mae: 0.0673
+Epoch 12/50
+23/23 - 1s - 29ms/step - loss: 0.0142 - mae: 0.0826 - val_loss: 0.0105 - val_mae: 0.0652
+Epoch 13/50
+23/23 - 1s - 28ms/step - loss: 0.0139 - mae: 0.0805 - val_loss: 0.0110 - val_mae: 0.0689
+Epoch 14/50
+23/23 - 1s - 28ms/step - loss: 0.0143 - mae: 0.0823 - val_loss: 0.0111 - val_mae: 0.0688
+Epoch 15/50
+23/23 - 1s - 32ms/step - loss: 0.0132 - mae: 0.0786 - val_loss: 0.0107 - val_mae: 0.0646
+Epoch 16/50
+23/23 - 1s - 28ms/step - loss: 0.0127 - mae: 0.0765 - val_loss: 0.0116 - val_mae: 0.0671
+Epoch 17/50
+23/23 - 1s - 28ms/step - loss: 0.0126 - mae: 0.0768 - val_loss: 0.0106 - val_mae: 0.0654
+Epoch 18/50
+23/23 - 1s - 28ms/step - loss: 0.0116 - mae: 0.0740 - val_loss: 0.0105 - val_mae: 0.0659
+Epoch 19/50
+23/23 - 1s - 28ms/step - loss: 0.0118 - mae: 0.0733 - val_loss: 0.0087 - val_mae: 0.0587
+Epoch 20/50
+23/23 - 1s - 27ms/step - loss: 0.0108 - mae: 0.0708 - val_loss: 0.0090 - val_mae: 0.0592
+Epoch 21/50
+23/23 - 1s - 28ms/step - loss: 0.0108 - mae: 0.0702 - val_loss: 0.0087 - val_mae: 0.0590
+Epoch 22/50
+23/23 - 1s - 28ms/step - loss: 0.0108 - mae: 0.0701 - val_loss: 0.0089 - val_mae: 0.0592
+Epoch 23/50
+23/23 - 1s - 30ms/step - loss: 0.0103 - mae: 0.0681 - val_loss: 0.0084 - val_mae: 0.0570
+Epoch 24/50
+23/23 - 1s - 28ms/step - loss: 0.0097 - mae: 0.0670 - val_loss: 0.0085 - val_mae: 0.0578
+Epoch 25/50
+23/23 - 1s - 28ms/step - loss: 0.0097 - mae: 0.0663 - val_loss: 0.0089 - val_mae: 0.0601
+Epoch 26/50
+23/23 - 1s - 28ms/step - loss: 0.0099 - mae: 0.0670 - val_loss: 0.0086 - val_mae: 0.0580
+Epoch 27/50
+23/23 - 1s - 29ms/step - loss: 0.0097 - mae: 0.0663 - val_loss: 0.0078 - val_mae: 0.0541
+Epoch 28/50
+23/23 - 1s - 28ms/step - loss: 0.0090 - mae: 0.0637 - val_loss: 0.0079 - val_mae: 0.0552
+Epoch 29/50
+23/23 - 1s - 28ms/step - loss: 0.0091 - mae: 0.0639 - val_loss: 0.0084 - val_mae: 0.0578
+Epoch 30/50
+23/23 - 1s - 28ms/step - loss: 0.0091 - mae: 0.0654 - val_loss: 0.0090 - val_mae: 0.0583
+Epoch 31/50
+23/23 - 1s - 30ms/step - loss: 0.0099 - mae: 0.0692 - val_loss: 0.0103 - val_mae: 0.0660
+Epoch 32/50
+23/23 - 1s - 28ms/step - loss: 0.0102 - mae: 0.0704 - val_loss: 0.0111 - val_mae: 0.0720
+Epoch 33/50
+23/23 - 1s - 28ms/step - loss: 0.0099 - mae: 0.0683 - val_loss: 0.0105 - val_mae: 0.0695
+Epoch 34/50
+23/23 - 1s - 28ms/step - loss: 0.0098 - mae: 0.0681 - val_loss: 0.0107 - val_mae: 0.0716
+Epoch 35/50
+23/23 - 1s - 30ms/step - loss: 0.0094 - mae: 0.0647 - val_loss: 0.0083 - val_mae: 0.0563
+Epoch 36/50
+23/23 - 1s - 28ms/step - loss: 0.0090 - mae: 0.0637 - val_loss: 0.0083 - val_mae: 0.0589
+Epoch 37/50
+23/23 - 1s - 28ms/step - loss: 0.0088 - mae: 0.0634 - val_loss: 0.0081 - val_mae: 0.0546
+saved p_cnn_lstm_s42
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312301.797493   33820 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312304.389970   33820 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Epoch 1/50
+23/23 - 2s - 81ms/step - loss: 0.1266 - mae: 0.2928 - val_loss: 0.0503 - val_mae: 0.1781
+Epoch 2/50
+23/23 - 0s - 11ms/step - loss: 0.0366 - mae: 0.1478 - val_loss: 0.0282 - val_mae: 0.1274
+Epoch 3/50
+23/23 - 0s - 10ms/step - loss: 0.0253 - mae: 0.1206 - val_loss: 0.0222 - val_mae: 0.1119
+Epoch 4/50
+23/23 - 0s - 10ms/step - loss: 0.0206 - mae: 0.1074 - val_loss: 0.0189 - val_mae: 0.1022
+Epoch 5/50
+23/23 - 0s - 11ms/step - loss: 0.0180 - mae: 0.0998 - val_loss: 0.0170 - val_mae: 0.0955
+Epoch 6/50
+23/23 - 0s - 10ms/step - loss: 0.0162 - mae: 0.0937 - val_loss: 0.0154 - val_mae: 0.0889
+Epoch 7/50
+23/23 - 0s - 10ms/step - loss: 0.0150 - mae: 0.0891 - val_loss: 0.0143 - val_mae: 0.0836
+Epoch 8/50
+23/23 - 0s - 10ms/step - loss: 0.0143 - mae: 0.0858 - val_loss: 0.0137 - val_mae: 0.0806
+Epoch 9/50
+23/23 - 0s - 11ms/step - loss: 0.0138 - mae: 0.0834 - val_loss: 0.0133 - val_mae: 0.0781
+Epoch 10/50
+23/23 - 0s - 10ms/step - loss: 0.0132 - mae: 0.0808 - val_loss: 0.0129 - val_mae: 0.0771
+Epoch 11/50
+23/23 - 0s - 12ms/step - loss: 0.0126 - mae: 0.0781 - val_loss: 0.0130 - val_mae: 0.0780
+Epoch 12/50
+23/23 - 0s - 13ms/step - loss: 0.0121 - mae: 0.0759 - val_loss: 0.0129 - val_mae: 0.0780
+Epoch 13/50
+23/23 - 0s - 12ms/step - loss: 0.0117 - mae: 0.0744 - val_loss: 0.0122 - val_mae: 0.0747
+Epoch 14/50
+23/23 - 0s - 11ms/step - loss: 0.0112 - mae: 0.0724 - val_loss: 0.0114 - val_mae: 0.0714
+Epoch 15/50
+23/23 - 0s - 10ms/step - loss: 0.0106 - mae: 0.0699 - val_loss: 0.0109 - val_mae: 0.0692
+Epoch 16/50
+23/23 - 0s - 10ms/step - loss: 0.0101 - mae: 0.0679 - val_loss: 0.0107 - val_mae: 0.0685
+Epoch 17/50
+23/23 - 0s - 10ms/step - loss: 0.0098 - mae: 0.0665 - val_loss: 0.0104 - val_mae: 0.0673
+Epoch 18/50
+23/23 - 0s - 10ms/step - loss: 0.0095 - mae: 0.0653 - val_loss: 0.0101 - val_mae: 0.0664
+Epoch 19/50
+23/23 - 0s - 10ms/step - loss: 0.0093 - mae: 0.0644 - val_loss: 0.0098 - val_mae: 0.0653
+Epoch 20/50
+23/23 - 0s - 10ms/step - loss: 0.0090 - mae: 0.0632 - val_loss: 0.0096 - val_mae: 0.0645
+Epoch 21/50
+23/23 - 0s - 10ms/step - loss: 0.0087 - mae: 0.0622 - val_loss: 0.0094 - val_mae: 0.0637
+Epoch 22/50
+23/23 - 0s - 10ms/step - loss: 0.0085 - mae: 0.0613 - val_loss: 0.0092 - val_mae: 0.0629
+Epoch 23/50
+23/23 - 0s - 10ms/step - loss: 0.0083 - mae: 0.0604 - val_loss: 0.0091 - val_mae: 0.0627
+Epoch 24/50
+23/23 - 0s - 10ms/step - loss: 0.0081 - mae: 0.0597 - val_loss: 0.0089 - val_mae: 0.0620
+Epoch 25/50
+23/23 - 0s - 10ms/step - loss: 0.0079 - mae: 0.0590 - val_loss: 0.0088 - val_mae: 0.0618
+Epoch 26/50
+23/23 - 0s - 10ms/step - loss: 0.0077 - mae: 0.0583 - val_loss: 0.0087 - val_mae: 0.0611
+Epoch 27/50
+23/23 - 0s - 10ms/step - loss: 0.0076 - mae: 0.0576 - val_loss: 0.0086 - val_mae: 0.0609
+Epoch 28/50
+23/23 - 0s - 11ms/step - loss: 0.0074 - mae: 0.0569 - val_loss: 0.0086 - val_mae: 0.0606
+Epoch 29/50
+23/23 - 0s - 10ms/step - loss: 0.0073 - mae: 0.0563 - val_loss: 0.0085 - val_mae: 0.0602
+Epoch 30/50
+23/23 - 0s - 10ms/step - loss: 0.0071 - mae: 0.0556 - val_loss: 0.0085 - val_mae: 0.0600
+Epoch 31/50
+23/23 - 0s - 10ms/step - loss: 0.0070 - mae: 0.0550 - val_loss: 0.0084 - val_mae: 0.0594
+Epoch 32/50
+23/23 - 0s - 10ms/step - loss: 0.0069 - mae: 0.0544 - val_loss: 0.0084 - val_mae: 0.0594
+Epoch 33/50
+23/23 - 0s - 10ms/step - loss: 0.0067 - mae: 0.0538 - val_loss: 0.0084 - val_mae: 0.0591
+Epoch 34/50
+23/23 - 0s - 10ms/step - loss: 0.0067 - mae: 0.0535 - val_loss: 0.0083 - val_mae: 0.0588
+Epoch 35/50
+23/23 - 0s - 10ms/step - loss: 0.0065 - mae: 0.0528 - val_loss: 0.0083 - val_mae: 0.0582
+Epoch 36/50
+23/23 - 0s - 10ms/step - loss: 0.0064 - mae: 0.0524 - val_loss: 0.0083 - val_mae: 0.0582
+Epoch 37/50
+23/23 - 0s - 10ms/step - loss: 0.0063 - mae: 0.0517 - val_loss: 0.0082 - val_mae: 0.0580
+Epoch 38/50
+23/23 - 0s - 10ms/step - loss: 0.0062 - mae: 0.0513 - val_loss: 0.0083 - val_mae: 0.0582
+Epoch 39/50
+23/23 - 0s - 10ms/step - loss: 0.0061 - mae: 0.0507 - val_loss: 0.0083 - val_mae: 0.0581
+Epoch 40/50
+23/23 - 0s - 10ms/step - loss: 0.0060 - mae: 0.0504 - val_loss: 0.0083 - val_mae: 0.0583
+Epoch 41/50
+23/23 - 0s - 10ms/step - loss: 0.0059 - mae: 0.0498 - val_loss: 0.0082 - val_mae: 0.0580
+Epoch 42/50
+23/23 - 0s - 10ms/step - loss: 0.0058 - mae: 0.0494 - val_loss: 0.0082 - val_mae: 0.0581
+Epoch 43/50
+23/23 - 0s - 12ms/step - loss: 0.0058 - mae: 0.0491 - val_loss: 0.0081 - val_mae: 0.0579
+Epoch 44/50
+23/23 - 0s - 10ms/step - loss: 0.0057 - mae: 0.0487 - val_loss: 0.0081 - val_mae: 0.0581
+Epoch 45/50
+23/23 - 0s - 10ms/step - loss: 0.0056 - mae: 0.0485 - val_loss: 0.0082 - val_mae: 0.0584
+Epoch 46/50
+23/23 - 0s - 10ms/step - loss: 0.0056 - mae: 0.0482 - val_loss: 0.0082 - val_mae: 0.0585
+Epoch 47/50
+23/23 - 0s - 10ms/step - loss: 0.0055 - mae: 0.0480 - val_loss: 0.0082 - val_mae: 0.0585
+Epoch 48/50
+23/23 - 0s - 10ms/step - loss: 0.0055 - mae: 0.0479 - val_loss: 0.0082 - val_mae: 0.0586
+Epoch 49/50
+23/23 - 0s - 10ms/step - loss: 0.0054 - mae: 0.0476 - val_loss: 0.0082 - val_mae: 0.0584
+Epoch 50/50
+23/23 - 0s - 10ms/step - loss: 0.0054 - mae: 0.0474 - val_loss: 0.0082 - val_mae: 0.0584
+saved lstm_s42
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312323.117659   38272 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312325.472933   38272 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Epoch 1/50
+23/23 - 3s - 138ms/step - loss: 0.1018 - mae: 0.2539 - val_loss: 0.0384 - val_mae: 0.1592
+Epoch 2/50
+23/23 - 1s - 27ms/step - loss: 0.0342 - mae: 0.1424 - val_loss: 0.0194 - val_mae: 0.0969
+Epoch 3/50
+23/23 - 1s - 26ms/step - loss: 0.0237 - mae: 0.1118 - val_loss: 0.0173 - val_mae: 0.0911
+Epoch 4/50
+23/23 - 1s - 27ms/step - loss: 0.0197 - mae: 0.1003 - val_loss: 0.0145 - val_mae: 0.0808
+Epoch 5/50
+23/23 - 1s - 31ms/step - loss: 0.0177 - mae: 0.0941 - val_loss: 0.0130 - val_mae: 0.0763
+Epoch 6/50
+23/23 - 1s - 31ms/step - loss: 0.0152 - mae: 0.0886 - val_loss: 0.0116 - val_mae: 0.0705
+Epoch 7/50
+23/23 - 1s - 31ms/step - loss: 0.0143 - mae: 0.0844 - val_loss: 0.0115 - val_mae: 0.0721
+Epoch 8/50
+23/23 - 1s - 29ms/step - loss: 0.0133 - mae: 0.0828 - val_loss: 0.0095 - val_mae: 0.0619
+Epoch 9/50
+23/23 - 1s - 30ms/step - loss: 0.0139 - mae: 0.0857 - val_loss: 0.0115 - val_mae: 0.0728
+Epoch 10/50
+23/23 - 1s - 31ms/step - loss: 0.0133 - mae: 0.0824 - val_loss: 0.0102 - val_mae: 0.0666
+Epoch 11/50
+23/23 - 1s - 35ms/step - loss: 0.0116 - mae: 0.0749 - val_loss: 0.0087 - val_mae: 0.0598
+Epoch 12/50
+23/23 - 1s - 37ms/step - loss: 0.0108 - mae: 0.0722 - val_loss: 0.0087 - val_mae: 0.0608
+Epoch 13/50
+23/23 - 1s - 33ms/step - loss: 0.0107 - mae: 0.0719 - val_loss: 0.0087 - val_mae: 0.0605
+Epoch 14/50
+23/23 - 1s - 32ms/step - loss: 0.0102 - mae: 0.0696 - val_loss: 0.0081 - val_mae: 0.0575
+Epoch 15/50
+23/23 - 1s - 29ms/step - loss: 0.0096 - mae: 0.0676 - val_loss: 0.0079 - val_mae: 0.0571
+Epoch 16/50
+23/23 - 1s - 35ms/step - loss: 0.0095 - mae: 0.0676 - val_loss: 0.0093 - val_mae: 0.0632
+Epoch 17/50
+23/23 - 1s - 40ms/step - loss: 0.0099 - mae: 0.0687 - val_loss: 0.0088 - val_mae: 0.0628
+Epoch 18/50
+23/23 - 1s - 35ms/step - loss: 0.0093 - mae: 0.0670 - val_loss: 0.0081 - val_mae: 0.0584
+Epoch 19/50
+23/23 - 1s - 31ms/step - loss: 0.0090 - mae: 0.0654 - val_loss: 0.0072 - val_mae: 0.0530
+Epoch 20/50
+23/23 - 1s - 33ms/step - loss: 0.0085 - mae: 0.0636 - val_loss: 0.0072 - val_mae: 0.0544
+Epoch 21/50
+23/23 - 1s - 33ms/step - loss: 0.0082 - mae: 0.0624 - val_loss: 0.0078 - val_mae: 0.0583
+Epoch 22/50
+23/23 - 1s - 37ms/step - loss: 0.0082 - mae: 0.0626 - val_loss: 0.0070 - val_mae: 0.0536
+Epoch 23/50
+23/23 - 1s - 34ms/step - loss: 0.0076 - mae: 0.0596 - val_loss: 0.0061 - val_mae: 0.0502
+Epoch 24/50
+23/23 - 1s - 29ms/step - loss: 0.0070 - mae: 0.0584 - val_loss: 0.0072 - val_mae: 0.0574
+Epoch 25/50
+23/23 - 1s - 28ms/step - loss: 0.0069 - mae: 0.0584 - val_loss: 0.0056 - val_mae: 0.0496
+Epoch 26/50
+23/23 - 1s - 35ms/step - loss: 0.0071 - mae: 0.0593 - val_loss: 0.0063 - val_mae: 0.0525
+Epoch 27/50
+23/23 - 1s - 30ms/step - loss: 0.0071 - mae: 0.0590 - val_loss: 0.0067 - val_mae: 0.0522
+Epoch 28/50
+23/23 - 1s - 30ms/step - loss: 0.0072 - mae: 0.0598 - val_loss: 0.0062 - val_mae: 0.0508
+Epoch 29/50
+23/23 - 1s - 34ms/step - loss: 0.0074 - mae: 0.0603 - val_loss: 0.0065 - val_mae: 0.0522
+Epoch 30/50
+23/23 - 1s - 35ms/step - loss: 0.0069 - mae: 0.0584 - val_loss: 0.0069 - val_mae: 0.0528
+Epoch 31/50
+23/23 - 1s - 31ms/step - loss: 0.0081 - mae: 0.0629 - val_loss: 0.0066 - val_mae: 0.0524
+Epoch 32/50
+23/23 - 1s - 33ms/step - loss: 0.0070 - mae: 0.0582 - val_loss: 0.0062 - val_mae: 0.0511
+Epoch 33/50
+23/23 - 1s - 33ms/step - loss: 0.0072 - mae: 0.0590 - val_loss: 0.0063 - val_mae: 0.0541
+Epoch 34/50
+23/23 - 1s - 28ms/step - loss: 0.0069 - mae: 0.0587 - val_loss: 0.0057 - val_mae: 0.0491
+Epoch 35/50
+23/23 - 1s - 26ms/step - loss: 0.0069 - mae: 0.0582 - val_loss: 0.0062 - val_mae: 0.0515
+Epoch 36/50
+23/23 - 1s - 28ms/step - loss: 0.0063 - mae: 0.0560 - val_loss: 0.0050 - val_mae: 0.0470
+Epoch 37/50
+23/23 - 1s - 27ms/step - loss: 0.0058 - mae: 0.0532 - val_loss: 0.0051 - val_mae: 0.0485
+Epoch 38/50
+23/23 - 1s - 26ms/step - loss: 0.0055 - mae: 0.0516 - val_loss: 0.0055 - val_mae: 0.0479
+Epoch 39/50
+23/23 - 1s - 26ms/step - loss: 0.0059 - mae: 0.0538 - val_loss: 0.0054 - val_mae: 0.0486
+Epoch 40/50
+23/23 - 1s - 27ms/step - loss: 0.0061 - mae: 0.0551 - val_loss: 0.0058 - val_mae: 0.0500
+Epoch 41/50
+23/23 - 1s - 27ms/step - loss: 0.0059 - mae: 0.0538 - val_loss: 0.0053 - val_mae: 0.0476
+Epoch 42/50
+23/23 - 1s - 27ms/step - loss: 0.0054 - mae: 0.0521 - val_loss: 0.0053 - val_mae: 0.0483
+Epoch 43/50
+23/23 - 1s - 27ms/step - loss: 0.0054 - mae: 0.0513 - val_loss: 0.0055 - val_mae: 0.0495
+Epoch 44/50
+23/23 - 1s - 26ms/step - loss: 0.0056 - mae: 0.0525 - val_loss: 0.0055 - val_mae: 0.0494
+Epoch 45/50
+23/23 - 1s - 27ms/step - loss: 0.0064 - mae: 0.0559 - val_loss: 0.0055 - val_mae: 0.0490
+Epoch 46/50
+23/23 - 1s - 26ms/step - loss: 0.0055 - mae: 0.0514 - val_loss: 0.0047 - val_mae: 0.0457
+Epoch 47/50
+23/23 - 1s - 31ms/step - loss: 0.0055 - mae: 0.0516 - val_loss: 0.0050 - val_mae: 0.0478
+Epoch 48/50
+23/23 - 1s - 29ms/step - loss: 0.0055 - mae: 0.0518 - val_loss: 0.0053 - val_mae: 0.0476
+Epoch 49/50
+23/23 - 1s - 27ms/step - loss: 0.0050 - mae: 0.0492 - val_loss: 0.0049 - val_mae: 0.0477
+Epoch 50/50
+23/23 - 1s - 28ms/step - loss: 0.0050 - mae: 0.0502 - val_loss: 0.0054 - val_mae: 0.0483
+saved p_cnn_lstm_nextday_s42
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312368.159723   21384 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312370.555469   21384 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Epoch 1/50
+23/23 - 4s - 152ms/step - loss: 0.1048 - mae: 0.2539 - val_loss: 0.0398 - val_mae: 0.1487
+Epoch 2/50
+23/23 - 1s - 32ms/step - loss: 0.0402 - mae: 0.1574 - val_loss: 0.0220 - val_mae: 0.1097
+Epoch 3/50
+23/23 - 1s - 31ms/step - loss: 0.0257 - mae: 0.1206 - val_loss: 0.0180 - val_mae: 0.0951
+Epoch 4/50
+23/23 - 1s - 31ms/step - loss: 0.0211 - mae: 0.1049 - val_loss: 0.0200 - val_mae: 0.1030
+Epoch 5/50
+23/23 - 1s - 31ms/step - loss: 0.0198 - mae: 0.1010 - val_loss: 0.0159 - val_mae: 0.0861
+Epoch 6/50
+23/23 - 1s - 32ms/step - loss: 0.0185 - mae: 0.0967 - val_loss: 0.0141 - val_mae: 0.0804
+Epoch 7/50
+23/23 - 1s - 32ms/step - loss: 0.0162 - mae: 0.0891 - val_loss: 0.0127 - val_mae: 0.0751
+Epoch 8/50
+23/23 - 1s - 33ms/step - loss: 0.0148 - mae: 0.0860 - val_loss: 0.0122 - val_mae: 0.0719
+Epoch 9/50
+23/23 - 1s - 32ms/step - loss: 0.0147 - mae: 0.0852 - val_loss: 0.0140 - val_mae: 0.0824
+Epoch 10/50
+23/23 - 1s - 31ms/step - loss: 0.0145 - mae: 0.0852 - val_loss: 0.0117 - val_mae: 0.0699
+Epoch 11/50
+23/23 - 1s - 31ms/step - loss: 0.0134 - mae: 0.0802 - val_loss: 0.0123 - val_mae: 0.0751
+Epoch 12/50
+23/23 - 1s - 31ms/step - loss: 0.0135 - mae: 0.0814 - val_loss: 0.0111 - val_mae: 0.0697
+Epoch 13/50
+23/23 - 1s - 32ms/step - loss: 0.0119 - mae: 0.0758 - val_loss: 0.0108 - val_mae: 0.0684
+Epoch 14/50
+23/23 - 1s - 32ms/step - loss: 0.0114 - mae: 0.0738 - val_loss: 0.0105 - val_mae: 0.0669
+Epoch 15/50
+23/23 - 1s - 33ms/step - loss: 0.0114 - mae: 0.0737 - val_loss: 0.0107 - val_mae: 0.0670
+Epoch 16/50
+23/23 - 1s - 56ms/step - loss: 0.0114 - mae: 0.0742 - val_loss: 0.0100 - val_mae: 0.0647
+Epoch 17/50
+23/23 - 1s - 37ms/step - loss: 0.0101 - mae: 0.0696 - val_loss: 0.0101 - val_mae: 0.0649
+Epoch 18/50
+23/23 - 1s - 31ms/step - loss: 0.0108 - mae: 0.0725 - val_loss: 0.0098 - val_mae: 0.0631
+Epoch 19/50
+23/23 - 1s - 32ms/step - loss: 0.0110 - mae: 0.0729 - val_loss: 0.0113 - val_mae: 0.0703
+Epoch 20/50
+23/23 - 1s - 35ms/step - loss: 0.0101 - mae: 0.0695 - val_loss: 0.0114 - val_mae: 0.0726
+Epoch 21/50
+23/23 - 1s - 36ms/step - loss: 0.0100 - mae: 0.0693 - val_loss: 0.0100 - val_mae: 0.0633
+Epoch 22/50
+23/23 - 1s - 35ms/step - loss: 0.0093 - mae: 0.0670 - val_loss: 0.0097 - val_mae: 0.0613
+Epoch 23/50
+23/23 - 1s - 34ms/step - loss: 0.0094 - mae: 0.0667 - val_loss: 0.0117 - val_mae: 0.0723
+Epoch 24/50
+23/23 - 1s - 31ms/step - loss: 0.0090 - mae: 0.0655 - val_loss: 0.0106 - val_mae: 0.0653
+Epoch 25/50
+23/23 - 1s - 36ms/step - loss: 0.0090 - mae: 0.0657 - val_loss: 0.0108 - val_mae: 0.0671
+Epoch 26/50
+23/23 - 1s - 32ms/step - loss: 0.0091 - mae: 0.0657 - val_loss: 0.0095 - val_mae: 0.0613
+Epoch 27/50
+23/23 - 1s - 39ms/step - loss: 0.0090 - mae: 0.0648 - val_loss: 0.0102 - val_mae: 0.0639
+Epoch 28/50
+23/23 - 1s - 44ms/step - loss: 0.0086 - mae: 0.0637 - val_loss: 0.0092 - val_mae: 0.0602
+Epoch 29/50
+23/23 - 1s - 35ms/step - loss: 0.0095 - mae: 0.0668 - val_loss: 0.0097 - val_mae: 0.0643
+Epoch 30/50
+23/23 - 1s - 33ms/step - loss: 0.0088 - mae: 0.0661 - val_loss: 0.0092 - val_mae: 0.0630
+Epoch 31/50
+23/23 - 1s - 42ms/step - loss: 0.0082 - mae: 0.0626 - val_loss: 0.0092 - val_mae: 0.0623
+Epoch 32/50
+23/23 - 1s - 38ms/step - loss: 0.0082 - mae: 0.0627 - val_loss: 0.0090 - val_mae: 0.0599
+Epoch 33/50
+23/23 - 1s - 35ms/step - loss: 0.0078 - mae: 0.0611 - val_loss: 0.0092 - val_mae: 0.0614
+Epoch 34/50
+23/23 - 1s - 33ms/step - loss: 0.0081 - mae: 0.0626 - val_loss: 0.0097 - val_mae: 0.0657
+Epoch 35/50
+23/23 - 1s - 40ms/step - loss: 0.0079 - mae: 0.0613 - val_loss: 0.0101 - val_mae: 0.0674
+Epoch 36/50
+23/23 - 1s - 32ms/step - loss: 0.0078 - mae: 0.0612 - val_loss: 0.0094 - val_mae: 0.0613
+Epoch 37/50
+23/23 - 1s - 31ms/step - loss: 0.0074 - mae: 0.0593 - val_loss: 0.0096 - val_mae: 0.0619
+Epoch 38/50
+23/23 - 1s - 34ms/step - loss: 0.0075 - mae: 0.0597 - val_loss: 0.0097 - val_mae: 0.0620
+Epoch 39/50
+23/23 - 1s - 33ms/step - loss: 0.0073 - mae: 0.0588 - val_loss: 0.0097 - val_mae: 0.0626
+Epoch 40/50
+23/23 - 1s - 34ms/step - loss: 0.0070 - mae: 0.0577 - val_loss: 0.0097 - val_mae: 0.0644
+Epoch 41/50
+23/23 - 1s - 35ms/step - loss: 0.0073 - mae: 0.0593 - val_loss: 0.0088 - val_mae: 0.0596
+Epoch 42/50
+23/23 - 1s - 31ms/step - loss: 0.0069 - mae: 0.0578 - val_loss: 0.0089 - val_mae: 0.0598
+Epoch 43/50
+23/23 - 1s - 31ms/step - loss: 0.0072 - mae: 0.0592 - val_loss: 0.0091 - val_mae: 0.0610
+Epoch 44/50
+23/23 - 1s - 31ms/step - loss: 0.0071 - mae: 0.0584 - val_loss: 0.0121 - val_mae: 0.0748
+Epoch 45/50
+23/23 - 1s - 31ms/step - loss: 0.0072 - mae: 0.0598 - val_loss: 0.0089 - val_mae: 0.0594
+Epoch 46/50
+23/23 - 1s - 32ms/step - loss: 0.0066 - mae: 0.0563 - val_loss: 0.0097 - val_mae: 0.0622
+Epoch 47/50
+23/23 - 1s - 38ms/step - loss: 0.0067 - mae: 0.0573 - val_loss: 0.0107 - val_mae: 0.0688
+Epoch 48/50
+23/23 - 1s - 31ms/step - loss: 0.0069 - mae: 0.0572 - val_loss: 0.0098 - val_mae: 0.0649
+Epoch 49/50
+23/23 - 1s - 31ms/step - loss: 0.0068 - mae: 0.0574 - val_loss: 0.0092 - val_mae: 0.0629
+Epoch 50/50
+23/23 - 1s - 36ms/step - loss: 0.0068 - mae: 0.0576 - val_loss: 0.0086 - val_mae: 0.0596
+saved p_cnn_lstm_lags14_s42
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312418.312669   37412 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312420.783727   37412 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Epoch 1/50
+23/23 - 3s - 147ms/step - loss: 0.3499 - mae: 0.4761 - val_loss: 0.0895 - val_mae: 0.2393
+Epoch 2/50
+23/23 - 1s - 33ms/step - loss: 0.0957 - mae: 0.2419 - val_loss: 0.0414 - val_mae: 0.1187
+Epoch 3/50
+23/23 - 1s - 30ms/step - loss: 0.0615 - mae: 0.1770 - val_loss: 0.0337 - val_mae: 0.1129
+Epoch 4/50
+23/23 - 1s - 28ms/step - loss: 0.0500 - mae: 0.1543 - val_loss: 0.0295 - val_mae: 0.0864
+Epoch 5/50
+23/23 - 1s - 27ms/step - loss: 0.0484 - mae: 0.1485 - val_loss: 0.0335 - val_mae: 0.1189
+Epoch 6/50
+23/23 - 1s - 27ms/step - loss: 0.0438 - mae: 0.1410 - val_loss: 0.0286 - val_mae: 0.0870
+Epoch 7/50
+23/23 - 1s - 26ms/step - loss: 0.0434 - mae: 0.1389 - val_loss: 0.0259 - val_mae: 0.0871
+Epoch 8/50
+23/23 - 1s - 26ms/step - loss: 0.0447 - mae: 0.1426 - val_loss: 0.0242 - val_mae: 0.0891
+Epoch 9/50
+23/23 - 1s - 27ms/step - loss: 0.0388 - mae: 0.1310 - val_loss: 0.0236 - val_mae: 0.0840
+Epoch 10/50
+23/23 - 1s - 26ms/step - loss: 0.0399 - mae: 0.1305 - val_loss: 0.0207 - val_mae: 0.0834
+Epoch 11/50
+23/23 - 1s - 27ms/step - loss: 0.0350 - mae: 0.1208 - val_loss: 0.0186 - val_mae: 0.0788
+Epoch 12/50
+23/23 - 1s - 26ms/step - loss: 0.0319 - mae: 0.1138 - val_loss: 0.0160 - val_mae: 0.0656
+Epoch 13/50
+23/23 - 1s - 26ms/step - loss: 0.0319 - mae: 0.1141 - val_loss: 0.0157 - val_mae: 0.0669
+Epoch 14/50
+23/23 - 1s - 26ms/step - loss: 0.0320 - mae: 0.1133 - val_loss: 0.0160 - val_mae: 0.0706
+Epoch 15/50
+23/23 - 1s - 27ms/step - loss: 0.0289 - mae: 0.1081 - val_loss: 0.0152 - val_mae: 0.0633
+Epoch 16/50
+23/23 - 1s - 26ms/step - loss: 0.0298 - mae: 0.1099 - val_loss: 0.0151 - val_mae: 0.0617
+Epoch 17/50
+23/23 - 1s - 26ms/step - loss: 0.0286 - mae: 0.1051 - val_loss: 0.0160 - val_mae: 0.0672
+Epoch 18/50
+23/23 - 1s - 27ms/step - loss: 0.0272 - mae: 0.1029 - val_loss: 0.0135 - val_mae: 0.0591
+Epoch 19/50
+23/23 - 1s - 27ms/step - loss: 0.0279 - mae: 0.1053 - val_loss: 0.0137 - val_mae: 0.0585
+Epoch 20/50
+23/23 - 1s - 31ms/step - loss: 0.0265 - mae: 0.1010 - val_loss: 0.0183 - val_mae: 0.0833
+Epoch 21/50
+23/23 - 1s - 32ms/step - loss: 0.0268 - mae: 0.1020 - val_loss: 0.0146 - val_mae: 0.0667
+Epoch 22/50
+23/23 - 1s - 28ms/step - loss: 0.0261 - mae: 0.0999 - val_loss: 0.0161 - val_mae: 0.0709
+Epoch 23/50
+23/23 - 1s - 33ms/step - loss: 0.0261 - mae: 0.1009 - val_loss: 0.0147 - val_mae: 0.0682
+Epoch 24/50
+23/23 - 1s - 32ms/step - loss: 0.0250 - mae: 0.0996 - val_loss: 0.0217 - val_mae: 0.0984
+Epoch 25/50
+23/23 - 1s - 35ms/step - loss: 0.0275 - mae: 0.1059 - val_loss: 0.0159 - val_mae: 0.0722
+Epoch 26/50
+23/23 - 1s - 27ms/step - loss: 0.0276 - mae: 0.1029 - val_loss: 0.0141 - val_mae: 0.0618
+Epoch 27/50
+23/23 - 1s - 27ms/step - loss: 0.0266 - mae: 0.1009 - val_loss: 0.0138 - val_mae: 0.0647
+Epoch 28/50
+23/23 - 1s - 26ms/step - loss: 0.0241 - mae: 0.0925 - val_loss: 0.0133 - val_mae: 0.0614
+Epoch 29/50
+23/23 - 1s - 27ms/step - loss: 0.0225 - mae: 0.0892 - val_loss: 0.0133 - val_mae: 0.0609
+saved p_cnn_lstm_log_s42
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312447.447033   32892 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312449.849292   32892 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Epoch 1/50
+23/23 - 3s - 133ms/step - loss: 0.0925 - mae: 0.2465 - val_loss: 0.0476 - val_mae: 0.1818
+Epoch 2/50
+23/23 - 1s - 28ms/step - loss: 0.0402 - mae: 0.1586 - val_loss: 0.0227 - val_mae: 0.1163
+Epoch 3/50
+23/23 - 0s - 21ms/step - loss: 0.0267 - mae: 0.1228 - val_loss: 0.0187 - val_mae: 0.0963
+Epoch 4/50
+23/23 - 0s - 20ms/step - loss: 0.0222 - mae: 0.1065 - val_loss: 0.0141 - val_mae: 0.0793
+Epoch 5/50
+23/23 - 0s - 20ms/step - loss: 0.0191 - mae: 0.0984 - val_loss: 0.0132 - val_mae: 0.0743
+Epoch 6/50
+23/23 - 0s - 21ms/step - loss: 0.0184 - mae: 0.0956 - val_loss: 0.0123 - val_mae: 0.0715
+Epoch 7/50
+23/23 - 0s - 20ms/step - loss: 0.0160 - mae: 0.0871 - val_loss: 0.0118 - val_mae: 0.0695
+Epoch 8/50
+23/23 - 0s - 20ms/step - loss: 0.0152 - mae: 0.0839 - val_loss: 0.0115 - val_mae: 0.0680
+Epoch 9/50
+23/23 - 0s - 20ms/step - loss: 0.0148 - mae: 0.0829 - val_loss: 0.0115 - val_mae: 0.0679
+Epoch 10/50
+23/23 - 1s - 24ms/step - loss: 0.0150 - mae: 0.0831 - val_loss: 0.0112 - val_mae: 0.0671
+Epoch 11/50
+23/23 - 1s - 28ms/step - loss: 0.0141 - mae: 0.0798 - val_loss: 0.0113 - val_mae: 0.0675
+Epoch 12/50
+23/23 - 0s - 21ms/step - loss: 0.0134 - mae: 0.0782 - val_loss: 0.0110 - val_mae: 0.0674
+Epoch 13/50
+23/23 - 0s - 21ms/step - loss: 0.0128 - mae: 0.0752 - val_loss: 0.0104 - val_mae: 0.0636
+Epoch 14/50
+23/23 - 0s - 21ms/step - loss: 0.0121 - mae: 0.0741 - val_loss: 0.0098 - val_mae: 0.0614
+Epoch 15/50
+23/23 - 0s - 20ms/step - loss: 0.0122 - mae: 0.0745 - val_loss: 0.0102 - val_mae: 0.0637
+Epoch 16/50
+23/23 - 0s - 20ms/step - loss: 0.0120 - mae: 0.0737 - val_loss: 0.0102 - val_mae: 0.0631
+Epoch 17/50
+23/23 - 0s - 20ms/step - loss: 0.0114 - mae: 0.0709 - val_loss: 0.0101 - val_mae: 0.0643
+Epoch 18/50
+23/23 - 0s - 20ms/step - loss: 0.0108 - mae: 0.0695 - val_loss: 0.0110 - val_mae: 0.0672
+Epoch 19/50
+23/23 - 0s - 20ms/step - loss: 0.0116 - mae: 0.0724 - val_loss: 0.0107 - val_mae: 0.0660
+Epoch 20/50
+23/23 - 0s - 20ms/step - loss: 0.0115 - mae: 0.0718 - val_loss: 0.0110 - val_mae: 0.0678
+Epoch 21/50
+23/23 - 0s - 20ms/step - loss: 0.0113 - mae: 0.0717 - val_loss: 0.0129 - val_mae: 0.0801
+Epoch 22/50
+23/23 - 0s - 20ms/step - loss: 0.0121 - mae: 0.0744 - val_loss: 0.0093 - val_mae: 0.0607
+Epoch 23/50
+23/23 - 0s - 20ms/step - loss: 0.0105 - mae: 0.0667 - val_loss: 0.0088 - val_mae: 0.0580
+Epoch 24/50
+23/23 - 0s - 20ms/step - loss: 0.0099 - mae: 0.0632 - val_loss: 0.0091 - val_mae: 0.0614
+Epoch 25/50
+23/23 - 0s - 20ms/step - loss: 0.0095 - mae: 0.0616 - val_loss: 0.0097 - val_mae: 0.0639
+Epoch 26/50
+23/23 - 1s - 22ms/step - loss: 0.0100 - mae: 0.0644 - val_loss: 0.0090 - val_mae: 0.0611
+Epoch 27/50
+23/23 - 0s - 21ms/step - loss: 0.0091 - mae: 0.0602 - val_loss: 0.0088 - val_mae: 0.0577
+Epoch 28/50
+23/23 - 1s - 25ms/step - loss: 0.0088 - mae: 0.0594 - val_loss: 0.0089 - val_mae: 0.0593
+Epoch 29/50
+23/23 - 0s - 20ms/step - loss: 0.0090 - mae: 0.0597 - val_loss: 0.0089 - val_mae: 0.0596
+Epoch 30/50
+23/23 - 0s - 20ms/step - loss: 0.0088 - mae: 0.0594 - val_loss: 0.0086 - val_mae: 0.0587
+Epoch 31/50
+23/23 - 1s - 23ms/step - loss: 0.0092 - mae: 0.0607 - val_loss: 0.0091 - val_mae: 0.0615
+Epoch 32/50
+23/23 - 0s - 19ms/step - loss: 0.0088 - mae: 0.0598 - val_loss: 0.0086 - val_mae: 0.0586
+Epoch 33/50
+23/23 - 0s - 20ms/step - loss: 0.0084 - mae: 0.0578 - val_loss: 0.0083 - val_mae: 0.0566
+Epoch 34/50
+23/23 - 0s - 19ms/step - loss: 0.0086 - mae: 0.0593 - val_loss: 0.0086 - val_mae: 0.0582
+Epoch 35/50
+23/23 - 0s - 20ms/step - loss: 0.0082 - mae: 0.0576 - val_loss: 0.0082 - val_mae: 0.0554
+Epoch 36/50
+23/23 - 0s - 19ms/step - loss: 0.0083 - mae: 0.0575 - val_loss: 0.0080 - val_mae: 0.0542
+Epoch 37/50
+23/23 - 0s - 20ms/step - loss: 0.0080 - mae: 0.0566 - val_loss: 0.0083 - val_mae: 0.0572
+Epoch 38/50
+23/23 - 0s - 20ms/step - loss: 0.0083 - mae: 0.0578 - val_loss: 0.0085 - val_mae: 0.0584
+Epoch 39/50
+23/23 - 0s - 20ms/step - loss: 0.0088 - mae: 0.0600 - val_loss: 0.0091 - val_mae: 0.0600
+Epoch 40/50
+23/23 - 0s - 20ms/step - loss: 0.0083 - mae: 0.0577 - val_loss: 0.0093 - val_mae: 0.0611
+Epoch 41/50
+23/23 - 0s - 19ms/step - loss: 0.0078 - mae: 0.0565 - val_loss: 0.0088 - val_mae: 0.0592
+Epoch 42/50
+23/23 - 0s - 19ms/step - loss: 0.0081 - mae: 0.0571 - val_loss: 0.0083 - val_mae: 0.0579
+Epoch 43/50
+23/23 - 0s - 20ms/step - loss: 0.0082 - mae: 0.0567 - val_loss: 0.0082 - val_mae: 0.0560
+Epoch 44/50
+23/23 - 0s - 21ms/step - loss: 0.0078 - mae: 0.0564 - val_loss: 0.0088 - val_mae: 0.0598
+Epoch 45/50
+23/23 - 0s - 20ms/step - loss: 0.0079 - mae: 0.0563 - val_loss: 0.0084 - val_mae: 0.0564
+Epoch 46/50
+23/23 - 0s - 20ms/step - loss: 0.0078 - mae: 0.0554 - val_loss: 0.0082 - val_mae: 0.0563
+saved s_cnn_lstm_s43
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312479.641564   30748 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312482.069090   30748 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Epoch 1/50
+23/23 - 3s - 145ms/step - loss: 0.0991 - mae: 0.2501 - val_loss: 0.0342 - val_mae: 0.1455
+Epoch 2/50
+23/23 - 1s - 27ms/step - loss: 0.0325 - mae: 0.1379 - val_loss: 0.0223 - val_mae: 0.1044
+Epoch 3/50
+23/23 - 1s - 29ms/step - loss: 0.0238 - mae: 0.1117 - val_loss: 0.0226 - val_mae: 0.1050
+Epoch 4/50
+23/23 - 1s - 27ms/step - loss: 0.0213 - mae: 0.1038 - val_loss: 0.0184 - val_mae: 0.0889
+Epoch 5/50
+23/23 - 1s - 30ms/step - loss: 0.0201 - mae: 0.0999 - val_loss: 0.0176 - val_mae: 0.0874
+Epoch 6/50
+23/23 - 1s - 29ms/step - loss: 0.0185 - mae: 0.0976 - val_loss: 0.0150 - val_mae: 0.0800
+Epoch 7/50
+23/23 - 1s - 32ms/step - loss: 0.0184 - mae: 0.0958 - val_loss: 0.0136 - val_mae: 0.0751
+Epoch 8/50
+23/23 - 1s - 32ms/step - loss: 0.0178 - mae: 0.0939 - val_loss: 0.0124 - val_mae: 0.0705
+Epoch 9/50
+23/23 - 1s - 32ms/step - loss: 0.0165 - mae: 0.0899 - val_loss: 0.0123 - val_mae: 0.0725
+Epoch 10/50
+23/23 - 1s - 28ms/step - loss: 0.0152 - mae: 0.0853 - val_loss: 0.0120 - val_mae: 0.0709
+Epoch 11/50
+23/23 - 1s - 29ms/step - loss: 0.0148 - mae: 0.0834 - val_loss: 0.0112 - val_mae: 0.0677
+Epoch 12/50
+23/23 - 1s - 28ms/step - loss: 0.0137 - mae: 0.0800 - val_loss: 0.0106 - val_mae: 0.0654
+Epoch 13/50
+23/23 - 1s - 28ms/step - loss: 0.0123 - mae: 0.0753 - val_loss: 0.0103 - val_mae: 0.0645
+Epoch 14/50
+23/23 - 1s - 28ms/step - loss: 0.0128 - mae: 0.0788 - val_loss: 0.0098 - val_mae: 0.0622
+Epoch 15/50
+23/23 - 1s - 27ms/step - loss: 0.0122 - mae: 0.0765 - val_loss: 0.0104 - val_mae: 0.0672
+Epoch 16/50
+23/23 - 1s - 28ms/step - loss: 0.0121 - mae: 0.0754 - val_loss: 0.0110 - val_mae: 0.0694
+Epoch 17/50
+23/23 - 1s - 29ms/step - loss: 0.0118 - mae: 0.0747 - val_loss: 0.0099 - val_mae: 0.0615
+Epoch 18/50
+23/23 - 1s - 29ms/step - loss: 0.0110 - mae: 0.0713 - val_loss: 0.0098 - val_mae: 0.0624
+Epoch 19/50
+23/23 - 1s - 28ms/step - loss: 0.0107 - mae: 0.0709 - val_loss: 0.0096 - val_mae: 0.0633
+Epoch 20/50
+23/23 - 1s - 29ms/step - loss: 0.0101 - mae: 0.0681 - val_loss: 0.0093 - val_mae: 0.0612
+Epoch 21/50
+23/23 - 1s - 30ms/step - loss: 0.0106 - mae: 0.0709 - val_loss: 0.0092 - val_mae: 0.0627
+Epoch 22/50
+23/23 - 1s - 29ms/step - loss: 0.0100 - mae: 0.0677 - val_loss: 0.0087 - val_mae: 0.0589
+Epoch 23/50
+23/23 - 1s - 28ms/step - loss: 0.0097 - mae: 0.0672 - val_loss: 0.0090 - val_mae: 0.0613
+Epoch 24/50
+23/23 - 1s - 28ms/step - loss: 0.0109 - mae: 0.0722 - val_loss: 0.0091 - val_mae: 0.0628
+Epoch 25/50
+23/23 - 1s - 28ms/step - loss: 0.0099 - mae: 0.0687 - val_loss: 0.0089 - val_mae: 0.0592
+Epoch 26/50
+23/23 - 1s - 29ms/step - loss: 0.0092 - mae: 0.0646 - val_loss: 0.0086 - val_mae: 0.0589
+Epoch 27/50
+23/23 - 1s - 30ms/step - loss: 0.0090 - mae: 0.0644 - val_loss: 0.0091 - val_mae: 0.0622
+Epoch 28/50
+23/23 - 1s - 28ms/step - loss: 0.0091 - mae: 0.0649 - val_loss: 0.0091 - val_mae: 0.0606
+Epoch 29/50
+23/23 - 1s - 29ms/step - loss: 0.0093 - mae: 0.0656 - val_loss: 0.0085 - val_mae: 0.0582
+Epoch 30/50
+23/23 - 1s - 29ms/step - loss: 0.0095 - mae: 0.0653 - val_loss: 0.0089 - val_mae: 0.0610
+Epoch 31/50
+23/23 - 1s - 28ms/step - loss: 0.0094 - mae: 0.0658 - val_loss: 0.0084 - val_mae: 0.0569
+Epoch 32/50
+23/23 - 1s - 28ms/step - loss: 0.0095 - mae: 0.0665 - val_loss: 0.0087 - val_mae: 0.0580
+Epoch 33/50
+23/23 - 1s - 28ms/step - loss: 0.0089 - mae: 0.0639 - val_loss: 0.0085 - val_mae: 0.0575
+Epoch 34/50
+23/23 - 1s - 28ms/step - loss: 0.0088 - mae: 0.0629 - val_loss: 0.0085 - val_mae: 0.0570
+Epoch 35/50
+23/23 - 1s - 28ms/step - loss: 0.0089 - mae: 0.0636 - val_loss: 0.0081 - val_mae: 0.0561
+Epoch 36/50
+23/23 - 1s - 29ms/step - loss: 0.0092 - mae: 0.0637 - val_loss: 0.0083 - val_mae: 0.0565
+Epoch 37/50
+23/23 - 1s - 34ms/step - loss: 0.0090 - mae: 0.0636 - val_loss: 0.0090 - val_mae: 0.0612
+Epoch 38/50
+23/23 - 1s - 28ms/step - loss: 0.0088 - mae: 0.0632 - val_loss: 0.0088 - val_mae: 0.0583
+Epoch 39/50
+23/23 - 1s - 28ms/step - loss: 0.0088 - mae: 0.0626 - val_loss: 0.0094 - val_mae: 0.0629
+Epoch 40/50
+23/23 - 1s - 28ms/step - loss: 0.0090 - mae: 0.0638 - val_loss: 0.0096 - val_mae: 0.0626
+Epoch 41/50
+23/23 - 1s - 26ms/step - loss: 0.0087 - mae: 0.0621 - val_loss: 0.0092 - val_mae: 0.0604
+Epoch 42/50
+23/23 - 1s - 26ms/step - loss: 0.0085 - mae: 0.0618 - val_loss: 0.0088 - val_mae: 0.0594
+Epoch 43/50
+23/23 - 1s - 27ms/step - loss: 0.0083 - mae: 0.0612 - val_loss: 0.0093 - val_mae: 0.0627
+Epoch 44/50
+23/23 - 1s - 26ms/step - loss: 0.0084 - mae: 0.0612 - val_loss: 0.0097 - val_mae: 0.0641
+Epoch 45/50
+23/23 - 1s - 26ms/step - loss: 0.0085 - mae: 0.0625 - val_loss: 0.0092 - val_mae: 0.0623
+saved p_cnn_lstm_s43
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312519.500822   33960 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312521.928697   33960 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Epoch 1/50
+23/23 - 2s - 82ms/step - loss: 0.1215 - mae: 0.2848 - val_loss: 0.0484 - val_mae: 0.1737
+Epoch 2/50
+23/23 - 0s - 11ms/step - loss: 0.0347 - mae: 0.1428 - val_loss: 0.0266 - val_mae: 0.1225
+Epoch 3/50
+23/23 - 0s - 11ms/step - loss: 0.0236 - mae: 0.1156 - val_loss: 0.0209 - val_mae: 0.1074
+Epoch 4/50
+23/23 - 0s - 11ms/step - loss: 0.0193 - mae: 0.1038 - val_loss: 0.0183 - val_mae: 0.0995
+Epoch 5/50
+23/23 - 0s - 12ms/step - loss: 0.0172 - mae: 0.0973 - val_loss: 0.0167 - val_mae: 0.0937
+Epoch 6/50
+23/23 - 0s - 12ms/step - loss: 0.0161 - mae: 0.0933 - val_loss: 0.0158 - val_mae: 0.0901
+Epoch 7/50
+23/23 - 0s - 12ms/step - loss: 0.0152 - mae: 0.0898 - val_loss: 0.0149 - val_mae: 0.0860
+Epoch 8/50
+23/23 - 0s - 12ms/step - loss: 0.0144 - mae: 0.0864 - val_loss: 0.0142 - val_mae: 0.0827
+Epoch 9/50
+23/23 - 0s - 12ms/step - loss: 0.0136 - mae: 0.0829 - val_loss: 0.0136 - val_mae: 0.0804
+Epoch 10/50
+23/23 - 0s - 12ms/step - loss: 0.0129 - mae: 0.0798 - val_loss: 0.0132 - val_mae: 0.0790
+Epoch 11/50
+23/23 - 0s - 11ms/step - loss: 0.0124 - mae: 0.0773 - val_loss: 0.0128 - val_mae: 0.0773
+Epoch 12/50
+23/23 - 0s - 11ms/step - loss: 0.0119 - mae: 0.0755 - val_loss: 0.0126 - val_mae: 0.0765
+Epoch 13/50
+23/23 - 0s - 10ms/step - loss: 0.0115 - mae: 0.0737 - val_loss: 0.0123 - val_mae: 0.0742
+Epoch 14/50
+23/23 - 0s - 10ms/step - loss: 0.0114 - mae: 0.0729 - val_loss: 0.0119 - val_mae: 0.0735
+Epoch 15/50
+23/23 - 0s - 11ms/step - loss: 0.0108 - mae: 0.0708 - val_loss: 0.0114 - val_mae: 0.0713
+Epoch 16/50
+23/23 - 0s - 12ms/step - loss: 0.0105 - mae: 0.0694 - val_loss: 0.0111 - val_mae: 0.0701
+Epoch 17/50
+23/23 - 0s - 13ms/step - loss: 0.0100 - mae: 0.0673 - val_loss: 0.0106 - val_mae: 0.0678
+Epoch 18/50
+23/23 - 0s - 12ms/step - loss: 0.0097 - mae: 0.0658 - val_loss: 0.0103 - val_mae: 0.0665
+Epoch 19/50
+23/23 - 0s - 12ms/step - loss: 0.0093 - mae: 0.0640 - val_loss: 0.0100 - val_mae: 0.0654
+Epoch 20/50
+23/23 - 0s - 13ms/step - loss: 0.0090 - mae: 0.0629 - val_loss: 0.0097 - val_mae: 0.0640
+Epoch 21/50
+23/23 - 0s - 12ms/step - loss: 0.0087 - mae: 0.0614 - val_loss: 0.0095 - val_mae: 0.0636
+Epoch 22/50
+23/23 - 0s - 13ms/step - loss: 0.0085 - mae: 0.0607 - val_loss: 0.0093 - val_mae: 0.0630
+Epoch 23/50
+23/23 - 0s - 12ms/step - loss: 0.0082 - mae: 0.0598 - val_loss: 0.0093 - val_mae: 0.0631
+Epoch 24/50
+23/23 - 0s - 12ms/step - loss: 0.0081 - mae: 0.0594 - val_loss: 0.0093 - val_mae: 0.0635
+Epoch 25/50
+23/23 - 0s - 11ms/step - loss: 0.0080 - mae: 0.0590 - val_loss: 0.0093 - val_mae: 0.0639
+Epoch 26/50
+23/23 - 0s - 11ms/step - loss: 0.0080 - mae: 0.0589 - val_loss: 0.0092 - val_mae: 0.0631
+Epoch 27/50
+23/23 - 0s - 11ms/step - loss: 0.0078 - mae: 0.0583 - val_loss: 0.0087 - val_mae: 0.0608
+Epoch 28/50
+23/23 - 0s - 10ms/step - loss: 0.0075 - mae: 0.0568 - val_loss: 0.0084 - val_mae: 0.0592
+Epoch 29/50
+23/23 - 0s - 11ms/step - loss: 0.0072 - mae: 0.0551 - val_loss: 0.0083 - val_mae: 0.0587
+Epoch 30/50
+23/23 - 0s - 11ms/step - loss: 0.0070 - mae: 0.0541 - val_loss: 0.0083 - val_mae: 0.0588
+Epoch 31/50
+23/23 - 0s - 11ms/step - loss: 0.0069 - mae: 0.0536 - val_loss: 0.0083 - val_mae: 0.0589
+Epoch 32/50
+23/23 - 0s - 11ms/step - loss: 0.0068 - mae: 0.0533 - val_loss: 0.0083 - val_mae: 0.0591
+Epoch 33/50
+23/23 - 0s - 10ms/step - loss: 0.0067 - mae: 0.0529 - val_loss: 0.0083 - val_mae: 0.0590
+Epoch 34/50
+23/23 - 0s - 10ms/step - loss: 0.0066 - mae: 0.0525 - val_loss: 0.0083 - val_mae: 0.0590
+Epoch 35/50
+23/23 - 0s - 11ms/step - loss: 0.0065 - mae: 0.0521 - val_loss: 0.0083 - val_mae: 0.0587
+Epoch 36/50
+23/23 - 0s - 14ms/step - loss: 0.0064 - mae: 0.0516 - val_loss: 0.0082 - val_mae: 0.0584
+Epoch 37/50
+23/23 - 0s - 12ms/step - loss: 0.0062 - mae: 0.0510 - val_loss: 0.0082 - val_mae: 0.0584
+Epoch 38/50
+23/23 - 0s - 13ms/step - loss: 0.0062 - mae: 0.0506 - val_loss: 0.0082 - val_mae: 0.0583
+Epoch 39/50
+23/23 - 0s - 11ms/step - loss: 0.0061 - mae: 0.0504 - val_loss: 0.0082 - val_mae: 0.0583
+Epoch 40/50
+23/23 - 0s - 10ms/step - loss: 0.0060 - mae: 0.0502 - val_loss: 0.0082 - val_mae: 0.0583
+Epoch 41/50
+23/23 - 0s - 11ms/step - loss: 0.0060 - mae: 0.0499 - val_loss: 0.0082 - val_mae: 0.0580
+Epoch 42/50
+23/23 - 0s - 10ms/step - loss: 0.0059 - mae: 0.0497 - val_loss: 0.0083 - val_mae: 0.0585
+Epoch 43/50
+23/23 - 0s - 11ms/step - loss: 0.0058 - mae: 0.0493 - val_loss: 0.0084 - val_mae: 0.0586
+Epoch 44/50
+23/23 - 0s - 12ms/step - loss: 0.0058 - mae: 0.0489 - val_loss: 0.0084 - val_mae: 0.0588
+Epoch 45/50
+23/23 - 0s - 10ms/step - loss: 0.0057 - mae: 0.0488 - val_loss: 0.0085 - val_mae: 0.0587
+Epoch 46/50
+23/23 - 0s - 12ms/step - loss: 0.0056 - mae: 0.0483 - val_loss: 0.0082 - val_mae: 0.0574
+Epoch 47/50
+23/23 - 0s - 11ms/step - loss: 0.0055 - mae: 0.0478 - val_loss: 0.0082 - val_mae: 0.0574
+Epoch 48/50
+23/23 - 0s - 10ms/step - loss: 0.0054 - mae: 0.0473 - val_loss: 0.0082 - val_mae: 0.0574
+Epoch 49/50
+23/23 - 0s - 12ms/step - loss: 0.0053 - mae: 0.0469 - val_loss: 0.0082 - val_mae: 0.0573
+Epoch 50/50
+23/23 - 0s - 11ms/step - loss: 0.0053 - mae: 0.0468 - val_loss: 0.0083 - val_mae: 0.0577
+saved lstm_s43
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312541.930391   32440 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312544.722635   32440 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Epoch 1/50
+23/23 - 5s - 229ms/step - loss: 0.0997 - mae: 0.2513 - val_loss: 0.0355 - val_mae: 0.1471
+Epoch 2/50
+23/23 - 1s - 32ms/step - loss: 0.0346 - mae: 0.1436 - val_loss: 0.0218 - val_mae: 0.1061
+Epoch 3/50
+23/23 - 1s - 35ms/step - loss: 0.0231 - mae: 0.1117 - val_loss: 0.0192 - val_mae: 0.0968
+Epoch 4/50
+23/23 - 1s - 39ms/step - loss: 0.0200 - mae: 0.1023 - val_loss: 0.0161 - val_mae: 0.0853
+Epoch 5/50
+23/23 - 1s - 33ms/step - loss: 0.0172 - mae: 0.0928 - val_loss: 0.0150 - val_mae: 0.0820
+Epoch 6/50
+23/23 - 1s - 33ms/step - loss: 0.0157 - mae: 0.0899 - val_loss: 0.0116 - val_mae: 0.0703
+Epoch 7/50
+23/23 - 1s - 30ms/step - loss: 0.0136 - mae: 0.0825 - val_loss: 0.0104 - val_mae: 0.0672
+Epoch 8/50
+23/23 - 1s - 30ms/step - loss: 0.0131 - mae: 0.0819 - val_loss: 0.0102 - val_mae: 0.0680
+Epoch 9/50
+23/23 - 1s - 30ms/step - loss: 0.0118 - mae: 0.0769 - val_loss: 0.0087 - val_mae: 0.0611
+Epoch 10/50
+23/23 - 1s - 32ms/step - loss: 0.0109 - mae: 0.0740 - val_loss: 0.0081 - val_mae: 0.0584
+Epoch 11/50
+23/23 - 1s - 30ms/step - loss: 0.0101 - mae: 0.0710 - val_loss: 0.0092 - val_mae: 0.0630
+Epoch 12/50
+23/23 - 1s - 30ms/step - loss: 0.0099 - mae: 0.0700 - val_loss: 0.0088 - val_mae: 0.0622
+Epoch 13/50
+23/23 - 1s - 32ms/step - loss: 0.0102 - mae: 0.0715 - val_loss: 0.0077 - val_mae: 0.0590
+Epoch 14/50
+23/23 - 1s - 36ms/step - loss: 0.0115 - mae: 0.0769 - val_loss: 0.0095 - val_mae: 0.0682
+Epoch 15/50
+23/23 - 1s - 38ms/step - loss: 0.0108 - mae: 0.0735 - val_loss: 0.0080 - val_mae: 0.0599
+Epoch 16/50
+23/23 - 1s - 32ms/step - loss: 0.0097 - mae: 0.0689 - val_loss: 0.0086 - val_mae: 0.0627
+Epoch 17/50
+23/23 - 1s - 30ms/step - loss: 0.0093 - mae: 0.0674 - val_loss: 0.0075 - val_mae: 0.0561
+Epoch 18/50
+23/23 - 1s - 27ms/step - loss: 0.0081 - mae: 0.0631 - val_loss: 0.0075 - val_mae: 0.0583
+Epoch 19/50
+23/23 - 1s - 27ms/step - loss: 0.0085 - mae: 0.0652 - val_loss: 0.0078 - val_mae: 0.0591
+Epoch 20/50
+23/23 - 1s - 26ms/step - loss: 0.0083 - mae: 0.0631 - val_loss: 0.0076 - val_mae: 0.0573
+Epoch 21/50
+23/23 - 1s - 28ms/step - loss: 0.0081 - mae: 0.0626 - val_loss: 0.0067 - val_mae: 0.0540
+Epoch 22/50
+23/23 - 1s - 26ms/step - loss: 0.0086 - mae: 0.0650 - val_loss: 0.0079 - val_mae: 0.0602
+Epoch 23/50
+23/23 - 1s - 27ms/step - loss: 0.0081 - mae: 0.0619 - val_loss: 0.0071 - val_mae: 0.0569
+Epoch 24/50
+23/23 - 1s - 29ms/step - loss: 0.0086 - mae: 0.0644 - val_loss: 0.0066 - val_mae: 0.0538
+Epoch 25/50
+23/23 - 1s - 26ms/step - loss: 0.0079 - mae: 0.0621 - val_loss: 0.0067 - val_mae: 0.0536
+Epoch 26/50
+23/23 - 1s - 26ms/step - loss: 0.0076 - mae: 0.0597 - val_loss: 0.0065 - val_mae: 0.0529
+Epoch 27/50
+23/23 - 1s - 27ms/step - loss: 0.0075 - mae: 0.0603 - val_loss: 0.0078 - val_mae: 0.0614
+Epoch 28/50
+23/23 - 1s - 28ms/step - loss: 0.0075 - mae: 0.0602 - val_loss: 0.0063 - val_mae: 0.0521
+Epoch 29/50
+23/23 - 1s - 28ms/step - loss: 0.0070 - mae: 0.0586 - val_loss: 0.0060 - val_mae: 0.0493
+Epoch 30/50
+23/23 - 1s - 31ms/step - loss: 0.0069 - mae: 0.0577 - val_loss: 0.0064 - val_mae: 0.0536
+Epoch 31/50
+23/23 - 1s - 27ms/step - loss: 0.0066 - mae: 0.0564 - val_loss: 0.0061 - val_mae: 0.0509
+Epoch 32/50
+23/23 - 1s - 28ms/step - loss: 0.0068 - mae: 0.0573 - val_loss: 0.0069 - val_mae: 0.0558
+Epoch 33/50
+23/23 - 1s - 27ms/step - loss: 0.0073 - mae: 0.0602 - val_loss: 0.0056 - val_mae: 0.0475
+Epoch 34/50
+23/23 - 1s - 26ms/step - loss: 0.0066 - mae: 0.0567 - val_loss: 0.0062 - val_mae: 0.0526
+Epoch 35/50
+23/23 - 1s - 26ms/step - loss: 0.0065 - mae: 0.0562 - val_loss: 0.0063 - val_mae: 0.0537
+Epoch 36/50
+23/23 - 1s - 26ms/step - loss: 0.0065 - mae: 0.0562 - val_loss: 0.0070 - val_mae: 0.0578
+Epoch 37/50
+23/23 - 1s - 26ms/step - loss: 0.0067 - mae: 0.0574 - val_loss: 0.0057 - val_mae: 0.0499
+Epoch 38/50
+23/23 - 1s - 26ms/step - loss: 0.0062 - mae: 0.0546 - val_loss: 0.0060 - val_mae: 0.0506
+Epoch 39/50
+23/23 - 1s - 28ms/step - loss: 0.0062 - mae: 0.0547 - val_loss: 0.0058 - val_mae: 0.0519
+Epoch 40/50
+23/23 - 1s - 27ms/step - loss: 0.0064 - mae: 0.0562 - val_loss: 0.0053 - val_mae: 0.0472
+Epoch 41/50
+23/23 - 1s - 26ms/step - loss: 0.0064 - mae: 0.0561 - val_loss: 0.0055 - val_mae: 0.0481
+Epoch 42/50
+23/23 - 1s - 27ms/step - loss: 0.0058 - mae: 0.0528 - val_loss: 0.0053 - val_mae: 0.0465
+Epoch 43/50
+23/23 - 1s - 26ms/step - loss: 0.0056 - mae: 0.0528 - val_loss: 0.0052 - val_mae: 0.0471
+Epoch 44/50
+23/23 - 1s - 26ms/step - loss: 0.0059 - mae: 0.0528 - val_loss: 0.0054 - val_mae: 0.0468
+Epoch 45/50
+23/23 - 1s - 26ms/step - loss: 0.0056 - mae: 0.0519 - val_loss: 0.0051 - val_mae: 0.0466
+Epoch 46/50
+23/23 - 1s - 28ms/step - loss: 0.0057 - mae: 0.0528 - val_loss: 0.0050 - val_mae: 0.0461
+Epoch 47/50
+23/23 - 1s - 28ms/step - loss: 0.0057 - mae: 0.0522 - val_loss: 0.0050 - val_mae: 0.0455
+Epoch 48/50
+23/23 - 1s - 26ms/step - loss: 0.0054 - mae: 0.0515 - val_loss: 0.0053 - val_mae: 0.0470
+Epoch 49/50
+23/23 - 1s - 26ms/step - loss: 0.0051 - mae: 0.0501 - val_loss: 0.0049 - val_mae: 0.0451
+Epoch 50/50
+23/23 - 1s - 26ms/step - loss: 0.0055 - mae: 0.0511 - val_loss: 0.0049 - val_mae: 0.0448
+saved p_cnn_lstm_nextday_s43
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312588.228427   37760 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312590.547647   37760 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Epoch 1/50
+23/23 - 4s - 154ms/step - loss: 0.1032 - mae: 0.2522 - val_loss: 0.0399 - val_mae: 0.1488
+Epoch 2/50
+23/23 - 1s - 34ms/step - loss: 0.0376 - mae: 0.1514 - val_loss: 0.0205 - val_mae: 0.1069
+Epoch 3/50
+23/23 - 1s - 34ms/step - loss: 0.0253 - mae: 0.1184 - val_loss: 0.0194 - val_mae: 0.1033
+Epoch 4/50
+23/23 - 1s - 38ms/step - loss: 0.0211 - mae: 0.1051 - val_loss: 0.0167 - val_mae: 0.0909
+Epoch 5/50
+23/23 - 1s - 32ms/step - loss: 0.0192 - mae: 0.0991 - val_loss: 0.0146 - val_mae: 0.0822
+Epoch 6/50
+23/23 - 1s - 35ms/step - loss: 0.0170 - mae: 0.0924 - val_loss: 0.0144 - val_mae: 0.0820
+Epoch 7/50
+23/23 - 1s - 33ms/step - loss: 0.0165 - mae: 0.0909 - val_loss: 0.0136 - val_mae: 0.0777
+Epoch 8/50
+23/23 - 1s - 32ms/step - loss: 0.0162 - mae: 0.0899 - val_loss: 0.0125 - val_mae: 0.0750
+Epoch 9/50
+23/23 - 1s - 33ms/step - loss: 0.0153 - mae: 0.0874 - val_loss: 0.0121 - val_mae: 0.0715
+Epoch 10/50
+23/23 - 1s - 32ms/step - loss: 0.0144 - mae: 0.0837 - val_loss: 0.0120 - val_mae: 0.0718
+Epoch 11/50
+23/23 - 1s - 34ms/step - loss: 0.0135 - mae: 0.0806 - val_loss: 0.0133 - val_mae: 0.0803
+Epoch 12/50
+23/23 - 1s - 32ms/step - loss: 0.0129 - mae: 0.0789 - val_loss: 0.0116 - val_mae: 0.0714
+Epoch 13/50
+23/23 - 1s - 32ms/step - loss: 0.0124 - mae: 0.0762 - val_loss: 0.0108 - val_mae: 0.0682
+Epoch 14/50
+23/23 - 1s - 32ms/step - loss: 0.0115 - mae: 0.0744 - val_loss: 0.0113 - val_mae: 0.0690
+Epoch 15/50
+23/23 - 1s - 32ms/step - loss: 0.0114 - mae: 0.0737 - val_loss: 0.0111 - val_mae: 0.0695
+Epoch 16/50
+23/23 - 1s - 32ms/step - loss: 0.0111 - mae: 0.0722 - val_loss: 0.0108 - val_mae: 0.0682
+Epoch 17/50
+23/23 - 1s - 32ms/step - loss: 0.0112 - mae: 0.0723 - val_loss: 0.0103 - val_mae: 0.0653
+Epoch 18/50
+23/23 - 1s - 33ms/step - loss: 0.0098 - mae: 0.0682 - val_loss: 0.0105 - val_mae: 0.0671
+Epoch 19/50
+23/23 - 1s - 34ms/step - loss: 0.0106 - mae: 0.0701 - val_loss: 0.0107 - val_mae: 0.0688
+Epoch 20/50
+23/23 - 1s - 36ms/step - loss: 0.0099 - mae: 0.0683 - val_loss: 0.0107 - val_mae: 0.0680
+Epoch 21/50
+23/23 - 1s - 32ms/step - loss: 0.0097 - mae: 0.0676 - val_loss: 0.0096 - val_mae: 0.0633
+Epoch 22/50
+23/23 - 1s - 32ms/step - loss: 0.0089 - mae: 0.0645 - val_loss: 0.0099 - val_mae: 0.0666
+Epoch 23/50
+23/23 - 1s - 32ms/step - loss: 0.0089 - mae: 0.0652 - val_loss: 0.0094 - val_mae: 0.0635
+Epoch 24/50
+23/23 - 1s - 34ms/step - loss: 0.0098 - mae: 0.0686 - val_loss: 0.0109 - val_mae: 0.0690
+Epoch 25/50
+23/23 - 1s - 34ms/step - loss: 0.0089 - mae: 0.0654 - val_loss: 0.0094 - val_mae: 0.0620
+Epoch 26/50
+23/23 - 1s - 33ms/step - loss: 0.0094 - mae: 0.0673 - val_loss: 0.0106 - val_mae: 0.0649
+Epoch 27/50
+23/23 - 1s - 33ms/step - loss: 0.0095 - mae: 0.0679 - val_loss: 0.0104 - val_mae: 0.0668
+Epoch 28/50
+23/23 - 1s - 33ms/step - loss: 0.0097 - mae: 0.0687 - val_loss: 0.0099 - val_mae: 0.0651
+Epoch 29/50
+23/23 - 1s - 33ms/step - loss: 0.0087 - mae: 0.0646 - val_loss: 0.0104 - val_mae: 0.0672
+Epoch 30/50
+23/23 - 1s - 33ms/step - loss: 0.0083 - mae: 0.0624 - val_loss: 0.0105 - val_mae: 0.0661
+Epoch 31/50
+23/23 - 1s - 35ms/step - loss: 0.0079 - mae: 0.0615 - val_loss: 0.0111 - val_mae: 0.0704
+Epoch 32/50
+23/23 - 1s - 36ms/step - loss: 0.0080 - mae: 0.0617 - val_loss: 0.0093 - val_mae: 0.0619
+Epoch 33/50
+23/23 - 1s - 34ms/step - loss: 0.0081 - mae: 0.0621 - val_loss: 0.0111 - val_mae: 0.0711
+Epoch 34/50
+23/23 - 1s - 38ms/step - loss: 0.0078 - mae: 0.0613 - val_loss: 0.0098 - val_mae: 0.0644
+Epoch 35/50
+23/23 - 1s - 37ms/step - loss: 0.0072 - mae: 0.0591 - val_loss: 0.0099 - val_mae: 0.0648
+Epoch 36/50
+23/23 - 1s - 36ms/step - loss: 0.0072 - mae: 0.0586 - val_loss: 0.0096 - val_mae: 0.0628
+Epoch 37/50
+23/23 - 1s - 34ms/step - loss: 0.0076 - mae: 0.0605 - val_loss: 0.0105 - val_mae: 0.0683
+Epoch 38/50
+23/23 - 1s - 34ms/step - loss: 0.0074 - mae: 0.0599 - val_loss: 0.0096 - val_mae: 0.0644
+Epoch 39/50
+23/23 - 1s - 33ms/step - loss: 0.0074 - mae: 0.0601 - val_loss: 0.0099 - val_mae: 0.0658
+Epoch 40/50
+23/23 - 1s - 33ms/step - loss: 0.0070 - mae: 0.0575 - val_loss: 0.0096 - val_mae: 0.0637
+Epoch 41/50
+23/23 - 1s - 32ms/step - loss: 0.0070 - mae: 0.0576 - val_loss: 0.0104 - val_mae: 0.0684
+Epoch 42/50
+23/23 - 1s - 33ms/step - loss: 0.0069 - mae: 0.0581 - val_loss: 0.0103 - val_mae: 0.0682
+saved p_cnn_lstm_lags14_s43
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312630.961295   12964 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312633.527864   12964 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Epoch 1/50
+23/23 - 4s - 153ms/step - loss: 0.3387 - mae: 0.4634 - val_loss: 0.0725 - val_mae: 0.2077
+Epoch 2/50
+23/23 - 1s - 30ms/step - loss: 0.0828 - mae: 0.2191 - val_loss: 0.0391 - val_mae: 0.1275
+Epoch 3/50
+23/23 - 1s - 29ms/step - loss: 0.0638 - mae: 0.1830 - val_loss: 0.0341 - val_mae: 0.0997
+Epoch 4/50
+23/23 - 1s - 29ms/step - loss: 0.0519 - mae: 0.1572 - val_loss: 0.0282 - val_mae: 0.0909
+Epoch 5/50
+23/23 - 1s - 28ms/step - loss: 0.0496 - mae: 0.1509 - val_loss: 0.0274 - val_mae: 0.0961
+Epoch 6/50
+23/23 - 1s - 28ms/step - loss: 0.0435 - mae: 0.1417 - val_loss: 0.0241 - val_mae: 0.0845
+Epoch 7/50
+23/23 - 1s - 28ms/step - loss: 0.0447 - mae: 0.1419 - val_loss: 0.0253 - val_mae: 0.1078
+Epoch 8/50
+23/23 - 1s - 28ms/step - loss: 0.0396 - mae: 0.1327 - val_loss: 0.0195 - val_mae: 0.0726
+Epoch 9/50
+23/23 - 1s - 30ms/step - loss: 0.0380 - mae: 0.1297 - val_loss: 0.0182 - val_mae: 0.0702
+Epoch 10/50
+23/23 - 1s - 30ms/step - loss: 0.0343 - mae: 0.1205 - val_loss: 0.0179 - val_mae: 0.0676
+Epoch 11/50
+23/23 - 1s - 28ms/step - loss: 0.0334 - mae: 0.1167 - val_loss: 0.0180 - val_mae: 0.0793
+Epoch 12/50
+23/23 - 1s - 28ms/step - loss: 0.0327 - mae: 0.1180 - val_loss: 0.0165 - val_mae: 0.0664
+Epoch 13/50
+23/23 - 1s - 28ms/step - loss: 0.0323 - mae: 0.1154 - val_loss: 0.0182 - val_mae: 0.0759
+Epoch 14/50
+23/23 - 1s - 28ms/step - loss: 0.0306 - mae: 0.1104 - val_loss: 0.0157 - val_mae: 0.0657
+Epoch 15/50
+23/23 - 1s - 28ms/step - loss: 0.0314 - mae: 0.1127 - val_loss: 0.0147 - val_mae: 0.0659
+Epoch 16/50
+23/23 - 1s - 29ms/step - loss: 0.0314 - mae: 0.1163 - val_loss: 0.0204 - val_mae: 0.0870
+Epoch 17/50
+23/23 - 1s - 28ms/step - loss: 0.0295 - mae: 0.1102 - val_loss: 0.0146 - val_mae: 0.0632
+Epoch 18/50
+23/23 - 1s - 28ms/step - loss: 0.0288 - mae: 0.1068 - val_loss: 0.0137 - val_mae: 0.0600
+Epoch 19/50
+23/23 - 1s - 28ms/step - loss: 0.0272 - mae: 0.1025 - val_loss: 0.0163 - val_mae: 0.0733
+Epoch 20/50
+23/23 - 1s - 28ms/step - loss: 0.0269 - mae: 0.1011 - val_loss: 0.0148 - val_mae: 0.0628
+Epoch 21/50
+23/23 - 1s - 29ms/step - loss: 0.0278 - mae: 0.1051 - val_loss: 0.0190 - val_mae: 0.0852
+Epoch 22/50
+23/23 - 1s - 29ms/step - loss: 0.0277 - mae: 0.1036 - val_loss: 0.0133 - val_mae: 0.0577
+Epoch 23/50
+23/23 - 1s - 30ms/step - loss: 0.0264 - mae: 0.1014 - val_loss: 0.0143 - val_mae: 0.0617
+Epoch 24/50
+23/23 - 1s - 29ms/step - loss: 0.0286 - mae: 0.1061 - val_loss: 0.0147 - val_mae: 0.0709
+Epoch 25/50
+23/23 - 1s - 31ms/step - loss: 0.0248 - mae: 0.0976 - val_loss: 0.0127 - val_mae: 0.0542
+Epoch 26/50
+23/23 - 1s - 31ms/step - loss: 0.0228 - mae: 0.0887 - val_loss: 0.0129 - val_mae: 0.0569
+Epoch 27/50
+23/23 - 1s - 28ms/step - loss: 0.0233 - mae: 0.0913 - val_loss: 0.0123 - val_mae: 0.0513
+Epoch 28/50
+23/23 - 1s - 28ms/step - loss: 0.0223 - mae: 0.0903 - val_loss: 0.0120 - val_mae: 0.0536
+Epoch 29/50
+23/23 - 1s - 29ms/step - loss: 0.0230 - mae: 0.0880 - val_loss: 0.0122 - val_mae: 0.0513
+Epoch 30/50
+23/23 - 1s - 28ms/step - loss: 0.0232 - mae: 0.0898 - val_loss: 0.0127 - val_mae: 0.0526
+Epoch 31/50
+23/23 - 1s - 30ms/step - loss: 0.0238 - mae: 0.0906 - val_loss: 0.0124 - val_mae: 0.0540
+Epoch 32/50
+23/23 - 1s - 29ms/step - loss: 0.0227 - mae: 0.0888 - val_loss: 0.0125 - val_mae: 0.0569
+Epoch 33/50
+23/23 - 1s - 27ms/step - loss: 0.0222 - mae: 0.0890 - val_loss: 0.0127 - val_mae: 0.0557
+Epoch 34/50
+23/23 - 1s - 28ms/step - loss: 0.0220 - mae: 0.0864 - val_loss: 0.0123 - val_mae: 0.0530
+Epoch 35/50
+23/23 - 1s - 28ms/step - loss: 0.0215 - mae: 0.0862 - val_loss: 0.0124 - val_mae: 0.0534
+Epoch 36/50
+23/23 - 1s - 28ms/step - loss: 0.0214 - mae: 0.0852 - val_loss: 0.0129 - val_mae: 0.0544
+Epoch 37/50
+23/23 - 1s - 30ms/step - loss: 0.0224 - mae: 0.0864 - val_loss: 0.0119 - val_mae: 0.0490
+Epoch 38/50
+23/23 - 1s - 31ms/step - loss: 0.0212 - mae: 0.0862 - val_loss: 0.0150 - val_mae: 0.0686
+Epoch 39/50
+23/23 - 1s - 28ms/step - loss: 0.0229 - mae: 0.0899 - val_loss: 0.0148 - val_mae: 0.0682
+Epoch 40/50
+23/23 - 1s - 28ms/step - loss: 0.0228 - mae: 0.0897 - val_loss: 0.0123 - val_mae: 0.0527
+Epoch 41/50
+23/23 - 1s - 29ms/step - loss: 0.0232 - mae: 0.0919 - val_loss: 0.0118 - val_mae: 0.0529
+Epoch 42/50
+23/23 - 1s - 31ms/step - loss: 0.0215 - mae: 0.0854 - val_loss: 0.0134 - val_mae: 0.0581
+Epoch 43/50
+23/23 - 1s - 27ms/step - loss: 0.0207 - mae: 0.0814 - val_loss: 0.0122 - val_mae: 0.0544
+Epoch 44/50
+23/23 - 1s - 31ms/step - loss: 0.0214 - mae: 0.0839 - val_loss: 0.0123 - val_mae: 0.0536
+Epoch 45/50
+23/23 - 1s - 33ms/step - loss: 0.0201 - mae: 0.0797 - val_loss: 0.0142 - val_mae: 0.0618
+Epoch 46/50
+23/23 - 1s - 29ms/step - loss: 0.0208 - mae: 0.0859 - val_loss: 0.0147 - val_mae: 0.0657
+Epoch 47/50
+23/23 - 1s - 28ms/step - loss: 0.0214 - mae: 0.0845 - val_loss: 0.0124 - val_mae: 0.0556
+saved p_cnn_lstm_log_s43
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312672.958107   23108 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312675.475770   23108 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Epoch 1/50
+23/23 - 3s - 128ms/step - loss: 0.0844 - mae: 0.2338 - val_loss: 0.0366 - val_mae: 0.1523
+Epoch 2/50
+23/23 - 0s - 21ms/step - loss: 0.0353 - mae: 0.1479 - val_loss: 0.0216 - val_mae: 0.1054
+Epoch 3/50
+23/23 - 1s - 27ms/step - loss: 0.0256 - mae: 0.1161 - val_loss: 0.0169 - val_mae: 0.0849
+Epoch 4/50
+23/23 - 0s - 20ms/step - loss: 0.0220 - mae: 0.1052 - val_loss: 0.0150 - val_mae: 0.0792
+Epoch 5/50
+23/23 - 1s - 24ms/step - loss: 0.0189 - mae: 0.0965 - val_loss: 0.0133 - val_mae: 0.0756
+Epoch 6/50
+23/23 - 0s - 22ms/step - loss: 0.0172 - mae: 0.0897 - val_loss: 0.0161 - val_mae: 0.0892
+Epoch 7/50
+23/23 - 1s - 22ms/step - loss: 0.0157 - mae: 0.0855 - val_loss: 0.0118 - val_mae: 0.0690
+Epoch 8/50
+23/23 - 0s - 20ms/step - loss: 0.0146 - mae: 0.0821 - val_loss: 0.0111 - val_mae: 0.0662
+Epoch 9/50
+23/23 - 0s - 20ms/step - loss: 0.0150 - mae: 0.0836 - val_loss: 0.0112 - val_mae: 0.0656
+Epoch 10/50
+23/23 - 0s - 20ms/step - loss: 0.0142 - mae: 0.0805 - val_loss: 0.0109 - val_mae: 0.0654
+Epoch 11/50
+23/23 - 0s - 20ms/step - loss: 0.0144 - mae: 0.0809 - val_loss: 0.0111 - val_mae: 0.0675
+Epoch 12/50
+23/23 - 1s - 24ms/step - loss: 0.0132 - mae: 0.0775 - val_loss: 0.0102 - val_mae: 0.0634
+Epoch 13/50
+23/23 - 0s - 21ms/step - loss: 0.0128 - mae: 0.0752 - val_loss: 0.0099 - val_mae: 0.0625
+Epoch 14/50
+23/23 - 0s - 21ms/step - loss: 0.0117 - mae: 0.0714 - val_loss: 0.0099 - val_mae: 0.0620
+Epoch 15/50
+23/23 - 0s - 21ms/step - loss: 0.0120 - mae: 0.0728 - val_loss: 0.0095 - val_mae: 0.0609
+Epoch 16/50
+23/23 - 0s - 20ms/step - loss: 0.0119 - mae: 0.0723 - val_loss: 0.0092 - val_mae: 0.0593
+Epoch 17/50
+23/23 - 0s - 20ms/step - loss: 0.0111 - mae: 0.0703 - val_loss: 0.0095 - val_mae: 0.0594
+Epoch 18/50
+23/23 - 0s - 21ms/step - loss: 0.0108 - mae: 0.0687 - val_loss: 0.0093 - val_mae: 0.0594
+Epoch 19/50
+23/23 - 0s - 21ms/step - loss: 0.0103 - mae: 0.0663 - val_loss: 0.0103 - val_mae: 0.0636
+Epoch 20/50
+23/23 - 0s - 22ms/step - loss: 0.0113 - mae: 0.0710 - val_loss: 0.0108 - val_mae: 0.0678
+Epoch 21/50
+23/23 - 0s - 22ms/step - loss: 0.0111 - mae: 0.0706 - val_loss: 0.0107 - val_mae: 0.0654
+Epoch 22/50
+23/23 - 0s - 21ms/step - loss: 0.0105 - mae: 0.0680 - val_loss: 0.0110 - val_mae: 0.0697
+Epoch 23/50
+23/23 - 1s - 22ms/step - loss: 0.0106 - mae: 0.0681 - val_loss: 0.0124 - val_mae: 0.0734
+Epoch 24/50
+23/23 - 0s - 22ms/step - loss: 0.0111 - mae: 0.0693 - val_loss: 0.0102 - val_mae: 0.0640
+Epoch 25/50
+23/23 - 0s - 22ms/step - loss: 0.0100 - mae: 0.0646 - val_loss: 0.0082 - val_mae: 0.0548
+Epoch 26/50
+23/23 - 0s - 20ms/step - loss: 0.0095 - mae: 0.0618 - val_loss: 0.0081 - val_mae: 0.0545
+Epoch 27/50
+23/23 - 1s - 27ms/step - loss: 0.0090 - mae: 0.0600 - val_loss: 0.0088 - val_mae: 0.0583
+Epoch 28/50
+23/23 - 1s - 25ms/step - loss: 0.0090 - mae: 0.0605 - val_loss: 0.0085 - val_mae: 0.0567
+Epoch 29/50
+23/23 - 1s - 26ms/step - loss: 0.0086 - mae: 0.0585 - val_loss: 0.0081 - val_mae: 0.0549
+Epoch 30/50
+23/23 - 1s - 33ms/step - loss: 0.0088 - mae: 0.0593 - val_loss: 0.0082 - val_mae: 0.0552
+Epoch 31/50
+23/23 - 1s - 29ms/step - loss: 0.0089 - mae: 0.0593 - val_loss: 0.0090 - val_mae: 0.0581
+Epoch 32/50
+23/23 - 1s - 29ms/step - loss: 0.0087 - mae: 0.0592 - val_loss: 0.0085 - val_mae: 0.0561
+Epoch 33/50
+23/23 - 1s - 29ms/step - loss: 0.0085 - mae: 0.0584 - val_loss: 0.0098 - val_mae: 0.0633
+Epoch 34/50
+23/23 - 1s - 33ms/step - loss: 0.0087 - mae: 0.0589 - val_loss: 0.0091 - val_mae: 0.0593
+Epoch 35/50
+23/23 - 1s - 29ms/step - loss: 0.0081 - mae: 0.0568 - val_loss: 0.0082 - val_mae: 0.0545
+Epoch 36/50
+23/23 - 1s - 26ms/step - loss: 0.0083 - mae: 0.0566 - val_loss: 0.0083 - val_mae: 0.0549
+saved s_cnn_lstm_s44
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312702.835620   27496 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312705.836646   27496 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Epoch 1/50
+23/23 - 4s - 159ms/step - loss: 0.0984 - mae: 0.2492 - val_loss: 0.0359 - val_mae: 0.1511
+Epoch 2/50
+23/23 - 1s - 29ms/step - loss: 0.0337 - mae: 0.1414 - val_loss: 0.0223 - val_mae: 0.1062
+Epoch 3/50
+23/23 - 1s - 29ms/step - loss: 0.0241 - mae: 0.1136 - val_loss: 0.0172 - val_mae: 0.0859
+Epoch 4/50
+23/23 - 1s - 28ms/step - loss: 0.0210 - mae: 0.1031 - val_loss: 0.0164 - val_mae: 0.0846
+Epoch 5/50
+23/23 - 1s - 32ms/step - loss: 0.0197 - mae: 0.0991 - val_loss: 0.0148 - val_mae: 0.0789
+Epoch 6/50
+23/23 - 1s - 30ms/step - loss: 0.0193 - mae: 0.0982 - val_loss: 0.0138 - val_mae: 0.0762
+Epoch 7/50
+23/23 - 1s - 33ms/step - loss: 0.0178 - mae: 0.0940 - val_loss: 0.0129 - val_mae: 0.0734
+Epoch 8/50
+23/23 - 1s - 59ms/step - loss: 0.0168 - mae: 0.0891 - val_loss: 0.0121 - val_mae: 0.0688
+Epoch 9/50
+23/23 - 1s - 48ms/step - loss: 0.0163 - mae: 0.0875 - val_loss: 0.0116 - val_mae: 0.0676
+Epoch 10/50
+23/23 - 1s - 39ms/step - loss: 0.0156 - mae: 0.0854 - val_loss: 0.0127 - val_mae: 0.0733
+Epoch 11/50
+23/23 - 1s - 35ms/step - loss: 0.0157 - mae: 0.0865 - val_loss: 0.0116 - val_mae: 0.0688
+Epoch 12/50
+23/23 - 1s - 39ms/step - loss: 0.0146 - mae: 0.0822 - val_loss: 0.0105 - val_mae: 0.0647
+Epoch 13/50
+23/23 - 1s - 33ms/step - loss: 0.0131 - mae: 0.0784 - val_loss: 0.0104 - val_mae: 0.0650
+Epoch 14/50
+23/23 - 1s - 28ms/step - loss: 0.0130 - mae: 0.0783 - val_loss: 0.0103 - val_mae: 0.0658
+Epoch 15/50
+23/23 - 1s - 31ms/step - loss: 0.0127 - mae: 0.0776 - val_loss: 0.0098 - val_mae: 0.0624
+Epoch 16/50
+23/23 - 1s - 32ms/step - loss: 0.0119 - mae: 0.0746 - val_loss: 0.0094 - val_mae: 0.0615
+Epoch 17/50
+23/23 - 1s - 28ms/step - loss: 0.0115 - mae: 0.0731 - val_loss: 0.0091 - val_mae: 0.0589
+Epoch 18/50
+23/23 - 1s - 28ms/step - loss: 0.0116 - mae: 0.0731 - val_loss: 0.0094 - val_mae: 0.0610
+Epoch 19/50
+23/23 - 1s - 33ms/step - loss: 0.0117 - mae: 0.0735 - val_loss: 0.0099 - val_mae: 0.0641
+Epoch 20/50
+23/23 - 1s - 32ms/step - loss: 0.0119 - mae: 0.0737 - val_loss: 0.0096 - val_mae: 0.0621
+Epoch 21/50
+23/23 - 1s - 34ms/step - loss: 0.0113 - mae: 0.0716 - val_loss: 0.0087 - val_mae: 0.0575
+Epoch 22/50
+23/23 - 1s - 32ms/step - loss: 0.0107 - mae: 0.0702 - val_loss: 0.0092 - val_mae: 0.0612
+Epoch 23/50
+23/23 - 1s - 35ms/step - loss: 0.0114 - mae: 0.0733 - val_loss: 0.0086 - val_mae: 0.0586
+Epoch 24/50
+23/23 - 1s - 30ms/step - loss: 0.0106 - mae: 0.0700 - val_loss: 0.0088 - val_mae: 0.0585
+Epoch 25/50
+23/23 - 1s - 27ms/step - loss: 0.0097 - mae: 0.0665 - val_loss: 0.0085 - val_mae: 0.0566
+Epoch 26/50
+23/23 - 1s - 28ms/step - loss: 0.0095 - mae: 0.0650 - val_loss: 0.0083 - val_mae: 0.0571
+Epoch 27/50
+23/23 - 1s - 30ms/step - loss: 0.0096 - mae: 0.0661 - val_loss: 0.0083 - val_mae: 0.0572
+Epoch 28/50
+23/23 - 1s - 33ms/step - loss: 0.0097 - mae: 0.0672 - val_loss: 0.0086 - val_mae: 0.0586
+Epoch 29/50
+23/23 - 1s - 32ms/step - loss: 0.0096 - mae: 0.0664 - val_loss: 0.0082 - val_mae: 0.0569
+Epoch 30/50
+23/23 - 1s - 27ms/step - loss: 0.0090 - mae: 0.0635 - val_loss: 0.0083 - val_mae: 0.0559
+Epoch 31/50
+23/23 - 1s - 27ms/step - loss: 0.0090 - mae: 0.0632 - val_loss: 0.0080 - val_mae: 0.0551
+Epoch 32/50
+23/23 - 1s - 26ms/step - loss: 0.0090 - mae: 0.0640 - val_loss: 0.0080 - val_mae: 0.0558
+Epoch 33/50
+23/23 - 1s - 27ms/step - loss: 0.0088 - mae: 0.0628 - val_loss: 0.0080 - val_mae: 0.0549
+Epoch 34/50
+23/23 - 1s - 26ms/step - loss: 0.0087 - mae: 0.0623 - val_loss: 0.0088 - val_mae: 0.0599
+Epoch 35/50
+23/23 - 1s - 27ms/step - loss: 0.0086 - mae: 0.0616 - val_loss: 0.0087 - val_mae: 0.0608
+Epoch 36/50
+23/23 - 1s - 28ms/step - loss: 0.0091 - mae: 0.0648 - val_loss: 0.0083 - val_mae: 0.0581
+Epoch 37/50
+23/23 - 1s - 33ms/step - loss: 0.0088 - mae: 0.0640 - val_loss: 0.0084 - val_mae: 0.0571
+Epoch 38/50
+23/23 - 1s - 41ms/step - loss: 0.0084 - mae: 0.0625 - val_loss: 0.0091 - val_mae: 0.0619
+Epoch 39/50
+23/23 - 1s - 34ms/step - loss: 0.0088 - mae: 0.0650 - val_loss: 0.0089 - val_mae: 0.0606
+Epoch 40/50
+23/23 - 1s - 40ms/step - loss: 0.0082 - mae: 0.0623 - val_loss: 0.0084 - val_mae: 0.0596
+Epoch 41/50
+23/23 - 1s - 36ms/step - loss: 0.0092 - mae: 0.0654 - val_loss: 0.0091 - val_mae: 0.0620
+Epoch 42/50
+23/23 - 1s - 35ms/step - loss: 0.0087 - mae: 0.0639 - val_loss: 0.0093 - val_mae: 0.0651
+Epoch 43/50
+23/23 - 1s - 34ms/step - loss: 0.0087 - mae: 0.0638 - val_loss: 0.0090 - val_mae: 0.0622
+saved p_cnn_lstm_s44
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312747.004976   36556 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312749.894890   36556 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Epoch 1/50
+23/23 - 2s - 89ms/step - loss: 0.1141 - mae: 0.2753 - val_loss: 0.0450 - val_mae: 0.1649
+Epoch 2/50
+23/23 - 0s - 13ms/step - loss: 0.0332 - mae: 0.1388 - val_loss: 0.0247 - val_mae: 0.1176
+Epoch 3/50
+23/23 - 0s - 13ms/step - loss: 0.0224 - mae: 0.1119 - val_loss: 0.0193 - val_mae: 0.1028
+Epoch 4/50
+23/23 - 0s - 13ms/step - loss: 0.0184 - mae: 0.1006 - val_loss: 0.0171 - val_mae: 0.0948
+Epoch 5/50
+23/23 - 0s - 14ms/step - loss: 0.0165 - mae: 0.0936 - val_loss: 0.0165 - val_mae: 0.0918
+Epoch 6/50
+23/23 - 0s - 13ms/step - loss: 0.0152 - mae: 0.0883 - val_loss: 0.0149 - val_mae: 0.0845
+Epoch 7/50
+23/23 - 0s - 13ms/step - loss: 0.0144 - mae: 0.0843 - val_loss: 0.0137 - val_mae: 0.0782
+Epoch 8/50
+23/23 - 0s - 13ms/step - loss: 0.0137 - mae: 0.0813 - val_loss: 0.0131 - val_mae: 0.0758
+Epoch 9/50
+23/23 - 0s - 13ms/step - loss: 0.0130 - mae: 0.0782 - val_loss: 0.0131 - val_mae: 0.0762
+Epoch 10/50
+23/23 - 0s - 12ms/step - loss: 0.0124 - mae: 0.0757 - val_loss: 0.0125 - val_mae: 0.0734
+Epoch 11/50
+23/23 - 0s - 12ms/step - loss: 0.0117 - mae: 0.0730 - val_loss: 0.0116 - val_mae: 0.0703
+Epoch 12/50
+23/23 - 0s - 13ms/step - loss: 0.0112 - mae: 0.0710 - val_loss: 0.0113 - val_mae: 0.0697
+Epoch 13/50
+23/23 - 0s - 14ms/step - loss: 0.0108 - mae: 0.0695 - val_loss: 0.0110 - val_mae: 0.0688
+Epoch 14/50
+23/23 - 0s - 14ms/step - loss: 0.0105 - mae: 0.0683 - val_loss: 0.0107 - val_mae: 0.0681
+Epoch 15/50
+23/23 - 0s - 16ms/step - loss: 0.0101 - mae: 0.0672 - val_loss: 0.0104 - val_mae: 0.0674
+Epoch 16/50
+23/23 - 0s - 14ms/step - loss: 0.0098 - mae: 0.0660 - val_loss: 0.0103 - val_mae: 0.0672
+Epoch 17/50
+23/23 - 0s - 15ms/step - loss: 0.0095 - mae: 0.0649 - val_loss: 0.0101 - val_mae: 0.0669
+Epoch 18/50
+23/23 - 0s - 14ms/step - loss: 0.0092 - mae: 0.0638 - val_loss: 0.0099 - val_mae: 0.0663
+Epoch 19/50
+23/23 - 0s - 16ms/step - loss: 0.0090 - mae: 0.0628 - val_loss: 0.0096 - val_mae: 0.0652
+Epoch 20/50
+23/23 - 0s - 15ms/step - loss: 0.0087 - mae: 0.0616 - val_loss: 0.0094 - val_mae: 0.0644
+Epoch 21/50
+23/23 - 0s - 15ms/step - loss: 0.0084 - mae: 0.0606 - val_loss: 0.0092 - val_mae: 0.0638
+Epoch 22/50
+23/23 - 0s - 14ms/step - loss: 0.0082 - mae: 0.0595 - val_loss: 0.0091 - val_mae: 0.0633
+Epoch 23/50
+23/23 - 0s - 13ms/step - loss: 0.0080 - mae: 0.0588 - val_loss: 0.0090 - val_mae: 0.0629
+Epoch 24/50
+23/23 - 0s - 13ms/step - loss: 0.0078 - mae: 0.0579 - val_loss: 0.0089 - val_mae: 0.0625
+Epoch 25/50
+23/23 - 0s - 13ms/step - loss: 0.0077 - mae: 0.0573 - val_loss: 0.0089 - val_mae: 0.0623
+Epoch 26/50
+23/23 - 0s - 13ms/step - loss: 0.0075 - mae: 0.0567 - val_loss: 0.0088 - val_mae: 0.0616
+Epoch 27/50
+23/23 - 0s - 14ms/step - loss: 0.0074 - mae: 0.0561 - val_loss: 0.0086 - val_mae: 0.0609
+Epoch 28/50
+23/23 - 0s - 13ms/step - loss: 0.0072 - mae: 0.0555 - val_loss: 0.0085 - val_mae: 0.0603
+Epoch 29/50
+23/23 - 0s - 14ms/step - loss: 0.0071 - mae: 0.0547 - val_loss: 0.0084 - val_mae: 0.0596
+Epoch 30/50
+23/23 - 0s - 13ms/step - loss: 0.0069 - mae: 0.0537 - val_loss: 0.0083 - val_mae: 0.0592
+Epoch 31/50
+23/23 - 0s - 13ms/step - loss: 0.0068 - mae: 0.0532 - val_loss: 0.0084 - val_mae: 0.0595
+Epoch 32/50
+23/23 - 0s - 13ms/step - loss: 0.0066 - mae: 0.0526 - val_loss: 0.0084 - val_mae: 0.0594
+Epoch 33/50
+23/23 - 0s - 13ms/step - loss: 0.0065 - mae: 0.0521 - val_loss: 0.0084 - val_mae: 0.0593
+Epoch 34/50
+23/23 - 0s - 13ms/step - loss: 0.0065 - mae: 0.0517 - val_loss: 0.0083 - val_mae: 0.0594
+Epoch 35/50
+23/23 - 0s - 14ms/step - loss: 0.0065 - mae: 0.0520 - val_loss: 0.0085 - val_mae: 0.0595
+Epoch 36/50
+23/23 - 0s - 14ms/step - loss: 0.0062 - mae: 0.0506 - val_loss: 0.0083 - val_mae: 0.0585
+Epoch 37/50
+23/23 - 0s - 14ms/step - loss: 0.0061 - mae: 0.0497 - val_loss: 0.0083 - val_mae: 0.0584
+Epoch 38/50
+23/23 - 0s - 16ms/step - loss: 0.0060 - mae: 0.0494 - val_loss: 0.0083 - val_mae: 0.0587
+Epoch 39/50
+23/23 - 0s - 16ms/step - loss: 0.0059 - mae: 0.0493 - val_loss: 0.0083 - val_mae: 0.0583
+Epoch 40/50
+23/23 - 0s - 16ms/step - loss: 0.0059 - mae: 0.0493 - val_loss: 0.0084 - val_mae: 0.0594
+Epoch 41/50
+23/23 - 0s - 17ms/step - loss: 0.0059 - mae: 0.0496 - val_loss: 0.0085 - val_mae: 0.0600
+Epoch 42/50
+23/23 - 0s - 16ms/step - loss: 0.0059 - mae: 0.0496 - val_loss: 0.0089 - val_mae: 0.0618
+Epoch 43/50
+23/23 - 0s - 13ms/step - loss: 0.0060 - mae: 0.0501 - val_loss: 0.0096 - val_mae: 0.0646
+Epoch 44/50
+23/23 - 0s - 12ms/step - loss: 0.0060 - mae: 0.0504 - val_loss: 0.0099 - val_mae: 0.0652
+Epoch 45/50
+23/23 - 0s - 13ms/step - loss: 0.0061 - mae: 0.0511 - val_loss: 0.0103 - val_mae: 0.0662
+Epoch 46/50
+23/23 - 0s - 12ms/step - loss: 0.0063 - mae: 0.0525 - val_loss: 0.0099 - val_mae: 0.0644
+Epoch 47/50
+23/23 - 0s - 13ms/step - loss: 0.0065 - mae: 0.0534 - val_loss: 0.0097 - val_mae: 0.0637
+Epoch 48/50
+23/23 - 0s - 12ms/step - loss: 0.0059 - mae: 0.0500 - val_loss: 0.0087 - val_mae: 0.0602
+Epoch 49/50
+23/23 - 0s - 13ms/step - loss: 0.0055 - mae: 0.0478 - val_loss: 0.0084 - val_mae: 0.0584
+saved lstm_s44
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312773.081450   10324 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312775.651227   10324 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Epoch 1/50
+23/23 - 4s - 182ms/step - loss: 0.0970 - mae: 0.2467 - val_loss: 0.0330 - val_mae: 0.1434
+Epoch 2/50
+23/23 - 1s - 29ms/step - loss: 0.0311 - mae: 0.1348 - val_loss: 0.0192 - val_mae: 0.0942
+Epoch 3/50
+23/23 - 1s - 27ms/step - loss: 0.0222 - mae: 0.1082 - val_loss: 0.0168 - val_mae: 0.0854
+Epoch 4/50
+23/23 - 1s - 27ms/step - loss: 0.0199 - mae: 0.1001 - val_loss: 0.0155 - val_mae: 0.0806
+Epoch 5/50
+23/23 - 1s - 27ms/step - loss: 0.0182 - mae: 0.0961 - val_loss: 0.0137 - val_mae: 0.0746
+Epoch 6/50
+23/23 - 1s - 26ms/step - loss: 0.0167 - mae: 0.0922 - val_loss: 0.0129 - val_mae: 0.0755
+Epoch 7/50
+23/23 - 1s - 31ms/step - loss: 0.0154 - mae: 0.0899 - val_loss: 0.0102 - val_mae: 0.0657
+Epoch 8/50
+23/23 - 1s - 26ms/step - loss: 0.0141 - mae: 0.0854 - val_loss: 0.0107 - val_mae: 0.0701
+Epoch 9/50
+23/23 - 1s - 27ms/step - loss: 0.0128 - mae: 0.0800 - val_loss: 0.0091 - val_mae: 0.0626
+Epoch 10/50
+23/23 - 1s - 27ms/step - loss: 0.0123 - mae: 0.0776 - val_loss: 0.0100 - val_mae: 0.0679
+Epoch 11/50
+23/23 - 1s - 27ms/step - loss: 0.0118 - mae: 0.0761 - val_loss: 0.0094 - val_mae: 0.0632
+Epoch 12/50
+23/23 - 1s - 28ms/step - loss: 0.0106 - mae: 0.0712 - val_loss: 0.0090 - val_mae: 0.0627
+Epoch 13/50
+23/23 - 1s - 28ms/step - loss: 0.0100 - mae: 0.0694 - val_loss: 0.0088 - val_mae: 0.0618
+Epoch 14/50
+23/23 - 1s - 27ms/step - loss: 0.0100 - mae: 0.0693 - val_loss: 0.0086 - val_mae: 0.0609
+Epoch 15/50
+23/23 - 1s - 30ms/step - loss: 0.0096 - mae: 0.0673 - val_loss: 0.0085 - val_mae: 0.0605
+Epoch 16/50
+23/23 - 1s - 29ms/step - loss: 0.0094 - mae: 0.0671 - val_loss: 0.0078 - val_mae: 0.0571
+Epoch 17/50
+23/23 - 1s - 28ms/step - loss: 0.0092 - mae: 0.0668 - val_loss: 0.0098 - val_mae: 0.0682
+Epoch 18/50
+23/23 - 1s - 29ms/step - loss: 0.0092 - mae: 0.0667 - val_loss: 0.0074 - val_mae: 0.0549
+Epoch 19/50
+23/23 - 1s - 28ms/step - loss: 0.0086 - mae: 0.0639 - val_loss: 0.0072 - val_mae: 0.0536
+Epoch 20/50
+23/23 - 1s - 29ms/step - loss: 0.0085 - mae: 0.0636 - val_loss: 0.0075 - val_mae: 0.0562
+Epoch 21/50
+23/23 - 1s - 39ms/step - loss: 0.0081 - mae: 0.0622 - val_loss: 0.0075 - val_mae: 0.0565
+Epoch 22/50
+23/23 - 1s - 39ms/step - loss: 0.0077 - mae: 0.0609 - val_loss: 0.0068 - val_mae: 0.0529
+Epoch 23/50
+23/23 - 1s - 34ms/step - loss: 0.0076 - mae: 0.0605 - val_loss: 0.0068 - val_mae: 0.0536
+Epoch 24/50
+23/23 - 1s - 40ms/step - loss: 0.0076 - mae: 0.0605 - val_loss: 0.0070 - val_mae: 0.0549
+Epoch 25/50
+23/23 - 1s - 33ms/step - loss: 0.0076 - mae: 0.0611 - val_loss: 0.0072 - val_mae: 0.0574
+Epoch 26/50
+23/23 - 1s - 32ms/step - loss: 0.0073 - mae: 0.0597 - val_loss: 0.0067 - val_mae: 0.0531
+Epoch 27/50
+23/23 - 1s - 36ms/step - loss: 0.0074 - mae: 0.0595 - val_loss: 0.0064 - val_mae: 0.0521
+Epoch 28/50
+23/23 - 1s - 38ms/step - loss: 0.0068 - mae: 0.0576 - val_loss: 0.0064 - val_mae: 0.0514
+Epoch 29/50
+23/23 - 1s - 36ms/step - loss: 0.0071 - mae: 0.0587 - val_loss: 0.0072 - val_mae: 0.0573
+Epoch 30/50
+23/23 - 1s - 32ms/step - loss: 0.0070 - mae: 0.0585 - val_loss: 0.0061 - val_mae: 0.0499
+Epoch 31/50
+23/23 - 1s - 30ms/step - loss: 0.0063 - mae: 0.0554 - val_loss: 0.0057 - val_mae: 0.0501
+Epoch 32/50
+23/23 - 1s - 31ms/step - loss: 0.0067 - mae: 0.0570 - val_loss: 0.0058 - val_mae: 0.0481
+Epoch 33/50
+23/23 - 1s - 29ms/step - loss: 0.0062 - mae: 0.0549 - val_loss: 0.0058 - val_mae: 0.0500
+Epoch 34/50
+23/23 - 1s - 27ms/step - loss: 0.0063 - mae: 0.0553 - val_loss: 0.0059 - val_mae: 0.0514
+Epoch 35/50
+23/23 - 1s - 26ms/step - loss: 0.0064 - mae: 0.0568 - val_loss: 0.0063 - val_mae: 0.0534
+Epoch 36/50
+23/23 - 1s - 27ms/step - loss: 0.0067 - mae: 0.0576 - val_loss: 0.0053 - val_mae: 0.0474
+Epoch 37/50
+23/23 - 1s - 26ms/step - loss: 0.0061 - mae: 0.0541 - val_loss: 0.0064 - val_mae: 0.0559
+Epoch 38/50
+23/23 - 1s - 26ms/step - loss: 0.0063 - mae: 0.0558 - val_loss: 0.0066 - val_mae: 0.0566
+Epoch 39/50
+23/23 - 1s - 27ms/step - loss: 0.0064 - mae: 0.0565 - val_loss: 0.0058 - val_mae: 0.0518
+Epoch 40/50
+23/23 - 1s - 27ms/step - loss: 0.0060 - mae: 0.0542 - val_loss: 0.0058 - val_mae: 0.0503
+Epoch 41/50
+23/23 - 1s - 28ms/step - loss: 0.0060 - mae: 0.0544 - val_loss: 0.0056 - val_mae: 0.0500
+Epoch 42/50
+23/23 - 1s - 30ms/step - loss: 0.0058 - mae: 0.0534 - val_loss: 0.0049 - val_mae: 0.0450
+Epoch 43/50
+23/23 - 1s - 30ms/step - loss: 0.0051 - mae: 0.0497 - val_loss: 0.0049 - val_mae: 0.0454
+Epoch 44/50
+23/23 - 1s - 31ms/step - loss: 0.0051 - mae: 0.0495 - val_loss: 0.0055 - val_mae: 0.0500
+Epoch 45/50
+23/23 - 1s - 28ms/step - loss: 0.0052 - mae: 0.0499 - val_loss: 0.0048 - val_mae: 0.0444
+Epoch 46/50
+23/23 - 1s - 29ms/step - loss: 0.0053 - mae: 0.0500 - val_loss: 0.0058 - val_mae: 0.0503
+Epoch 47/50
+23/23 - 1s - 27ms/step - loss: 0.0052 - mae: 0.0502 - val_loss: 0.0052 - val_mae: 0.0479
+Epoch 48/50
+23/23 - 1s - 27ms/step - loss: 0.0051 - mae: 0.0497 - val_loss: 0.0056 - val_mae: 0.0520
+Epoch 49/50
+23/23 - 1s - 26ms/step - loss: 0.0059 - mae: 0.0540 - val_loss: 0.0054 - val_mae: 0.0487
+Epoch 50/50
+23/23 - 1s - 26ms/step - loss: 0.0054 - mae: 0.0506 - val_loss: 0.0056 - val_mae: 0.0502
+saved p_cnn_lstm_nextday_s44
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312818.682175   29956 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312821.296114   29956 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Epoch 1/50
+23/23 - 3s - 151ms/step - loss: 0.1000 - mae: 0.2487 - val_loss: 0.0380 - val_mae: 0.1519
+Epoch 2/50
+23/23 - 1s - 32ms/step - loss: 0.0370 - mae: 0.1514 - val_loss: 0.0214 - val_mae: 0.1088
+Epoch 3/50
+23/23 - 1s - 34ms/step - loss: 0.0261 - mae: 0.1215 - val_loss: 0.0193 - val_mae: 0.0993
+Epoch 4/50
+23/23 - 1s - 31ms/step - loss: 0.0208 - mae: 0.1063 - val_loss: 0.0163 - val_mae: 0.0875
+Epoch 5/50
+23/23 - 1s - 35ms/step - loss: 0.0192 - mae: 0.0996 - val_loss: 0.0167 - val_mae: 0.0894
+Epoch 6/50
+23/23 - 1s - 35ms/step - loss: 0.0185 - mae: 0.0977 - val_loss: 0.0142 - val_mae: 0.0812
+Epoch 7/50
+23/23 - 1s - 32ms/step - loss: 0.0171 - mae: 0.0931 - val_loss: 0.0129 - val_mae: 0.0770
+Epoch 8/50
+23/23 - 1s - 33ms/step - loss: 0.0166 - mae: 0.0913 - val_loss: 0.0142 - val_mae: 0.0858
+Epoch 9/50
+23/23 - 1s - 41ms/step - loss: 0.0152 - mae: 0.0870 - val_loss: 0.0124 - val_mae: 0.0756
+Epoch 10/50
+23/23 - 1s - 55ms/step - loss: 0.0141 - mae: 0.0831 - val_loss: 0.0119 - val_mae: 0.0732
+Epoch 11/50
+23/23 - 1s - 59ms/step - loss: 0.0130 - mae: 0.0795 - val_loss: 0.0116 - val_mae: 0.0719
+Epoch 12/50
+23/23 - 1s - 49ms/step - loss: 0.0125 - mae: 0.0777 - val_loss: 0.0116 - val_mae: 0.0729
+Epoch 13/50
+23/23 - 1s - 45ms/step - loss: 0.0123 - mae: 0.0770 - val_loss: 0.0106 - val_mae: 0.0673
+Epoch 14/50
+23/23 - 1s - 46ms/step - loss: 0.0114 - mae: 0.0740 - val_loss: 0.0104 - val_mae: 0.0662
+Epoch 15/50
+23/23 - 1s - 41ms/step - loss: 0.0110 - mae: 0.0728 - val_loss: 0.0103 - val_mae: 0.0655
+Epoch 16/50
+23/23 - 1s - 37ms/step - loss: 0.0115 - mae: 0.0740 - val_loss: 0.0107 - val_mae: 0.0668
+Epoch 17/50
+23/23 - 1s - 38ms/step - loss: 0.0113 - mae: 0.0737 - val_loss: 0.0113 - val_mae: 0.0713
+Epoch 18/50
+23/23 - 1s - 31ms/step - loss: 0.0117 - mae: 0.0753 - val_loss: 0.0104 - val_mae: 0.0653
+Epoch 19/50
+23/23 - 1s - 32ms/step - loss: 0.0105 - mae: 0.0709 - val_loss: 0.0105 - val_mae: 0.0665
+Epoch 20/50
+23/23 - 1s - 31ms/step - loss: 0.0105 - mae: 0.0702 - val_loss: 0.0104 - val_mae: 0.0668
+Epoch 21/50
+23/23 - 1s - 32ms/step - loss: 0.0106 - mae: 0.0712 - val_loss: 0.0109 - val_mae: 0.0689
+Epoch 22/50
+23/23 - 1s - 31ms/step - loss: 0.0102 - mae: 0.0699 - val_loss: 0.0124 - val_mae: 0.0780
+Epoch 23/50
+23/23 - 1s - 32ms/step - loss: 0.0097 - mae: 0.0681 - val_loss: 0.0100 - val_mae: 0.0650
+Epoch 24/50
+23/23 - 1s - 31ms/step - loss: 0.0092 - mae: 0.0659 - val_loss: 0.0105 - val_mae: 0.0671
+Epoch 25/50
+23/23 - 1s - 31ms/step - loss: 0.0089 - mae: 0.0649 - val_loss: 0.0107 - val_mae: 0.0695
+Epoch 26/50
+23/23 - 1s - 36ms/step - loss: 0.0088 - mae: 0.0647 - val_loss: 0.0107 - val_mae: 0.0688
+Epoch 27/50
+23/23 - 1s - 39ms/step - loss: 0.0093 - mae: 0.0670 - val_loss: 0.0129 - val_mae: 0.0796
+Epoch 28/50
+23/23 - 1s - 38ms/step - loss: 0.0089 - mae: 0.0658 - val_loss: 0.0099 - val_mae: 0.0646
+Epoch 29/50
+23/23 - 1s - 41ms/step - loss: 0.0085 - mae: 0.0636 - val_loss: 0.0091 - val_mae: 0.0600
+Epoch 30/50
+23/23 - 1s - 32ms/step - loss: 0.0081 - mae: 0.0623 - val_loss: 0.0094 - val_mae: 0.0631
+Epoch 31/50
+23/23 - 1s - 34ms/step - loss: 0.0087 - mae: 0.0642 - val_loss: 0.0116 - val_mae: 0.0744
+Epoch 32/50
+23/23 - 1s - 33ms/step - loss: 0.0085 - mae: 0.0642 - val_loss: 0.0106 - val_mae: 0.0694
+Epoch 33/50
+23/23 - 1s - 36ms/step - loss: 0.0083 - mae: 0.0623 - val_loss: 0.0098 - val_mae: 0.0658
+Epoch 34/50
+23/23 - 1s - 32ms/step - loss: 0.0073 - mae: 0.0597 - val_loss: 0.0086 - val_mae: 0.0588
+Epoch 35/50
+23/23 - 1s - 32ms/step - loss: 0.0073 - mae: 0.0594 - val_loss: 0.0085 - val_mae: 0.0586
+Epoch 36/50
+23/23 - 1s - 32ms/step - loss: 0.0073 - mae: 0.0587 - val_loss: 0.0088 - val_mae: 0.0607
+Epoch 37/50
+23/23 - 1s - 31ms/step - loss: 0.0074 - mae: 0.0607 - val_loss: 0.0090 - val_mae: 0.0610
+Epoch 38/50
+23/23 - 1s - 31ms/step - loss: 0.0078 - mae: 0.0615 - val_loss: 0.0089 - val_mae: 0.0611
+Epoch 39/50
+23/23 - 1s - 32ms/step - loss: 0.0078 - mae: 0.0614 - val_loss: 0.0102 - val_mae: 0.0685
+Epoch 40/50
+23/23 - 1s - 32ms/step - loss: 0.0084 - mae: 0.0648 - val_loss: 0.0104 - val_mae: 0.0675
+Epoch 41/50
+23/23 - 1s - 32ms/step - loss: 0.0079 - mae: 0.0616 - val_loss: 0.0095 - val_mae: 0.0632
+Epoch 42/50
+23/23 - 1s - 32ms/step - loss: 0.0074 - mae: 0.0603 - val_loss: 0.0115 - val_mae: 0.0755
+Epoch 43/50
+23/23 - 1s - 34ms/step - loss: 0.0070 - mae: 0.0583 - val_loss: 0.0088 - val_mae: 0.0607
+Epoch 44/50
+23/23 - 1s - 31ms/step - loss: 0.0074 - mae: 0.0600 - val_loss: 0.0104 - val_mae: 0.0682
+Epoch 45/50
+23/23 - 1s - 32ms/step - loss: 0.0075 - mae: 0.0605 - val_loss: 0.0092 - val_mae: 0.0627
+saved p_cnn_lstm_lags14_s44
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312866.583838    3440 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312869.005828    3440 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Epoch 1/50
+23/23 - 3s - 143ms/step - loss: 0.3298 - mae: 0.4630 - val_loss: 0.0819 - val_mae: 0.2224
+Epoch 2/50
+23/23 - 1s - 26ms/step - loss: 0.0886 - mae: 0.2299 - val_loss: 0.0461 - val_mae: 0.1546
+Epoch 3/50
+23/23 - 1s - 26ms/step - loss: 0.0635 - mae: 0.1835 - val_loss: 0.0349 - val_mae: 0.0996
+Epoch 4/50
+23/23 - 1s - 26ms/step - loss: 0.0533 - mae: 0.1589 - val_loss: 0.0291 - val_mae: 0.0965
+Epoch 5/50
+23/23 - 1s - 26ms/step - loss: 0.0471 - mae: 0.1457 - val_loss: 0.0245 - val_mae: 0.0790
+Epoch 6/50
+23/23 - 1s - 26ms/step - loss: 0.0441 - mae: 0.1407 - val_loss: 0.0242 - val_mae: 0.0939
+Epoch 7/50
+23/23 - 1s - 30ms/step - loss: 0.0386 - mae: 0.1291 - val_loss: 0.0213 - val_mae: 0.0767
+Epoch 8/50
+23/23 - 1s - 32ms/step - loss: 0.0370 - mae: 0.1255 - val_loss: 0.0211 - val_mae: 0.0737
+Epoch 9/50
+23/23 - 1s - 33ms/step - loss: 0.0379 - mae: 0.1261 - val_loss: 0.0187 - val_mae: 0.0719
+Epoch 10/50
+23/23 - 1s - 28ms/step - loss: 0.0366 - mae: 0.1242 - val_loss: 0.0208 - val_mae: 0.0784
+Epoch 11/50
+23/23 - 1s - 37ms/step - loss: 0.0363 - mae: 0.1231 - val_loss: 0.0183 - val_mae: 0.0819
+Epoch 12/50
+23/23 - 1s - 27ms/step - loss: 0.0324 - mae: 0.1147 - val_loss: 0.0167 - val_mae: 0.0648
+Epoch 13/50
+23/23 - 1s - 28ms/step - loss: 0.0304 - mae: 0.1110 - val_loss: 0.0162 - val_mae: 0.0635
+Epoch 14/50
+23/23 - 1s - 26ms/step - loss: 0.0297 - mae: 0.1093 - val_loss: 0.0150 - val_mae: 0.0625
+Epoch 15/50
+23/23 - 1s - 27ms/step - loss: 0.0288 - mae: 0.1063 - val_loss: 0.0136 - val_mae: 0.0558
+Epoch 16/50
+23/23 - 1s - 26ms/step - loss: 0.0274 - mae: 0.1019 - val_loss: 0.0140 - val_mae: 0.0598
+Epoch 17/50
+23/23 - 1s - 26ms/step - loss: 0.0273 - mae: 0.1023 - val_loss: 0.0174 - val_mae: 0.0765
+Epoch 18/50
+23/23 - 1s - 26ms/step - loss: 0.0270 - mae: 0.1012 - val_loss: 0.0138 - val_mae: 0.0601
+Epoch 19/50
+23/23 - 1s - 26ms/step - loss: 0.0275 - mae: 0.1038 - val_loss: 0.0152 - val_mae: 0.0666
+Epoch 20/50
+23/23 - 1s - 26ms/step - loss: 0.0284 - mae: 0.1060 - val_loss: 0.0206 - val_mae: 0.0920
+Epoch 21/50
+23/23 - 1s - 27ms/step - loss: 0.0285 - mae: 0.1053 - val_loss: 0.0129 - val_mae: 0.0541
+Epoch 22/50
+23/23 - 1s - 27ms/step - loss: 0.0265 - mae: 0.0987 - val_loss: 0.0132 - val_mae: 0.0547
+Epoch 23/50
+23/23 - 1s - 27ms/step - loss: 0.0247 - mae: 0.0950 - val_loss: 0.0172 - val_mae: 0.0776
+Epoch 24/50
+23/23 - 1s - 29ms/step - loss: 0.0252 - mae: 0.0963 - val_loss: 0.0126 - val_mae: 0.0542
+Epoch 25/50
+23/23 - 1s - 28ms/step - loss: 0.0235 - mae: 0.0925 - val_loss: 0.0127 - val_mae: 0.0553
+Epoch 26/50
+23/23 - 1s - 26ms/step - loss: 0.0234 - mae: 0.0905 - val_loss: 0.0131 - val_mae: 0.0543
+Epoch 27/50
+23/23 - 1s - 26ms/step - loss: 0.0237 - mae: 0.0919 - val_loss: 0.0138 - val_mae: 0.0622
+Epoch 28/50
+23/23 - 1s - 26ms/step - loss: 0.0232 - mae: 0.0915 - val_loss: 0.0127 - val_mae: 0.0568
+Epoch 29/50
+23/23 - 1s - 26ms/step - loss: 0.0223 - mae: 0.0859 - val_loss: 0.0135 - val_mae: 0.0606
+Epoch 30/50
+23/23 - 1s - 27ms/step - loss: 0.0221 - mae: 0.0867 - val_loss: 0.0134 - val_mae: 0.0607
+Epoch 31/50
+23/23 - 1s - 26ms/step - loss: 0.0231 - mae: 0.0889 - val_loss: 0.0127 - val_mae: 0.0605
+saved p_cnn_lstm_log_s44
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312896.311461   36376 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795312898.607012   36376 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING:tensorflow:5 out of the last 9 calls to <function Trainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x0000027B0490EE50> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:6 out of the last 12 calls to <function Trainer.make_predict_function.<locals>.one_step_on_data_distributed at 0x0000027B0490EE50> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+                                MAE             RMSE  ...        SMAPE      
+                               mean     std     mean  ...   std   mean   std
+horizon model                                         ...                   
+30      lstm                1048.99   37.50  1503.48  ...  0.64  15.26  0.90
+        p_cnn_lstm           897.31   26.77  1259.73  ...  0.51  13.42  0.37
+        p_cnn_lstm_lags14   1098.54   24.37  1594.16  ...  0.05  16.43  0.51
+        p_cnn_lstm_log      2669.93  215.66  3708.82  ...  3.06  37.37  4.39
+        p_cnn_lstm_nextday   745.14   34.76  1049.76  ...  0.71  11.13  0.59
+        s_cnn_lstm           906.32   46.81  1274.70  ...  0.63  13.42  0.81
+        seasonal_naive      2109.13     NaN  2960.86  ...   NaN  39.77   NaN
+90      lstm                 867.76   14.53  1256.37  ...  0.20  12.63  0.28
+        p_cnn_lstm           812.05   29.73  1165.15  ...  0.57  12.06  0.36
+        p_cnn_lstm_lags14    879.40   28.95  1286.85  ...  0.17  13.17  0.43
+        p_cnn_lstm_log      2848.96  522.49  4280.37  ...  7.48  35.09  1.96
+        p_cnn_lstm_nextday   704.71    7.27  1019.80  ...  0.30  10.54  0.05
+        s_cnn_lstm           793.74   33.63  1146.73  ...  0.49  11.75  0.58
+        seasonal_naive      1966.21     NaN  2669.28  ...   NaN  31.40   NaN
+
+[14 rows x 8 columns]

@@ -1,0 +1,1 @@
+{"model": "p_cnn_lstm", "seed": 42, "dataset": "paper", "lags": 7, "log_sales": false, "next_day_features": false}
